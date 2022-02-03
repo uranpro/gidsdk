@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|  
     s.name              = 'GIDSDK' # Name for your pod
-    s.version           = '0.1'
+    s.version           = '0.1.0'
     s.summary           = 'GIDSDK'
     s.homepage          = 'https://gid.ru'
 
