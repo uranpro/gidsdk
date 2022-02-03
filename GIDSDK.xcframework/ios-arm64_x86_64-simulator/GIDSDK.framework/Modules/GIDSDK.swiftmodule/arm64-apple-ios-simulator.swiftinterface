@@ -9,31 +9,6 @@ import Security
 import Swift
 import UIKit
 import _Concurrency
-public enum GIDSDKApp : Swift.String, Swift.CaseIterable, Swift.Codable {
-  case premier
-  case matchTV
-  case yappi
-  case rutube
-  public init?(rawValue: Swift.String)
-  public typealias AllCases = [GIDSDKApp]
-  public typealias RawValue = Swift.String
-  public static var allCases: [GIDSDKApp] {
-    get
-  }
-  public var rawValue: Swift.String {
-    get
-  }
-}
-extension GIDSDKApp {
-  public var scheme: Swift.String {
-    get
-  }
-}
-extension GIDSDKApp {
-  public var installed: Swift.Bool {
-    get
-  }
-}
 public enum GIDApiScope : Swift.String, Swift.Codable {
   case openid
   case profile
@@ -81,29 +56,6 @@ public struct GIDSDKAuthResponse {
   public let oauthToken: Swift.String
   public let expiresIn: Swift.Int
 }
-public enum GIDSDKDeeplinkHost : Swift.String, Swift.Codable {
-  case login
-  case redirect
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum GIDSDKDeeplinkParam : Swift.String, Swift.Codable {
-  case redirectURL
-  case token
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-@_hasMissingDesignatedInitializers public class GIDSDKDeeplinkManager {
-  public func startLogin()
-  public func handle(url: Foundation.URL) -> Swift.Bool
-  @objc deinit
-}
 public enum GIDLogLevel {
   case off
   case on
@@ -121,17 +73,13 @@ public struct GIDSDKConfiguration {
   public let clientID: Swift.String
   public let logLevel: GIDLogLevel
   public let clientBaseURL: Foundation.URL
-  public init(clientID: Swift.String, clientBaseURL: Foundation.URL, logLevel: GIDLogLevel = .on)
+  public let gidBaseURL: Foundation.URL
+  public static let defaultGIDBaseURL: Foundation.URL
+  public init(clientID: Swift.String, clientBaseURL: Foundation.URL, gidBaseURL: Foundation.URL? = nil, logLevel: GIDLogLevel = .on)
 }
 @_hasMissingDesignatedInitializers public class GIDSDK {
   public static func setup(configuration: GIDSDKConfiguration)
   public static let shared: GIDSDK
-  public var token: Swift.String? {
-    get
-    set
-  }
-  final public let deeplinkManager: GIDSDKDeeplinkManager
-  public var onTokenReceived: ((Swift.String) -> ())?
   @objc deinit
 }
 extension GIDSDK {
@@ -139,20 +87,11 @@ extension GIDSDK {
   public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKOtpResponse>)
   public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, scope: [GIDApiScope], codeVerifier: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse>)
 }
-extension GIDSDKApp : Swift.Equatable {}
-extension GIDSDKApp : Swift.Hashable {}
-extension GIDSDKApp : Swift.RawRepresentable {}
 extension GIDApiScope : Swift.Equatable {}
 extension GIDApiScope : Swift.Hashable {}
 extension GIDApiScope : Swift.RawRepresentable {}
 extension GIDPKCEMethod : Swift.Equatable {}
 extension GIDPKCEMethod : Swift.Hashable {}
 extension GIDPKCEMethod : Swift.RawRepresentable {}
-extension GIDSDKDeeplinkHost : Swift.Equatable {}
-extension GIDSDKDeeplinkHost : Swift.Hashable {}
-extension GIDSDKDeeplinkHost : Swift.RawRepresentable {}
-extension GIDSDKDeeplinkParam : Swift.Equatable {}
-extension GIDSDKDeeplinkParam : Swift.Hashable {}
-extension GIDSDKDeeplinkParam : Swift.RawRepresentable {}
 extension GIDLogLevel : Swift.Equatable {}
 extension GIDLogLevel : Swift.Hashable {}
