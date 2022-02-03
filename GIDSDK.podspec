@@ -10,7 +10,8 @@ Pod::Spec.new do |s|
     s.swift_version = '5.0.0'
 
     s.platform          = :ios
-    s.source            = { :git => 'https://gitlab.zxz.su/gid/sdk/mobile/gidsdk.pod.git', :tag => "#{s.version}" } 
+    # s.source            = { :git => 'https://gitlab.zxz.su/gid/sdk/mobile/gidsdk.pod.git', :tag => "#{s.version}" } 
+    s.source            = { :git => 'https://gitlab.zxz.su/mbushuev/gidsdk.pod.git', :tag => "#{s.version}" } 
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = 'GIDSDK.xcframework'
     s.dependency 'AFNetworking', '4.0.1'
