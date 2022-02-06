@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		yA4dJ9aeUvUzg3GHVSqHTh30i+k=
+		eKA2FW95G/jKfa2IL1nUYQOiG9I=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		02HNq6YfxtSbNFq4Wrl0ZzrmTgo=
+		WRK36upa/Z9slLZ/Wgne3d/iNhA=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		M0Mr2HCLtCf4hNyW7F2W8K+DZFY=
+		k/dXfrDFb5WR6cSCYZeCoeYQNoo=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		02HNq6YfxtSbNFq4Wrl0ZzrmTgo=
+		WRK36upa/Z9slLZ/Wgne3d/iNhA=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		M0Mr2HCLtCf4hNyW7F2W8K+DZFY=
+		k/dXfrDFb5WR6cSCYZeCoeYQNoo=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		EkZAUojAey8BDsHzWmWECthZ1Oo=
+		fdfyCLi7Jb7Q/adMJKS1s5gY4nk=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		CZyEG5eKpXF2vB71mhh45HutXNQ=
+		3Q09tPT6/rPgiaUoDkHAy6OyWvo=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		EkZAUojAey8BDsHzWmWECthZ1Oo=
+		fdfyCLi7Jb7Q/adMJKS1s5gY4nk=
 		</data>
 		<key>Modules/GIDSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		CZyEG5eKpXF2vB71mhh45HutXNQ=
+		3Q09tPT6/rPgiaUoDkHAy6OyWvo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -96,14 +96,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hgoaP7ywDqsppydoHFkz2tf6EtY148Fxpl4naXC7gJA=
+			1iIjCN6/DcpsjcVbTodPnTq3HG7MLih2Rr2nYItOXOw=
 			</data>
 		</dict>
 		<key>Modules/GIDSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PZWGjxKl+0O7R4MwRWtRbB/8QTN+xp+X8ODnapF1ClA=
+			asY6Le45cVm07cZBaQvcMiuH24wip1h3FdAVZwbnbQw=
 			</data>
 		</dict>
 		<key>Modules/GIDSDK.swiftmodule/arm64.swiftdoc</key>
@@ -117,14 +117,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hgoaP7ywDqsppydoHFkz2tf6EtY148Fxpl4naXC7gJA=
+			1iIjCN6/DcpsjcVbTodPnTq3HG7MLih2Rr2nYItOXOw=
 			</data>
 		</dict>
 		<key>Modules/GIDSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PZWGjxKl+0O7R4MwRWtRbB/8QTN+xp+X8ODnapF1ClA=
+			asY6Le45cVm07cZBaQvcMiuH24wip1h3FdAVZwbnbQw=
 			</data>
 		</dict>
 		<key>Modules/GIDSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -138,14 +138,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/LooEgU905s+05/HLH3IWYDEUTPuxcMJEub9BrWaPu0=
+			qwO+gX++w30MCKcfrmYDrfArf7Tyo9BRgL/Le9wyX/Q=
 			</data>
 		</dict>
 		<key>Modules/GIDSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HN0MeRfX/z76jh5XZiIxZdp2ckjxTs1ENzzUYhaaOMs=
+			QU59zp39qKlPNZ0q3Bi2/9xysEGPgs2ipmvJ93TUEEc=
 			</data>
 		</dict>
 		<key>Modules/GIDSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -159,14 +159,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/LooEgU905s+05/HLH3IWYDEUTPuxcMJEub9BrWaPu0=
+			qwO+gX++w30MCKcfrmYDrfArf7Tyo9BRgL/Le9wyX/Q=
 			</data>
 		</dict>
 		<key>Modules/GIDSDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HN0MeRfX/z76jh5XZiIxZdp2ckjxTs1ENzzUYhaaOMs=
+			QU59zp39qKlPNZ0q3Bi2/9xysEGPgs2ipmvJ93TUEEc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

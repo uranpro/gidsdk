@@ -68,6 +68,7 @@ public enum GIDLogLevel {
 }
 public struct GIDSDKVersion {
   public static let version: Swift.String
+  public static let apiVersion: Swift.String
 }
 public struct GIDSDKConfiguration {
   public let clientID: Swift.String
