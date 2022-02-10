@@ -1,0 +1,6 @@
+framework module Cybertonica {
+  umbrella header "Cybertonica.h"
+
+  export *
+  module * { export * }
+}
