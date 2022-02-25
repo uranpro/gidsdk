@@ -1,9 +1,11 @@
-# GIDSDK for iOS
+# GIDSDK for iOS v0.1.2
 
 > Минимальная версия iOS 11
 
 ## Установка
 ### Cocoapods
+
+> **Временно не работает**
 
 1. Перейдите в каталог с Xcode-проектом (каталог, в котором находится файл с расширением *.xcodeproj*).
     
@@ -61,7 +63,7 @@ pod 'GIDSDK', :git => 'https://gitlab.zxz.su/mbushuev/gidsdk.pod.git', :tag => '
     
 3. Скачайте содержимое(zip файлы) и распакуйте
     
-4. Скопируйте полученные файлы **.xcframework* и вставьте в корень вашего проекта
+4. Скопируйте полученные файлы **.xcframework** и вставьте в корень вашего проекта
     
 5. Откройте проект и выберите необходимый *target*, перейдите на вкладку *General*
     
@@ -80,17 +82,21 @@ pod 'GIDSDK', :git => 'https://gitlab.zxz.su/mbushuev/gidsdk.pod.git', :tag => '
 
 Инициализируйте SDK в начале приложения. Укажите свой *client_id и client_base_url* (адрес бэкенда вашего приложения)
 ```swift
-let configuration = GIDSDKConfiguration(clientID: "8039732",
-                                        clientBaseURL: URL(string: "https://myserver.com")!)
+let configuration = GIDSDKConfigurationBuilder()
+            .setClientID("sdk_otp_3")
+            .setClientBaseURL(URL(string: "http://myserver.com/")!)
+            .build()
   
 GIDSDK.setup(configuration: configuration)
 ```
 
 > Если хотите указать специфический адрес сервера ГИД, то вы можете это сделать через переменную gidBaseURL при инициализации конфига
 ```swift
-let configuration = GIDSDKConfiguration(clientID: "8039732",
-                                        clientBaseURL: URL(string: "https://myserver.com")!,
-                                        gidBaseURL: URL(string: "https://gidserver.com")!)
+let configuration = GIDSDKConfigurationBuilder()
+            .setClientID("sdk_otp_3")
+            .setClientBaseURL(URL(string: "http://myserver.com/")!)
+            .setGIDBaseURL(URL(string: "http://auth.gid.ru/")!)
+            .build()
 ```
 
 **2. Аутентификация light**
@@ -135,7 +141,7 @@ GIDSDK.shared.auth(otpSID: otpSID, otp: code, phone: phone, scope: [.openid, .pr
   switch result {  
   case .success(let data):  
     self.jwtToken = data.jwtToken  
-    self.oauthToken = data.oauthToken  
+    self.oauthToken = data.accessToken  
   case .failure(let error):  
     print(error)  
   }  
