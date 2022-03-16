@@ -1,4 +1,4 @@
-# GIDSDK for iOS v0.1.2
+# GIDSDK for iOS v0.1.3
 
 > Минимальная версия iOS 11
 
@@ -90,13 +90,56 @@ let configuration = GIDSDKConfigurationBuilder()
 GIDSDK.setup(configuration: configuration)
 ```
 
-> Если хотите указать специфический адрес сервера ГИД, то вы можете это сделать через переменную gidBaseURL при инициализации конфига
+> Если хотите указать специфический адрес сервера ГИД, то вы можете это сделать через переменную *gidBaseURL* при инициализации конфига
 ```swift
 let configuration = GIDSDKConfigurationBuilder()
             .setClientID("sdk_otp_3")
             .setClientBaseURL(URL(string: "http://myserver.com/")!)
             .setGIDBaseURL(URL(string: "http://auth.gid.ru/")!)
             .build()
+```
+
+> Если хотите указать специфический SCOPE, то вы можете это сделать через переменную *scope* при инициализации конфига
+```swift
+let configuration = GIDSDKConfigurationBuilder()
+            .setClientID("sdk_otp_3")
+            .setClientBaseURL(URL(string: "http://myserver.com/")!)
+            .setGIDBaseURL(URL(string: "http://auth.gid.ru/")!)
+            .setScope([.profile, .openid])
+            .build()
+            
+// default scope = [.profile, .openid, .sdkOTP, .anchorValidate, .offlineAccess]
+```
+
+> Если хотите указать специфические пути для API, то вы можете это сделать через переменную *customPaths* при инициализации конфига. Переопределять все необязательно, достаточно указать нужные.
+```swift
+let paths: [GIDApiPath: String] = [
+    .auth: "path/to/auth",
+    .getOTP: "path/to/send_otp"
+]
+let configuration = GIDSDKConfigurationBuilder()
+            .setClientID("sdk_otp_3")
+            .setClientBaseURL(URL(string: "http://myserver.com/")!)
+            .setGIDBaseURL(URL(string: "http://auth.gid.ru/")!)
+            .setCustomPaths(paths)
+            .build()
+
+// GIDApiPath.defaultPaths
+
+case .auth:
+    return "api/v0.2/backend/auth"
+case .refreshToken:
+    return "oauth2/token"
+case .register:
+    return "api/v0.2/sdk/accounts/register/"
+case .getOTP:
+    return "api/v0.2/sdk/actions/send_otp_password/"
+case .chackPhone:
+    return "api/actions/check_phone"
+case .a2aAuth:
+    return "oauth2/auth/a2a"
+case .a2aGetTokens:
+    return "api/v0.2/backend/oauth/token"
 ```
 
 **2. Аутентификация light**
@@ -137,7 +180,7 @@ GIDSDK.shared.getOTP(codeChallenge: codeChallenge, phone: phone) { result in
 Получение токенов. Необходимо использовать codeVerifier, который создавали в начале, otpSID, OTP-код из SMS и scope.
 
 ```swift
-GIDSDK.shared.auth(otpSID: otpSID, otp: code, phone: phone, scope: [.openid, .profile], codeVerifier: codeVerifier) { result in  
+GIDSDK.shared.auth(otpSID: otpSID, otp: code, phone: phone, codeVerifier: codeVerifier) { result in  
   switch result {  
   case .success(let data):  
     self.jwtToken = data.jwtToken  
