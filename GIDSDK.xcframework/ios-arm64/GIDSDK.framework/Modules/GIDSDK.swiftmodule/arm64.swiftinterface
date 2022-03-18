@@ -3,29 +3,102 @@
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GIDSDK
 import AFNetworking
 import CommonCrypto
+import Cybertonica
 import Foundation
 @_exported import GIDSDK
 import Security
 import Swift
 import UIKit
 import _Concurrency
-public enum GIDApiScope : Swift.String, Swift.Codable {
+public enum GIDSDKApp : Swift.String, Swift.CaseIterable, Swift.Codable {
+  case premier
+  case matchTV
+  case yappi
+  case rutube
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [GIDSDKApp]
+  public typealias RawValue = Swift.String
+  public static var allCases: [GIDSDKApp] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension GIDSDKApp {
+  public var scheme: Swift.String {
+    get
+  }
+  public var id: Swift.String {
+    get
+  }
+  public var sortIndex: Swift.Int {
+    get
+  }
+  public var installed: Swift.Bool {
+    get
+  }
+  public static func fromURL(url: Swift.String) -> GIDSDKApp?
+}
+public enum GIDApiScope : Swift.String, Swift.Codable, Swift.CaseIterable {
   case openid
   case profile
   case phone
   case nickname
   case first_name
   case last_name
+  case offline
+  case offlineAccess
   case email
   case birthdate
   case gender
   case city
   case age
+  case sdkOTP
+  case anchorValidate
   public init?(rawValue: Swift.String)
+  public typealias AllCases = [GIDApiScope]
   public typealias RawValue = Swift.String
+  public static var allCases: [GIDApiScope] {
+    get
+  }
   public var rawValue: Swift.String {
     get
   }
+}
+public enum GIDApiError : Swift.Error {
+  case emptyResponse
+  case unknownResponseType
+  case jsonParseError(Swift.Error)
+  case unknownError(Swift.Error?)
+  case serverError(Any?)
+}
+public struct GIDSDKConfiguration {
+  public let clientID: Swift.String
+  public let logLevels: Swift.Set<GIDLogLevel>
+  public let clientBaseURL: Foundation.URL
+  public let gidBaseURL: Foundation.URL
+  public let anchorApp: GIDSDKApp?
+  public let scope: Swift.Set<GIDApiScope>
+  public let customPaths: [GIDApiPath : Swift.String]?
+}
+final public class GIDSDKConfigurationFactory {
+  public init()
+  final public func createDevConfiguration(for app: GIDSDKApp) -> GIDSDKConfiguration
+  final public func createPreprodConfiguration(for app: GIDSDKApp, with clientID: Swift.String = "sdk_otp_3") -> GIDSDKConfiguration
+  @objc deinit
+}
+final public class GIDSDKConfigurationBuilder {
+  public init()
+  final public func setLogLevels(_ logLevels: Swift.Set<GIDLogLevel>) -> GIDSDKConfigurationBuilder
+  final public func setGIDBaseURL(_ gidBaseURL: Foundation.URL) -> GIDSDKConfigurationBuilder
+  final public func setCustomPaths(_ customPaths: [GIDApiPath : Swift.String]) -> GIDSDKConfigurationBuilder
+  final public func setAnchorApp(_ anchorApp: GIDSDKApp) -> GIDSDKConfigurationBuilder
+  final public func setClientBaseURL(_ clientBaseURL: Foundation.URL) -> GIDSDKConfigurationBuilder
+  final public func setScope(_ scope: Swift.Set<GIDApiScope>) -> GIDSDKConfigurationBuilder
+  final public func setClientID(_ clientID: Swift.String) -> GIDSDKConfigurationBuilder
+  final public func build() -> GIDSDKConfiguration
+  @objc deinit
 }
 public enum GIDPKCEMethod : Swift.String {
   case SHA256
@@ -45,23 +118,96 @@ public enum GIDPKCEError : Swift.Error {
   public static func base64URLEncode<S>(octets: S) -> Swift.String where S : Swift.Sequence, S.Element == Swift.UInt8
   public static func createVerifier(count: Swift.Int = 32) throws -> Swift.String
   public static func challenge(for verifier: Swift.String) throws -> Swift.String
+  public static func generateState() -> Swift.String
+  public static func generateNonce() -> Swift.String
   @objc deinit
+}
+public enum GIDSDKError : Swift.Error {
+  case loginError
+  public static func == (a: GIDSDKError, b: GIDSDKError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public struct GIDSDKOtpResponse {
   public let otpSID: Swift.String
-  public let waintSeconds: Swift.Int
+  public let waintSeconds: Swift.Int?
 }
-public struct GIDSDKAuthResponse {
+public struct GIDSDKAuthResponse : Swift.Codable {
   public let jwtToken: Swift.String
-  public let oauthToken: Swift.String
+  public let accessToken: Swift.String
+  public let refreshToken: Swift.String?
+  public let phone: Swift.String
+  public let tokenType: Swift.String
   public let expiresIn: Swift.Int
+  public let scope: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-public enum GIDLogLevel {
-  case off
-  case on
-  case onlyErrorsAndWarnings
+public struct GIDSDKParamsResponse {
+  public let clientID: Swift.String
+  public let redirectURI: Swift.String
+  public let state: Swift.String
+  public let scope: [GIDApiScope]
+  public let nonce: Swift.String
+}
+public struct GIDSDKClientAuthResponse {
+  public let redirectURI: Swift.String
+}
+public enum GIDApiPath : Swift.String, Swift.CaseIterable {
+  case auth
+  case refreshToken
+  case register
+  case getOTP
+  case chackPhone
+  case a2aAuth
+  case a2aGetTokens
+  public static var defaultPaths: [GIDApiPath : Swift.String] {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [GIDApiPath]
+  public typealias RawValue = Swift.String
+  public static var allCases: [GIDApiPath] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol GIDSDKDeeplinkManagerDelegate : AnyObject {
+  func authorized(isSucces: Swift.Bool)
+}
+public struct GIDSDKDeeplinkLoginResult {
+  public let code: Swift.String
+  public let nonce: Swift.String
+  public let state: Swift.String
+  public let phone: Swift.String
+}
+@_hasMissingDesignatedInitializers public class GIDSDKDeeplinkManager {
+  public func handle(url: Foundation.URL) -> Swift.Bool
+  @objc deinit
+}
+extension GIDSDKApp {
+  public var loginURL: Swift.String {
+    get
+  }
+  public var resultURL: Swift.String {
+    get
+  }
+}
+public enum GIDLogLevel : Swift.CaseIterable {
+  case info
+  case debug
+  case warning
+  case error
   public static func == (a: GIDLogLevel, b: GIDLogLevel) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
+  public typealias AllCases = [GIDLogLevel]
+  public static var allCases: [GIDLogLevel] {
+    get
+  }
   public var hashValue: Swift.Int {
     get
   }
@@ -70,29 +216,37 @@ public struct GIDSDKVersion {
   public static let version: Swift.String
   public static let apiVersion: Swift.String
 }
-public struct GIDSDKConfiguration {
-  public let clientID: Swift.String
-  public let logLevel: GIDLogLevel
-  public let clientBaseURL: Foundation.URL
-  public let gidBaseURL: Foundation.URL
-  public static let defaultGIDBaseURL: Foundation.URL
-  public init(clientID: Swift.String, clientBaseURL: Foundation.URL, gidBaseURL: Foundation.URL? = nil, logLevel: GIDLogLevel = .on)
-}
-@_hasMissingDesignatedInitializers public class GIDSDK {
+@_hasMissingDesignatedInitializers final public class GIDSDK {
   public static func setup(configuration: GIDSDKConfiguration)
   public static let shared: GIDSDK
+  final public let configuration: GIDSDKConfiguration
+  final public let deeplinkManager: GIDSDKDeeplinkManager
+  final public func getInstalledAnchorApps() -> [GIDSDKApp]
+  final public func getAuthTokens() -> GIDSDKAuthResponse?
+  final public func logout()
   @objc deinit
 }
 extension GIDSDK {
   public typealias Handler<T> = (Swift.Result<T, Swift.Error>) -> Swift.Void
-  public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKOtpResponse>)
-  public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, scope: [GIDApiScope], codeVerifier: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse>)
+  final public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKOtpResponse>)
+  final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, codeVerifier: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse>)
+  final public func clientAuth(app: GIDSDKApp, state: Swift.String, nonce: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKClientAuthResponse>)
+  final public func a2aGetTokens(code: Swift.String, state: Swift.String, app: GIDSDKApp, codeVerifier: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse>)
+  final public func a2aLogin(app: GIDSDKApp, state: Swift.String, nonce: Swift.String, codeChallenge: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKDeeplinkLoginResult>)
 }
+extension GIDSDKApp : Swift.Equatable {}
+extension GIDSDKApp : Swift.Hashable {}
+extension GIDSDKApp : Swift.RawRepresentable {}
 extension GIDApiScope : Swift.Equatable {}
 extension GIDApiScope : Swift.Hashable {}
 extension GIDApiScope : Swift.RawRepresentable {}
 extension GIDPKCEMethod : Swift.Equatable {}
 extension GIDPKCEMethod : Swift.Hashable {}
 extension GIDPKCEMethod : Swift.RawRepresentable {}
+extension GIDSDKError : Swift.Equatable {}
+extension GIDSDKError : Swift.Hashable {}
+extension GIDApiPath : Swift.Equatable {}
+extension GIDApiPath : Swift.Hashable {}
+extension GIDApiPath : Swift.RawRepresentable {}
 extension GIDLogLevel : Swift.Equatable {}
 extension GIDLogLevel : Swift.Hashable {}
