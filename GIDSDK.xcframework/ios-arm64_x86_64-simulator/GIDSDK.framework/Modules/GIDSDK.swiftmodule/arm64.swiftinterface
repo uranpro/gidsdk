@@ -45,8 +45,8 @@ public enum GIDApiScope : Swift.String, Swift.Codable, Swift.CaseIterable {
   case profile
   case phone
   case nickname
-  case first_name
-  case last_name
+  case firstName
+  case lastName
   case offline
   case offlineAccess
   case email
@@ -68,10 +68,20 @@ public enum GIDApiScope : Swift.String, Swift.Codable, Swift.CaseIterable {
 }
 public enum GIDApiError : Swift.Error {
   case emptyResponse
-  case unknownResponseType
-  case jsonParseError(Swift.Error)
+  case jsonParseError
   case unknownError(Swift.Error?)
-  case serverError(Any?)
+  case serverError(GIDApiErrorResponse)
+  public var description: Swift.String {
+    get
+  }
+}
+public struct GIDApiErrorResponse : Swift.Codable {
+  public let error: Swift.String
+  public let errorDescription: Swift.String
+  public let errorDebug: Swift.String?
+  public let statusCode: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct GIDSDKConfiguration {
   public let clientID: Swift.String
@@ -132,7 +142,7 @@ public enum GIDSDKError : Swift.Error {
 }
 public struct GIDSDKOtpResponse {
   public let otpSID: Swift.String
-  public let waintSeconds: Swift.Int?
+  public let waitSeconds: Swift.Int?
 }
 public struct GIDSDKAuthResponse : Swift.Codable {
   public let jwtToken: Swift.String
@@ -227,7 +237,7 @@ public struct GIDSDKVersion {
   @objc deinit
 }
 extension GIDSDK {
-  public typealias Handler<T> = (Swift.Result<T, Swift.Error>) -> Swift.Void
+  public typealias Handler<T> = (Swift.Result<T, GIDApiError>) -> Swift.Void
   final public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKOtpResponse>)
   final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, codeVerifier: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse>)
   final public func clientAuth(app: GIDSDKApp, state: Swift.String, nonce: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKClientAuthResponse>)
