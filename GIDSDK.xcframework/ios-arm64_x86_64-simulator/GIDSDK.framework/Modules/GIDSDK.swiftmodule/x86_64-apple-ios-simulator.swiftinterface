@@ -75,12 +75,24 @@ public enum GIDApiError : Swift.Error {
     get
   }
 }
-public struct GIDApiErrorResponse : Swift.Codable {
+extension GIDApiError : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: GIDApiError, rhs: GIDApiError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct GIDApiErrorResponse : Swift.Codable, Swift.Hashable {
   public let error: Swift.String
   public let errorDescription: Swift.String
   public let errorDebug: Swift.String?
   public let statusCode: Swift.Int?
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: GIDApiErrorResponse, b: GIDApiErrorResponse) -> Swift.Bool
   public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
   public init(from decoder: Swift.Decoder) throws
 }
 public struct GIDSDKConfiguration {
@@ -91,6 +103,17 @@ public struct GIDSDKConfiguration {
   public let anchorApp: GIDSDKApp?
   public let scope: Swift.Set<GIDApiScope>
   public let customPaths: [GIDApiPath : Swift.String]?
+  public let env: GIDSDKEnv
+}
+public enum GIDSDKEnv {
+  case production
+  case test
+  case development
+  public static func == (a: GIDSDKEnv, b: GIDSDKEnv) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 final public class GIDSDKConfigurationFactory {
   public init()
@@ -101,6 +124,7 @@ final public class GIDSDKConfigurationFactory {
 final public class GIDSDKConfigurationBuilder {
   public init()
   final public func setLogLevels(_ logLevels: Swift.Set<GIDLogLevel>) -> GIDSDKConfigurationBuilder
+  final public func setEnv(_ env: GIDSDKEnv) -> GIDSDKConfigurationBuilder
   final public func setGIDBaseURL(_ gidBaseURL: Foundation.URL) -> GIDSDKConfigurationBuilder
   final public func setCustomPaths(_ customPaths: [GIDApiPath : Swift.String]) -> GIDSDKConfigurationBuilder
   final public func setAnchorApp(_ anchorApp: GIDSDKApp) -> GIDSDKConfigurationBuilder
@@ -250,6 +274,8 @@ extension GIDSDKApp : Swift.RawRepresentable {}
 extension GIDApiScope : Swift.Equatable {}
 extension GIDApiScope : Swift.Hashable {}
 extension GIDApiScope : Swift.RawRepresentable {}
+extension GIDSDKEnv : Swift.Equatable {}
+extension GIDSDKEnv : Swift.Hashable {}
 extension GIDPKCEMethod : Swift.Equatable {}
 extension GIDPKCEMethod : Swift.Hashable {}
 extension GIDPKCEMethod : Swift.RawRepresentable {}
