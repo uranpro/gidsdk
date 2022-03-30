@@ -157,6 +157,75 @@ do {
 }
 ```
 
+**Проверка телефона, зарегистрирован ли юзер**
+
+Потом необходимо проверить зарегистрирован ли номер телефона в системе
+
+```swift
+GIDSDK.shared.checkPhone(phone: phone) { result in  
+  switch result {  
+  case .success(let data):
+    if data.success {
+      self.sendOTP(phone)
+    } else {
+      self.register(phone)
+    }
+  case .failure(let error):  
+    print(error)  
+  }  
+}
+```
+
+Варианты ошибок
+
+```swift
+public enum ErrorType: String {
+    /// отсутствует телефон
+    case emptyPhoneField = "empty_phone_field"
+    /// формат телефона невалидный
+    case invalidPhoneField = "invalid_phone_field"
+}
+```
+
+**Регистрация пользователя**
+
+Если пользователя нет в системе, то его нужно зарегистрировать. Во время регистрации пользователю отправляется OTP код. Повторный код можно отправить через метод getOTP
+
+```swift
+GIDSDK.shared.register(phone: phone, codeChallange: codeChallange) { result in  
+  switch result {  
+  case .success(let data):
+    self.otpSID = data.otpSID // сохраняем otpSID, далее он понадобится для получения токенов  
+    self.waitSeconds = data.waitSeconds // таймер повторной отправки кода в секундах  
+  case .failure(let error):  
+    print(error)  
+  }  
+}
+```
+
+Варианты ошибок
+
+```swift
+public enum ErrorType: String {
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case validationError = "validation_error"
+    /// Передан номер телефона зарегистрированного ранее пользователя
+    case userExists = "user_exists"
+    /// отсутствует телефон
+    case emptyPhoneField = "empty_phone_field"
+    /// формат телефона невалидный
+    case invalidPhoneField = "invalid_phone_field"
+    /// Сработал троттлинг по номеру телефона
+    case throttled
+    /// В заголовĸе: отсутствуют обязательные поля, подпись невалидная
+    case permissionDenied = "permission_denied"
+    /// Внутренняя ошибĸа сервиса
+    case internalServerError = "internal_server_error"
+    /// Сработал троттлинг
+    case requestError = "request_error"
+}
+```
+
 **Запрос отправки OTP**
 
 Запрос на отправку OTP включает запрос проверки телефона и регистрации пользователя в случае, если он не найден по номеру телефона.
@@ -175,6 +244,29 @@ GIDSDK.shared.getOTP(codeChallenge: codeChallenge, phone: phone) { result in
 
 > **Внимание:** Следует дать возможность пользователю повторить запрос, если SMS не приходит в течение заданного времени. Время, через которое можно сделать повторный запрос, можно получить из параметра waitSeconds
 
+Варианты ошибок
+
+```swift
+public enum ErrorType: String {
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case validationError = "validation_error"
+    /// отсутствует телефон
+    case emptyPhoneField = "empty_phone_field"
+    /// формат телефона невалидный
+    case invalidPhoneField = "invalid_phone_field"
+    /// В заголовĸе: отсутствуют обязательные поля, подпись невалидная
+    case permissionDenied = "permission_denied"
+    /// В запросе передан телефон, по ĸоторому не найден аĸĸаунт в ГИД SSO
+    case notFound = "not_found"
+    /// Сработал троттлинг по номеру телефона
+    case throttled
+    /// Внутренняя ошибĸа сервиса
+    case internalServerError = "internal_server_error"
+    /// Сработал троттлинг
+    case requestError = "request_error"
+}
+```
+
 **Запрос аутентификации пользователя**
 
 Получение токенов. Необходимо использовать codeVerifier, который создавали в начале, otpSID, OTP-код из SMS и scope.
@@ -188,6 +280,43 @@ GIDSDK.shared.auth(otpSID: otpSID, otp: code, phone: phone, codeVerifier: codeVe
   case .failure(let error):  
     print(error)  
   }  
+}
+```
+
+Варианты ошибок
+
+```swift
+public enum ErrorType: String {
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case invalidRequest = "invalid_request"
+    /// Недопустимое значение параметра grant_type
+    case unsupportedGrantType = "unsupported_grant_type"
+    /// Неверный или просроченный ĸод подтверждения, или повторный запрос на получение тоĸена с одним ĸодом
+    case invalidGrant = "invalid_grant"
+    /// Запрошенный scope: не содержит openid, невалидный
+    case invalidScope = "invalid_scope"
+    /// В запросе: отсутствуют обязательные для проверĸи otp параметры, параметры невалидные
+    case otpRequestValidationError = "otp_request_validation_error"
+    /// Ошибĸа проверĸи OTP ĸода - невалидное значение
+    case invalidOtpCode = "invalid_otp_code"
+    /// Сроĸ действия OTP ĸода истеĸ
+    case expiredOtpCode = "expired_otp_code"
+    /// OTP ĸод был использован ранее
+    case usedOtpCode = "used_otp_code"
+    /// Переданы невалидные данные ĸлиента
+    case invalidClient = "invalid_client"
+    /// Запрошенный scope: не назначен ĸлиенту в настройĸах ГИД SSO.
+    case scopeNotGranted = "scope_not_granted"
+    /// Сработал троттлинг по номеру телефона
+    case requestThrottled = "request_throttled"
+    /// Сервис временно недоступен
+    case temporarilyUnavailable = "temporarily_unavailable"
+    /// Ошибĸа проверĸи подписи для idp_verify_url
+    case permissionDenied = "permission_denied"
+    /// Внутренняя ошибĸа сервиса
+    case internalServerError = "internal_server_error"
+    /// Сработал троттлинг
+    case requestError = "request_error"
 }
 ```
 
