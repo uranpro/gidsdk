@@ -1,4 +1,4 @@
-# GIDSDK for iOS v0.1.6
+# GIDSDK for iOS v0.1.7
 
 > Минимальная версия iOS 11
 
@@ -321,6 +321,10 @@ public enum ErrorType: String {
 ```
 
 ## Change log
+
+### 0.1.7
+
+- можно указать apiKey для сервера GID в конфиге
 
 ### 0.1.6
 

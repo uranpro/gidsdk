@@ -104,6 +104,7 @@ public struct GIDSDKConfiguration {
   public let scope: Swift.Set<GIDApiScope>
   public let customPaths: [GIDApiPath : Swift.String]?
   public let env: GIDSDKEnv
+  public let apiKey: Swift.String
 }
 public enum GIDSDKEnv {
   case production
@@ -119,12 +120,14 @@ final public class GIDSDKConfigurationFactory {
   public init()
   final public func createDevConfiguration(for app: GIDSDKApp) -> GIDSDKConfiguration
   final public func createPreprodConfiguration(for app: GIDSDKApp, with clientID: Swift.String = "sdk_otp_3") -> GIDSDKConfiguration
+  final public func createProdConfiguration(for app: GIDSDKApp, with clientID: Swift.String = "e4OzPDU0wpQ7YFWHq5YtmfeRDv5KuFm7WpC9R3V2") -> GIDSDKConfiguration
   @objc deinit
 }
 final public class GIDSDKConfigurationBuilder {
   public init()
   final public func setLogLevels(_ logLevels: Swift.Set<GIDLogLevel>) -> GIDSDKConfigurationBuilder
   final public func setEnv(_ env: GIDSDKEnv) -> GIDSDKConfigurationBuilder
+  final public func setAPIKey(_ apiKey: Swift.String) -> GIDSDKConfigurationBuilder
   final public func setGIDBaseURL(_ gidBaseURL: Foundation.URL) -> GIDSDKConfigurationBuilder
   final public func setCustomPaths(_ customPaths: [GIDApiPath : Swift.String]) -> GIDSDKConfigurationBuilder
   final public func setAnchorApp(_ anchorApp: GIDSDKApp) -> GIDSDKConfigurationBuilder
