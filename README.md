@@ -134,7 +134,7 @@ case .register:
     return "api/v0.2/sdk/accounts/register/"
 case .getOTP:
     return "api/v0.2/sdk/actions/send_otp_password/"
-case .chackPhone:
+case .checkPhone:
     return "api/actions/check_phone"
 case .a2aAuth:
     return "oauth2/auth/a2a"
