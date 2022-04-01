@@ -178,6 +178,8 @@ GIDSDK.shared.checkPhone(phone: phone) { result in
 
 Варианты ошибок
 
+> Временно не работает, приходит *.unknownError*
+
 ```swift
 public enum ErrorType: String {
     /// отсутствует телефон
