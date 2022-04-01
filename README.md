@@ -324,6 +324,12 @@ public enum ErrorType: String {
 
 ## Change log
 
+### 0.1.8
+
+- типизация ошибок
+- описание ошибок на русском языке
+- добавлены методы register, checkPhone
+
 ### 0.1.7
 
 - можно указать apiKey для сервера GID в конфиге
