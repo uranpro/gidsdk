@@ -66,33 +66,26 @@ public enum GIDApiScope : Swift.String, Swift.Codable, Swift.CaseIterable {
     get
   }
 }
-public enum GIDApiError : Swift.Error {
-  case emptyResponse
-  case jsonParseError
-  case unknownError(Swift.Error?)
-  case serverError(GIDApiErrorResponse)
-  public var description: Swift.String {
-    get
-  }
-}
-extension GIDApiError : Swift.Hashable {
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (lhs: GIDApiError, rhs: GIDApiError) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public struct GIDApiErrorResponse : Swift.Codable, Swift.Hashable {
-  public let error: Swift.String
-  public let errorDescription: Swift.String
-  public let errorDebug: Swift.String?
-  public let statusCode: Swift.Int?
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: GIDApiErrorResponse, b: GIDApiErrorResponse) -> Swift.Bool
+public struct GIDApiOTPResponse : Swift.Codable {
+  public let status: Swift.String
+  public let waitSeconds: Swift.Int
+  public let smsID: Swift.String
+  public let otpSID: Swift.String
   public func encode(to encoder: Swift.Encoder) throws
-  public var hashValue: Swift.Int {
-    get
-  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct GIDApiRegisterResponse : Swift.Codable {
+  public let phone: Swift.String
+  public let waitSeconds: Swift.Int?
+  public let id: Swift.String
+  public let smsID: Swift.String
+  public let otpSID: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct GIDApiCheckPhoneResponse : Swift.Codable {
+  public let success: Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
 public struct GIDSDKConfiguration {
@@ -120,16 +113,16 @@ final public class GIDSDKConfigurationFactory {
   public init()
   final public func createDevConfiguration(for app: GIDSDKApp) -> GIDSDKConfiguration
   final public func createPreprodConfiguration(for app: GIDSDKApp, with clientID: Swift.String = "sdk_otp_3") -> GIDSDKConfiguration
-  final public func createProdConfiguration(for app: GIDSDKApp, with clientID: Swift.String = "e4OzPDU0wpQ7YFWHq5YtmfeRDv5KuFm7WpC9R3V2") -> GIDSDKConfiguration
   @objc deinit
 }
 final public class GIDSDKConfigurationBuilder {
   public init()
   final public func setLogLevels(_ logLevels: Swift.Set<GIDLogLevel>) -> GIDSDKConfigurationBuilder
   final public func setEnv(_ env: GIDSDKEnv) -> GIDSDKConfigurationBuilder
-  final public func setAPIKey(_ apiKey: Swift.String) -> GIDSDKConfigurationBuilder
   final public func setGIDBaseURL(_ gidBaseURL: Foundation.URL) -> GIDSDKConfigurationBuilder
   final public func setCustomPaths(_ customPaths: [GIDApiPath : Swift.String]) -> GIDSDKConfigurationBuilder
+  @available(*, deprecated, message: "Will be removed soon")
+  final public func setApiKey(_ apiKey: Swift.String) -> GIDSDKConfigurationBuilder
   final public func setAnchorApp(_ anchorApp: GIDSDKApp) -> GIDSDKConfigurationBuilder
   final public func setClientBaseURL(_ clientBaseURL: Foundation.URL) -> GIDSDKConfigurationBuilder
   final public func setScope(_ scope: Swift.Set<GIDApiScope>) -> GIDSDKConfigurationBuilder
@@ -197,7 +190,7 @@ public enum GIDApiPath : Swift.String, Swift.CaseIterable {
   case refreshToken
   case register
   case getOTP
-  case chackPhone
+  case checkPhone
   case a2aAuth
   case a2aGetTokens
   public static var defaultPaths: [GIDApiPath : Swift.String] {
@@ -249,6 +242,173 @@ public enum GIDLogLevel : Swift.CaseIterable {
     get
   }
 }
+public enum GIDApiError<T> : Swift.Error where T : GIDApiErrorTypeable {
+  case emptyResponse
+  case jsonParseError
+  case unknownError(Swift.Error?)
+  case serverError(T)
+  public var description: Swift.String {
+    get
+  }
+}
+public struct GIDApiErrorResponse : Swift.Codable, Swift.Hashable {
+  public let error: Swift.String
+  public let errorDescription: Swift.String
+  public let errorDebug: Swift.String?
+  public let statusCode: Swift.Int?
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: GIDApiErrorResponse, b: GIDApiErrorResponse) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol GIDApiErrorTypeable {
+  associatedtype ET : Swift.RawRepresentable where Self.ET.RawValue == Swift.String
+  init(errorResponse: GIDApiErrorResponse)
+  var errorResponse: GIDApiErrorResponse { get }
+  var type: Self.ET? { get }
+  var description: Swift.String? { get }
+}
+extension GIDApiErrorTypeable {
+  public var type: Self.ET? {
+    get
+  }
+  public var description: Swift.String? {
+    get
+  }
+}
+public class GIDApiErrorBase {
+  final public let errorResponse: GIDApiErrorResponse
+  required public init(errorResponse: GIDApiErrorResponse)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorAny : GIDApiErrorBase, GIDApiErrorTypeable {
+  public typealias ET = GIDApiErrorType
+  required public init(errorResponse: GIDApiErrorResponse)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorCheckPhone : GIDApiErrorBase, GIDApiErrorTypeable {
+  public typealias ET = GIDApiErrorCheckPhone.ErrorType
+  public enum ErrorType : Swift.String {
+    case emptyPhoneField
+    case invalidPhoneField
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDApiErrorResponse)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorGetOTP : GIDApiErrorBase, GIDApiErrorTypeable {
+  public typealias ET = GIDApiErrorGetOTP.ErrorType
+  public enum ErrorType : Swift.String {
+    case validationError
+    case emptyPhoneField
+    case invalidPhoneField
+    case permissionDenied
+    case notFound
+    case throttled
+    case internalServerError
+    case requestError
+    case notAuthenticated
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDApiErrorResponse)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorRegister : GIDApiErrorBase, GIDApiErrorTypeable {
+  public typealias ET = GIDApiErrorRegister.ErrorType
+  public enum ErrorType : Swift.String {
+    case validationError
+    case userExists
+    case emptyPhoneField
+    case invalidPhoneField
+    case throttled
+    case permissionDenied
+    case internalServerError
+    case requestError
+    case notAuthenticated
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDApiErrorResponse)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorAuth : GIDApiErrorBase, GIDApiErrorTypeable {
+  public typealias ET = GIDApiErrorAuth.ErrorType
+  public enum ErrorType : Swift.String {
+    case emptyPhoneField
+    case invalidPhoneField
+    case invalidRequest
+    case unsupportedGrantType
+    case invalidGrant
+    case invalidScope
+    case otpRequestValidationError
+    case invalidOtpCode
+    case validationError
+    case expiredOtpCode
+    case usedOtpCode
+    case invalidClient
+    case scopeNotGranted
+    case requestThrottled
+    case temporarilyUnavailable
+    case permissionDenied
+    case internalServerError
+    case requestError
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDApiErrorResponse)
+  @objc deinit
+}
+public enum GIDApiErrorType : Swift.String, Swift.Codable {
+  case emptyPhoneField
+  case invalidPhoneField
+  case validationError
+  case permissionDenied
+  case notFound
+  case throttled
+  case requestError
+  case userExists
+  case unsupportedGrantType
+  case invalidGrant
+  case invalidScope
+  case otpRequestValidationError
+  case invalidOtpCode
+  case expiredOtpCode
+  case usedOtpCode
+  case invalidClient
+  case scopeNotGranted
+  case requestThrottled
+  case internalServerError
+  case notAuthenticated
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension GIDApiError : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: GIDApiError<T>, rhs: GIDApiError<T>) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 public struct GIDSDKVersion {
   public static let version: Swift.String
   public static let apiVersion: Swift.String
@@ -264,12 +424,14 @@ public struct GIDSDKVersion {
   @objc deinit
 }
 extension GIDSDK {
-  public typealias Handler<T> = (Swift.Result<T, GIDApiError>) -> Swift.Void
-  final public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKOtpResponse>)
-  final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, codeVerifier: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse>)
-  final public func clientAuth(app: GIDSDKApp, state: Swift.String, nonce: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKClientAuthResponse>)
-  final public func a2aGetTokens(code: Swift.String, state: Swift.String, app: GIDSDKApp, codeVerifier: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse>)
-  final public func a2aLogin(app: GIDSDKApp, state: Swift.String, nonce: Swift.String, codeChallenge: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKDeeplinkLoginResult>)
+  public typealias Handler<T, E> = (Swift.Result<T, GIDApiError<E>>) -> Swift.Void where E : GIDApiErrorTypeable
+  final public func checkPhone(phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDApiCheckPhoneResponse, GIDApiErrorCheckPhone>)
+  final public func register(phone: Swift.String, codeChallenge: Swift.String, completion: @escaping GIDSDK.Handler<GIDApiRegisterResponse, GIDApiErrorRegister>)
+  final public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDApiOTPResponse, GIDApiErrorGetOTP>)
+  final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, codeVerifier: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse, GIDApiErrorAuth>)
+  final public func clientAuth(app: GIDSDKApp, state: Swift.String, nonce: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKClientAuthResponse, GIDApiErrorAny>)
+  final public func a2aGetTokens(code: Swift.String, state: Swift.String, app: GIDSDKApp, codeVerifier: Swift.String, phone: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKAuthResponse, GIDApiErrorAny>)
+  final public func a2aLogin(app: GIDSDKApp, state: Swift.String, nonce: Swift.String, codeChallenge: Swift.String, completion: @escaping GIDSDK.Handler<GIDSDKDeeplinkLoginResult, GIDApiErrorAny>)
 }
 extension GIDSDKApp : Swift.Equatable {}
 extension GIDSDKApp : Swift.Hashable {}
@@ -289,3 +451,18 @@ extension GIDApiPath : Swift.Hashable {}
 extension GIDApiPath : Swift.RawRepresentable {}
 extension GIDLogLevel : Swift.Equatable {}
 extension GIDLogLevel : Swift.Hashable {}
+extension GIDApiErrorCheckPhone.ErrorType : Swift.Equatable {}
+extension GIDApiErrorCheckPhone.ErrorType : Swift.Hashable {}
+extension GIDApiErrorCheckPhone.ErrorType : Swift.RawRepresentable {}
+extension GIDApiErrorGetOTP.ErrorType : Swift.Equatable {}
+extension GIDApiErrorGetOTP.ErrorType : Swift.Hashable {}
+extension GIDApiErrorGetOTP.ErrorType : Swift.RawRepresentable {}
+extension GIDApiErrorRegister.ErrorType : Swift.Equatable {}
+extension GIDApiErrorRegister.ErrorType : Swift.Hashable {}
+extension GIDApiErrorRegister.ErrorType : Swift.RawRepresentable {}
+extension GIDApiErrorAuth.ErrorType : Swift.Equatable {}
+extension GIDApiErrorAuth.ErrorType : Swift.Hashable {}
+extension GIDApiErrorAuth.ErrorType : Swift.RawRepresentable {}
+extension GIDApiErrorType : Swift.Equatable {}
+extension GIDApiErrorType : Swift.Hashable {}
+extension GIDApiErrorType : Swift.RawRepresentable {}
