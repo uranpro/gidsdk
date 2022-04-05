@@ -230,7 +230,7 @@ public enum ErrorType: String {
 
 **Запрос отправки OTP**
 
-Запрос на отправку OTP включает запрос проверки телефона и регистрации пользователя в случае, если он не найден по номеру телефона.
+Запрос на отправку OTP кода
 
 ```swift
 GIDSDK.shared.getOTP(codeChallenge: codeChallenge, phone: phone) { result in  
@@ -323,6 +323,12 @@ public enum ErrorType: String {
 ```
 
 ## Change log
+
+### 0.1.8
+
+- типизация ошибок
+- описание ошибок на русском языке
+- добавлены методы register, checkPhone
 
 ### 0.1.7
 
