@@ -32,18 +32,18 @@ let package = Package(
         ),
         
         .binaryTarget(name: "AFNetworking",
-                      url: "https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/raw/main/SwiftPM/releases/0.1.8/AFNetworking.xcframework.4.0.2.zip",
+                      url: "https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/raw/main/SwiftPM/releases/0.1.9/AFNetworking.xcframework.4.0.2.zip",
                       checksum: "04cef0cecfb7caa66bd1bd8ef8d347ed47f67f0412ef508828823655218dc7e8"
         ),
         
         .binaryTarget(name: "Cybertonica",
-                      url: "https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/raw/main/SwiftPM/releases/0.1.8/Cybertonica.xcframework.2.6.2.zip",
+                      url: "https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/raw/main/SwiftPM/releases/0.1.9/Cybertonica.xcframework.2.6.2.zip",
                       checksum: "f75d0318479685f1b2944f56e4b89a2e959fbc62cff120fc8796ffecd83c5e85"
                       ),
         
         .binaryTarget(name: "GIDSDK",
-                      url: "https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/raw/main/SwiftPM/releases/0.1.8/GIDSDK.xcframework.0.1.8.zip",
-                      checksum: "2b1e75928c54f0da47e6859f04c0c0c2bc4aba7f2b2a02ba99bbee118e0d4fc7"
+                      url: "https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/raw/main/SwiftPM/releases/0.1.9/GIDSDK.xcframework.0.1.9.zip",
+                      checksum: "307f96dbc145ddd28019f6a3ada4539fd158afc06de6c0057ee8d05f165aeec6"
         ),
         
     ]

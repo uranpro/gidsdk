@@ -1,4 +1,4 @@
-# GIDSDK for iOS v0.1.8
+# GIDSDK for iOS v0.1.9
 
 > Минимальная версия iOS 11
 
