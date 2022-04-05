@@ -324,6 +324,10 @@ public enum ErrorType: String {
 
 ## Change log
 
+### 0.1.9
+
+- костыль для ошибок checkPhone
+
 ### 0.1.8
 
 - типизация ошибок
