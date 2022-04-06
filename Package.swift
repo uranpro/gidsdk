@@ -43,7 +43,7 @@ let package = Package(
         
         .binaryTarget(name: "GIDSDK",
                       url: "https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/raw/main/SwiftPM/releases/0.1.9/GIDSDK.xcframework.0.1.9.zip",
-                      checksum: "350260fc7ab94b438b33e5d42871633d2023a5438c97eee69150a15a632e042d"
+                      checksum: "8282911626fc8ff02eaa341fdefc1e1a457b096fab5f80ab4ba3f7bb04407993"
         ),
         
     ]
