@@ -55,6 +55,7 @@ public enum GIDApiScope : Swift.String, Swift.Codable, Swift.CaseIterable {
   case city
   case age
   case sdkOTP
+  case authorizationCodeOtp
   case anchorValidate
   public init?(rawValue: Swift.String)
   public typealias AllCases = [GIDApiScope]
