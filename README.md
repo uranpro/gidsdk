@@ -1,4 +1,4 @@
-# GIDSDK for iOS v0.1.10
+# GIDSDK for iOS v0.1.11
 
 > Минимальная версия iOS 11
 
@@ -323,6 +323,10 @@ public enum ErrorType: String {
 ```
 
 ## Change log
+
+### 0.1.11
+
+- fix
 
 ### 0.1.10
 
