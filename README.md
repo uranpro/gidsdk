@@ -162,7 +162,7 @@ do {
 Потом необходимо проверить зарегистрирован ли номер телефона в системе
 
 ```swift
-GIDSDK.shared.checkPhone(phone: phone) { result in  
+GIDSDK.shared.mobileLight.checkPhone(phone: phone) { result in  
   switch result {  
   case .success(let data):
     if data.success {
@@ -194,7 +194,7 @@ public enum ErrorType: String {
 Если пользователя нет в системе, то его нужно зарегистрировать. Во время регистрации пользователю отправляется OTP код. Повторный код можно отправить через метод getOTP
 
 ```swift
-GIDSDK.shared.register(phone: phone, codeChallange: codeChallange) { result in  
+GIDSDK.shared.mobileLight.register(phone: phone, codeChallange: codeChallange) { result in  
   switch result {  
   case .success(let data):
     self.otpSID = data.otpSID // сохраняем otpSID, далее он понадобится для получения токенов  
@@ -233,7 +233,7 @@ public enum ErrorType: String {
 Запрос на отправку OTP кода
 
 ```swift
-GIDSDK.shared.getOTP(codeChallenge: codeChallenge, phone: phone) { result in  
+GIDSDK.shared.mobileLight.getOTP(codeChallenge: codeChallenge, phone: phone) { result in  
   switch result {  
   case .success(let data):  
     self.otpSID = data.otpSID // сохраняем otpSID, далее он понадобится для получения токенов  
@@ -274,7 +274,7 @@ public enum ErrorType: String {
 Получение токенов. Необходимо использовать codeVerifier, который создавали в начале, otpSID, OTP-код из SMS и scope.
 
 ```swift
-GIDSDK.shared.auth(otpSID: otpSID, otp: code, phone: phone, codeVerifier: codeVerifier) { result in  
+GIDSDK.shared.mobileLight.auth(otpSID: otpSID, otp: code, phone: phone, codeVerifier: codeVerifier) { result in  
   switch result {  
   case .success(let data):  
     self.jwtToken = data.jwtToken  
