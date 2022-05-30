@@ -1,41 +1,9 @@
+
 # GIDSDK for iOS v0.1.11
 
 > Минимальная версия iOS 11
 
 ## Установка
-### Cocoapods
-
-> **Временно не работает**
-
-1. Перейдите в каталог с Xcode-проектом (каталог, в котором находится файл с расширением *.xcodeproj*).
-    
-2. Создайте *Podfile* для перечисления зависимостей от других библиотек:
-
-`$ pod init`
-
-3. Откройте *Podfile* в текстовом редакторе и добавьте зависимость для своей цели:
-```ruby
-use_frameworks!
-pod 'GIDSDK', :git => 'https://gitlab.zxz.su/mbushuev/gidsdk.pod.git', :tag => '0.1.0'
-```
-
-4. Выполните в каталоге проекта команду:
-    
-`$ pod install`
-
-
-> **Примечание:** В дальнейшем можно использовать команду pod update для обновления версии библиотеки
-
-
-После этого в каталоге проекта появится файл с расширением *.xcworkspace*.
-
-Для работы c проектом используйте данный файл. Не используйте файл с расширением *.xcodeproj*.
-
-Чтобы открыть файл проекта, выполните команду:
-
-`$ open *.xcworkspace`
-
----
 
 ### Swift Package Manager
 
@@ -48,8 +16,6 @@ pod 'GIDSDK', :git => 'https://gitlab.zxz.su/mbushuev/gidsdk.pod.git', :tag => '
 `https://gitlab.zxz.su/mbushuev/gidsdk.pod.git`
 
 4. Выберите нужную версию, проект и нажмите *AddPackage*
-
----
 
 ### Вручную
 
@@ -71,12 +37,11 @@ pod 'GIDSDK', :git => 'https://gitlab.zxz.su/mbushuev/gidsdk.pod.git', :tag => '
     
 7. Нажмите *Add other > Add files* и выберите скопированные файлы
     
-
 8. Фреймворки должны добавиться с опцией *Embed & Sign*
 
-## Использование
+## Настройка библиотеки
 
-Для настройки получения токенов выполните следующие действия:
+Для настройки библиотеки выполните следующие действия:
 
 **1. Инициализация**
 
@@ -142,7 +107,7 @@ case .a2aGetTokens:
     return "api/v0.2/backend/oauth/token"
 ```
 
-**2. Аутентификация light**
+## Аутентификация light
 
 **Генерация *codeVerifier и codeChallenge***
 
@@ -162,7 +127,7 @@ do {
 Потом необходимо проверить зарегистрирован ли номер телефона в системе
 
 ```swift
-GIDSDK.shared.checkPhone(phone: phone) { result in  
+GIDSDK.shared.mobileLight.checkPhone(phone: phone) { result in  
   switch result {  
   case .success(let data):
     if data.success {
@@ -171,14 +136,12 @@ GIDSDK.shared.checkPhone(phone: phone) { result in
       self.register(phone)
     }
   case .failure(let error):  
-    print(error)  
+    print(error.description)  
   }  
 }
 ```
 
 Варианты ошибок
-
-> Временно не работает, приходит *.unknownError*
 
 ```swift
 public enum ErrorType: String {
@@ -194,13 +157,13 @@ public enum ErrorType: String {
 Если пользователя нет в системе, то его нужно зарегистрировать. Во время регистрации пользователю отправляется OTP код. Повторный код можно отправить через метод getOTP
 
 ```swift
-GIDSDK.shared.register(phone: phone, codeChallange: codeChallange) { result in  
+GIDSDK.shared.mobileLight.register(phone: phone, codeChallange: codeChallange) { result in  
   switch result {  
   case .success(let data):
     self.otpSID = data.otpSID // сохраняем otpSID, далее он понадобится для получения токенов  
     self.waitSeconds = data.waitSeconds // таймер повторной отправки кода в секундах  
   case .failure(let error):  
-    print(error)  
+    print(error.description)  
   }  
 }
 ```
@@ -225,6 +188,8 @@ public enum ErrorType: String {
     case internalServerError = "internal_server_error"
     /// Сработал троттлинг
     case requestError = "request_error"
+    /// Сработал антифрод
+    case requestConflict = "request_conflict"
 }
 ```
 
@@ -233,13 +198,13 @@ public enum ErrorType: String {
 Запрос на отправку OTP кода
 
 ```swift
-GIDSDK.shared.getOTP(codeChallenge: codeChallenge, phone: phone) { result in  
+GIDSDK.shared.mobileLight.getOTP(codeChallenge: codeChallenge, phone: phone) { result in  
   switch result {  
   case .success(let data):  
     self.otpSID = data.otpSID // сохраняем otpSID, далее он понадобится для получения токенов  
     self.waitSeconds = data.waitSeconds // таймер повторной отправки кода в секундах  
   case .failure(let error):  
-    print(error)  
+    print(error.description)  
   }  
 }
 ```
@@ -266,6 +231,8 @@ public enum ErrorType: String {
     case internalServerError = "internal_server_error"
     /// Сработал троттлинг
     case requestError = "request_error"
+    /// Сработал антифрод
+    case requestConflict = "request_conflict"
 }
 ```
 
@@ -274,13 +241,13 @@ public enum ErrorType: String {
 Получение токенов. Необходимо использовать codeVerifier, который создавали в начале, otpSID, OTP-код из SMS и scope.
 
 ```swift
-GIDSDK.shared.auth(otpSID: otpSID, otp: code, phone: phone, codeVerifier: codeVerifier) { result in  
+GIDSDK.shared.mobileLight.auth(otpSID: otpSID, otp: code, phone: phone, codeVerifier: codeVerifier) { result in  
   switch result {  
   case .success(let data):  
     self.jwtToken = data.jwtToken  
     self.oauthToken = data.accessToken  
   case .failure(let error):  
-    print(error)  
+    print(error.description)  
   }  
 }
 ```
@@ -319,10 +286,209 @@ public enum ErrorType: String {
     case internalServerError = "internal_server_error"
     /// Сработал троттлинг
     case requestError = "request_error"
+    /// Сработал антифрод
+    case requestConflict = "request_conflict"
+}
+```
+
+## Anchor to anchor авторизация
+
+### Дополнительная настройка
+
+**1. Настройка библиотеки**
+
+Укажите ваше приложение при инициализации(*Anchor App*)
+
+```swift
+let configuration = GIDSDKConfigurationBuilder()
+            .setClientID("sdk_otp_3")
+            .setClientBaseURL(URL(string: "http://myserver.com/")!)
+            .setAnchorApp(.premier)
+            .build()
+  
+GIDSDK.setup(configuration: configuration)
+```
+
+Варианты приложений
+
+```swift
+case premier
+case matchTV
+case yappy
+case rutube
+```
+
+**2. Настройка проекта**
+
+Добавьте URL схему в ваш проект. Откройте *Info.plist* как Source file и добавьте строки:
+
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>ru.gid.sdk.premier</string>
+    <string>ru.gid.sdk.matchtv</string>
+    <string>ru.gid.sdk.rutube</string>
+    <string>ru.gid.sdk.yappy</string>
+</array>
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>GIDSDK</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>YOUR_APP_SCHEME</string>
+        </array>
+    </dict>
+</array>
+```
+
+Заменив YOUR_APP_SCHEME на ваш, варианты
+
+```
+ru.gid.sdk.premier
+ru.gid.sdk.matchtv
+ru.gid.sdk.rutube
+ru.gid.sdk.yappy
+```
+
+**3. AppDelegate**
+
+Добавьте этот код в AppDelegate
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    GIDSDK.shared.handle(url: url)
+    
+    return true
+}
+```
+
+### Использование
+
+**1. Поиск установленных якорных приложений**
+
+Перед авторизацией необходимо выбрать приложение, через которое будет осуществляться вход. Следующая функция возвращает список установленных якорных приложений
+
+```swift
+let selectedApp = GIDSDK.shared.installedAnchorApps()[selectedIndex]
+```
+
+**2. Получение кода для авторизации**
+
+После выбора выполните следующую функцию
+
+```swift
+let state = randomString(length: 32)
+let nonce = randomString(length: 32)
+
+GIDSDK.shared.anchor2Anchor.login(app: selectedApp, state: state, nonce: nonce) { r in
+    switch r {
+    case .success(let data):
+        // получили код, который можно обменять на токены
+        let loginResult = data
+    case .failure(let e):
+        print(e.description)
+    }
+}
+```
+
+Варианты ошибок
+
+```
+.unknownError(nil) // Неизвестная ошибка
+```
+
+**3. Получение токенов**
+
+```swift
+// спросить пользователя, хочет ли он продолжить вход по номеру телефона loginresult.maskedPhone
+loginWithPhoneFromLoginResult = askUser()
+
+// пользователь решил войти по другому номеру телефона
+if loginWithPhoneFromLoginResult {
+    // переключаем на лайт авторизацию
+    mobileLightLogin()  
+    return
+}
+
+// меняем код на токены
+GIDSDK.shared.anchor2Anchor.auth(loginResult: loginResult) { r in
+    switch r {
+    case .success(let data):
+        // Токен получен
+        print(data.accessToken)
+    case .failure(let e):
+        print(e.description)
+    }
+}
+
+```
+
+Варианты ошибок
+
+```swift
+public enum ErrorType: String {
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case invalidRequest = "invalid_request"
+    /// Недопустимое значение параметра grant_type
+    case unsupportedGrantType = "unsupported_grant_type"
+    /// Пользователь ещё не ввёл код подтверждения
+    case authorizationPending = "authorization_pending"
+    /// Неверный или просроченный ĸод подтверждения, или повторный запрос на получение тоĸена с одним ĸодом
+    case invalidGrant = "invalid_grant"
+    /// Ошибка 401 на сервере, используется отдельный код, т.к. такой код ответа нельзя вернуть клиенту через redirect.
+    case unauthorizedClient = "unauthorized_client"
+    /// Сработал троттлинг по номеру телефона
+    case requestThrottled = "request_throttled"
+    /// Внутренняя ошибĸа сервиса
+    case internalServerError = "internal_server_error"
+    /// Сервис временно недоступен
+    case temporarilyUnavailable = "temporarily_unavailable"
 }
 ```
 
 ## Change log
+
+### 0.2.0
+
+- tvOS support
+- Cybertonica support
+- Anchor to anchor
+- Новая ошибка .noInternetConnectionError
+- Ошибки .emptyResponse и .jsonParseError переехали в .unknownError(error)
+- Прекращение поддержки CocoaPods, тк есть проблемы работы с приватными репозиториями
+
+Deprecated:
+
+```swift
+
+// GIDSDK
+
+@available(*, unavailable, renamed: "mobileLight.checkPhone")
+public func checkPhone(phone: String, completion: @escaping Handler<GIDApiCheckPhoneResponse, GIDApiErrorCheckPhone>) {}
+
+@available(*, unavailable, renamed: "mobileLight.register")
+public func register(phone: String, codeChallenge: String, completion: @escaping Handler<GIDApiRegisterResponse, GIDApiErrorRegister>) {}
+
+@available(*, unavailable, renamed: "mobileLight.getOTP")
+public func getOTP(codeChallenge: String, phone: String, completion: @escaping Handler<GIDApiOTPResponse, GIDApiErrorGetOTP>) {}
+
+@available(*, unavailable, renamed: "mobileLight.auth")
+public func auth(otpSID: String, otp: String, phone: String, codeVerifier: String, completion: @escaping Handler<GIDSDKAuthResponse, GIDApiErrorAuth>) {}
+
+@available(*, unavailable, renamed: "authTokens")
+public func getAuthTokens() -> GIDSDKAuthResponse? {}
+
+// GIDSDKConfigurationBuilder
+
+@available(*, unavailable, message: "Not used")
+public func setApiKey(_ apiKey: String) -> GIDSDKConfigurationBuilder {
+    return self
+}
+```
 
 ### 0.1.11
 
