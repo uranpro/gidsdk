@@ -13,7 +13,7 @@
     
 3.  В появившемся окне найдите строку поиска и укажите адрес репозитория:
     
-`https://gitlab.zxz.su/mbushuev/gidsdk.pod.git`
+`https://gitlab.zxz.su/gid-public/gidsdk.ios.git`
 
 4. Выберите нужную версию, проект и нажмите *AddPackage*
 
@@ -23,7 +23,7 @@
 
 1. Перейдите по ссылке
     
-`https://gitlab.zxz.su/mbushuev/gidsdk.pod/-/tree/main/SwiftPM/releases`
+`https://gitlab.zxz.su/gid-public/gidsdk.ios/-/tree/main/SwiftPM/releases`
 
 2. Выберите нужную версию и перейдите в каталог
     
@@ -323,8 +323,6 @@ GIDSDK.setup(configuration: configuration)
 ```swift
 case premier
 case matchTV
-case yappy
-case rutube
 ```
 
 **2. Настройка проекта**
@@ -336,8 +334,6 @@ case rutube
 <array>
     <string>ru.gid.sdk.premier</string>
     <string>ru.gid.sdk.matchtv</string>
-    <string>ru.gid.sdk.rutube</string>
-    <string>ru.gid.sdk.yappy</string>
 </array>
 <key>CFBundleURLTypes</key>
 <array>
@@ -359,8 +355,6 @@ case rutube
 ```
 ru.gid.sdk.premier
 ru.gid.sdk.matchtv
-ru.gid.sdk.rutube
-ru.gid.sdk.yappy
 ```
 
 **3. AppDelegate**
