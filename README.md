@@ -54,10 +54,11 @@
 
 **2. Инициализация**
 
-Инициализируйте SDK в начале приложения. Укажите свой *client_id и client_base_url* (адрес бэкенда вашего приложения)
+Инициализируйте SDK в начале приложения. Укажите свой *client_id, client_base_url*(адрес бэкенда вашего приложения) и *secret*
 ```swift
 let configuration = GIDSDKConfigurationBuilder()
-            .setClientID("sdk_otp_3")
+            .setClientID("my_client_id")
+            .setSecret("my_secret")
             .setClientBaseURL(URL(string: "http://myserver.com/")!)
             .build()
   
@@ -580,6 +581,7 @@ webView.load(URLRequest(url: loginURL))
 ### 0.3.0
 
 - App to Auth
+- Приватный ключ для работы с сервисом GID задается в конфиге
 
 ### 0.2.0
 
