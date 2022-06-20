@@ -1,5 +1,5 @@
 
-# GIDSDK for iOS v0.2.0
+# GIDSDK for iOS v0.3.0
 
 > Минимальная версия iOS 11
 
@@ -453,7 +453,133 @@ public enum ErrorType: String {
 }
 ```
 
+## App to auth авторизация
+
+Данный метод позволяет пользователю авторизоваться через браузер
+
+### Дополнительная настройка
+
+**1. Настройка проекта**
+
+Добавьте URL схему в ваш проект. Откройте *Info.plist* как Source file и добавьте строки:
+
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>ru.gid.sdk.premier</string>
+    <string>ru.gid.sdk.matchtv</string>
+</array>
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>GIDSDK</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>ru.gid.sdk.CLIENT_ID</string>
+        </array>
+    </dict>
+</array>
+```
+
+Заменив CLIENT_ID на ваш
+
+**2. AppDelegate**
+
+Добавьте этот код в AppDelegate
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    GIDSDK.shared.handle(url: url)
+    
+    return true
+}
+```
+
+### Использование
+
+**1. Safari View Controller**
+
+В этом примере SDK создает SafariViewController, который необходимо отобразить пользователю(через navigation controller, например). После выполнения некоторой работы, вы попадете в completion, где можно скрыть сафари и продолжить авторизацию.
+
+```swift
+let codeVerifier = try GIDPKCE.createVerifier()  
+let codeChallenge = try GIDPKCE.challenge(for: codeVerifier)  
+let state = randomString(length: 32)
+let nonce = randomString(length: 32)
+
+let vc = GIDSDK.shared.app2Auth.createSafariViewController(state: state, nonce: nonce, codeChallenge: codeChallenge) { [weak self] r in
+    self?.navigationController?.popViewController(animated: true)
+    switch r {
+    case .success(let loginResult):
+        GIDSDK.shared.app2Auth.auth(loginResult: loginResult, codeVerifier: codeVerifier) { r in
+            switch r {
+            case .success(let data):
+                print(data.accessToken)
+            case .failure(let e):
+                print(e.description)
+            }
+        }
+    case .failure(let e):
+        print(e.description)
+    }
+}
+self.navigationController?.pushViewController(vc, animated: true)
+```
+
+**2. Web View**
+
+В этом примере SDK создает ссылку, которую можно открыть в webView или браузере.
+
+Перед началом укажите делегат webView и реализуйте метод
+
+```swift
+webView.navigationDelegate = self
+
+// ...
+
+func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    if GIDSDK.shared.app2Auth.handleWebView(navigationAction: navigationAction) {
+        decisionHandler(.allow)
+    }
+}
+```
+
+Получение токена
+
+```swift
+let codeVerifier = try GIDPKCE.createVerifier()  
+let codeChallenge = try GIDPKCE.challenge(for: codeVerifier)  
+let state = randomString(length: 32)
+let nonce = randomString(length: 32)
+
+let loginURL = GIDSDK.shared.app2Auth.createLoginURL(state: state, nonce: nonce, codeChallenge: codeChallenge) { [weak self] r in
+    self?.hideWebView()
+    switch r {
+    case .success(let loginResult):
+        GIDSDK.shared.app2Auth.auth(loginResult: loginResult, codeVerifier: codeVerifier) { r in
+            switch r {
+            case .success(let data):
+                print(data.accessToken)
+            case .failure(let e):
+                print(e.description)
+            }
+        }
+    case .failure(let e):
+        print(e.description)
+    }
+}
+
+webView.load(URLRequest(url: loginURL))
+```
+
 ## Change log
+
+### 0.3.0
+
+- App to Auth
 
 ### 0.2.0
 
