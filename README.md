@@ -1,5 +1,5 @@
 
-# GIDSDK for iOS v0.3.0
+# GIDSDK for iOS v0.3.1
 
 > Минимальная версия iOS 11
 
@@ -402,7 +402,36 @@ GIDSDK.shared.anchor2Anchor.login(app: selectedApp, state: state, nonce: nonce) 
 Варианты ошибок
 
 ```
-.unknownError(nil) // Неизвестная ошибка
+public enum ErrorType: String {
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case invalidRequest = "invalid_request"
+    /// Неверный или просроченный ĸод подтверждения, или повторный запрос на получение тоĸена с одним ĸодом
+    case invalidGrant = "invalid_grant"
+    /// Запрошенный scope: не содержит openid, невалидный
+    case invalidScope = "invalid_scope"
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case validationError = "validation_error"
+    /// отсутствует телефон
+    case emptyPhoneField = "empty_phone_field"
+    /// формат телефона невалидный
+    case invalidPhoneField = "invalid_phone_field"
+    /// Ошибĸа проверĸи OTP ĸода - невалидное значение
+    case invalidOtpCode = "invalid_otp_code"
+    /// Сроĸ действия OTP ĸода истеĸ
+    case expiredOtpCode = "expired_otp_code"
+    /// OTP ĸод был использован ранее
+    case usedOtpCode = "used_otp_code"
+    /// Переданы невалидные данные ĸлиента
+    case invalidClient = "invalid_client"
+    /// Запрошенный scope: не назначен ĸлиенту в настройĸах ГИД SSO.
+    case scopeNotGranted = "scope_not_granted"
+    /// Сработал троттлинг по номеру телефона
+    case requestThrottled = "request_throttled"
+    /// Внутренняя ошибĸа сервиса
+    case internalServerError = "internal_server_error"
+    /// Сервис временно недоступен
+    case temporarilyUnavailable = "temporarily_unavailable"
+}
 ```
 
 **3. Получение токенов**
@@ -420,6 +449,162 @@ if loginWithPhoneFromLoginResult {
 
 // меняем код на токены
 GIDSDK.shared.anchor2Anchor.auth(loginResult: loginResult) { r in
+    switch r {
+    case .success(let data):
+        // Токен получен
+        print(data.accessToken)
+    case .failure(let e):
+        print(e.description)
+    }
+}
+
+```
+
+Варианты ошибок
+
+```swift
+public enum ErrorType: String {
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case invalidRequest = "invalid_request"
+    /// Недопустимое значение параметра grant_type
+    case unsupportedGrantType = "unsupported_grant_type"
+    /// Пользователь ещё не ввёл код подтверждения
+    case authorizationPending = "authorization_pending"
+    /// Неверный или просроченный ĸод подтверждения, или повторный запрос на получение тоĸена с одним ĸодом
+    case invalidGrant = "invalid_grant"
+    /// Ошибка 401 на сервере, используется отдельный код, т.к. такой код ответа нельзя вернуть клиенту через redirect.
+    case unauthorizedClient = "unauthorized_client"
+    /// Сработал троттлинг по номеру телефона
+    case requestThrottled = "request_throttled"
+    /// Внутренняя ошибĸа сервиса
+    case internalServerError = "internal_server_error"
+    /// Сервис временно недоступен
+    case temporarilyUnavailable = "temporarily_unavailable"
+}
+```
+
+## App to anchor авторизация
+
+### Дополнительная настройка
+
+**1. Настройка проекта**
+
+Добавьте URL схему в ваш проект. Откройте *Info.plist* как Source file и добавьте строки:
+
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>ru.gid.sdk.premier</string>
+    <string>ru.gid.sdk.matchtv</string>
+</array>
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>GIDSDK</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>ru.gid.sdk.YOUR_CLIENT_ID</string>
+        </array>
+    </dict>
+</array>
+```
+
+Заменив YOUR_CLIENT_ID на ваш CLIENT_ID
+
+**2. AppDelegate**
+
+Добавьте этот код в AppDelegate
+
+```swift
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    GIDSDK.shared.handle(url: url)
+    
+    return true
+}
+```
+
+### Использование
+
+**1. Поиск установленных якорных приложений**
+
+Перед авторизацией необходимо выбрать приложение, через которое будет осуществляться вход. Следующая функция возвращает список установленных якорных приложений
+
+```swift
+let selectedApp = GIDSDK.shared.installedAnchorApps()[selectedIndex]
+```
+
+**2. Получение кода для авторизации**
+
+После выбора выполните следующую функцию
+
+```swift
+let state = randomString(length: 32)
+let nonce = randomString(length: 32)
+
+GIDSDK.shared.app2Anchor.login(app: selectedApp, state: state, nonce: nonce) { r in
+    switch r {
+    case .success(let data):
+        // получили код, который можно обменять на токены
+        let loginResult = data
+    case .failure(let e):
+        print(e.description)
+    }
+}
+```
+
+Варианты ошибок
+
+```
+public enum ErrorType: String {
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case invalidRequest = "invalid_request"
+    /// Неверный или просроченный ĸод подтверждения, или повторный запрос на получение тоĸена с одним ĸодом
+    case invalidGrant = "invalid_grant"
+    /// Запрошенный scope: не содержит openid, невалидный
+    case invalidScope = "invalid_scope"
+    /// В запросе: отсутствуют обязательные параметры, параметры невалидные
+    case validationError = "validation_error"
+    /// отсутствует телефон
+    case emptyPhoneField = "empty_phone_field"
+    /// формат телефона невалидный
+    case invalidPhoneField = "invalid_phone_field"
+    /// Ошибĸа проверĸи OTP ĸода - невалидное значение
+    case invalidOtpCode = "invalid_otp_code"
+    /// Сроĸ действия OTP ĸода истеĸ
+    case expiredOtpCode = "expired_otp_code"
+    /// OTP ĸод был использован ранее
+    case usedOtpCode = "used_otp_code"
+    /// Переданы невалидные данные ĸлиента
+    case invalidClient = "invalid_client"
+    /// Запрошенный scope: не назначен ĸлиенту в настройĸах ГИД SSO.
+    case scopeNotGranted = "scope_not_granted"
+    /// Сработал троттлинг по номеру телефона
+    case requestThrottled = "request_throttled"
+    /// Внутренняя ошибĸа сервиса
+    case internalServerError = "internal_server_error"
+    /// Сервис временно недоступен
+    case temporarilyUnavailable = "temporarily_unavailable"
+}
+```
+
+**3. Получение токенов**
+
+```swift
+// спросить пользователя, хочет ли он продолжить вход по номеру телефона loginresult.maskedPhone
+loginWithPhoneFromLoginResult = askUser()
+
+// пользователь решил войти по другому номеру телефона
+if loginWithPhoneFromLoginResult {
+    // переключаем на лайт авторизацию
+    mobileLightLogin()  
+    return
+}
+
+// меняем код на токены
+GIDSDK.shared.app2Anchor.auth(loginResult: loginResult) { r in
     switch r {
     case .success(let data):
         // Токен получен
@@ -577,6 +762,13 @@ webView.load(URLRequest(url: loginURL))
 ```
 
 ## Change log
+
+### 0.3.1
+
+- App to anchor
+- Больше информации об ошибках при Anchor to Anchor
+- API -> 0.3.0
+- Функция logout() обнуляет токен в приложении и на сервере
 
 ### 0.3.0
 
