@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "GIDSDK",
-    platforms: [.iOS(.v11), .tvOS(.v9)],
+    platforms: [.iOS(.v11), .tvOS(.v10)],
     products: [
         .library(
             name: "GIDSDK",
@@ -32,18 +32,18 @@ let package = Package(
         ),
         
         .binaryTarget(name: "AFNetworking",
-                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.0/AFNetworking.xcframework.4.0.1.zip",
-                      checksum: "37fd46f4b39249ae23bbca68af3dc11a91d32abf1409f72ea9d3760b6c3c5e48"
+                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.1/AFNetworking.xcframework.4.0.1.zip",
+                      checksum: "2993ea595ba3a625eeb7a8fcd3549b061ece54de796b611ba3b1571d81ebfa58"
         ),
         
         .binaryTarget(name: "Cybertonica",
-                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.0/Cybertonica.xcframework.4.3.1.zip",
-                      checksum: "044a69e6c49bd8afa8ed4ad2fafba245d939feb2080c59b20456ed58984f8095"
+                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.1/Cybertonica.xcframework.4.3.1.zip",
+                      checksum: "19ba7c4f93b844e603503f59fc7719417e4b8e2627b8601b40ed390ee5f6f2fe"
                       ),
         
         .binaryTarget(name: "GIDSDK",
-                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.0/GIDSDK.xcframework.0.3.0.zip",
-                      checksum: "d24ce88d0608813a134e428bc4f80edcd8d76ddb13c17ffc855649ced39cf37d"
+                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.1/GIDSDK.xcframework.0.3.1.zip",
+                      checksum: "7039d7beff4a158523cbd41d59993988e20e49c181b88ac806f850d5080ee509"
         ),
         
     ]
