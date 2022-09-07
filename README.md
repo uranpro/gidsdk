@@ -102,35 +102,40 @@ let configuration = GIDSDKConfigurationBuilder()
 // GIDApiPath.defaultPaths
 
 case .auth:
-    return "api/v0.2/backend/auth"
+    return "api/v0.3/backend/auth"
+case .userinfo:
+    return "api/gid/userinfo/"
+case .revokeToken:
+    return "api/v0.3/backend/oauth/revoke"
 case .refreshToken:
-    return "oauth2/token"
+    return "api/v0.3/backend/oauth/token"
 case .register:
-    return "api/v0.2/sdk/accounts/register/"
+    return "api/v0.3/sdk/accounts/register/"
+case .logout:
+    return "/cas/logout"
 case .getOTP:
-    return "api/v0.2/sdk/actions/send_otp_password/"
+    return "api/v0.3/sdk/actions/send_otp_password/"
 case .checkPhone:
-    return "api/actions/check_phone"
+    return "/api/v0.3/sdk/actions/check_phone"
 case .a2aAuth:
     return "oauth2/auth/a2a"
 case .a2aGetTokens:
-    return "api/v0.2/backend/oauth/token"
+    return "api/v0.3/backend/oauth/token"
+case .app2AuthGetTokens:
+    return "oauth2/token"
+```
+
+> Если у вас несколько приложений и вы хотите шарить сессию между ними через AppGroup, то укажите AppGroupIdentifier
+```swift
+let configuration = GIDSDKConfigurationBuilder()
+            .setClientID("sdk_otp_3")
+            .setClientBaseURL(URL(string: "http://myserver.com/")!)
+            .setGIDBaseURL(URL(string: "http://auth.gid.ru/")!)
+            .setAppGroupIdentifier("com.my.appGroup")
+            .build()
 ```
 
 ## Аутентификация light
-
-**Генерация *codeVerifier и codeChallenge***
-
-Перед запросом на отправку OTP, необходимо сгенерировать *codeVerifier и codeChallenge*.
-
-```swift
-do {  
-  let codeVerifier = try GIDPKCE.createVerifier()  
-  let codeChallenge = try GIDPKCE.challenge(for: codeVerifier)  
-} catch error {
-  print(error)  
-}
-```
 
 **Проверка телефона, зарегистрирован ли юзер**
 
@@ -167,7 +172,7 @@ public enum ErrorType: String {
 Если пользователя нет в системе, то его нужно зарегистрировать. Во время регистрации пользователю отправляется OTP код. Повторный код можно отправить через метод getOTP
 
 ```swift
-GIDSDK.shared.mobileLight.register(phone: phone, codeChallange: codeChallange) { result in  
+GIDSDK.shared.mobileLight.register(phone: phone) { result in  
   switch result {  
   case .success(let data):
     self.otpSID = data.otpSID // сохраняем otpSID, далее он понадобится для получения токенов  
@@ -208,7 +213,7 @@ public enum ErrorType: String {
 Запрос на отправку OTP кода
 
 ```swift
-GIDSDK.shared.mobileLight.getOTP(codeChallenge: codeChallenge, phone: phone) { result in  
+GIDSDK.shared.mobileLight.getOTP(phone: phone) { result in  
   switch result {  
   case .success(let data):  
     self.otpSID = data.otpSID // сохраняем otpSID, далее он понадобится для получения токенов  
@@ -248,10 +253,10 @@ public enum ErrorType: String {
 
 **Запрос аутентификации пользователя**
 
-Получение токенов. Необходимо использовать codeVerifier, который создавали в начале, otpSID, OTP-код из SMS и scope.
+Получение токенов
 
 ```swift
-GIDSDK.shared.mobileLight.auth(otpSID: otpSID, otp: code, phone: phone, codeVerifier: codeVerifier) { result in  
+GIDSDK.shared.mobileLight.auth(otpSID: otpSID, otp: code, phone: phone) { result in  
   switch result {  
   case .success(let data):  
     self.jwtToken = data.jwtToken  
@@ -385,10 +390,8 @@ let selectedApp = GIDSDK.shared.installedAnchorApps()[selectedIndex]
 После выбора выполните следующую функцию
 
 ```swift
-let state = randomString(length: 32)
-let nonce = randomString(length: 32)
 
-GIDSDK.shared.anchor2Anchor.login(app: selectedApp, state: state, nonce: nonce) { r in
+GIDSDK.shared.anchor2Anchor.login(app: selectedApp) { r in
     switch r {
     case .success(let data):
         // получили код, который можно обменять на токены
@@ -541,10 +544,8 @@ let selectedApp = GIDSDK.shared.installedAnchorApps()[selectedIndex]
 После выбора выполните следующую функцию
 
 ```swift
-let state = randomString(length: 32)
-let nonce = randomString(length: 32)
 
-GIDSDK.shared.app2Anchor.login(app: selectedApp, state: state, nonce: nonce) { r in
+GIDSDK.shared.app2Anchor.login(app: selectedApp) { r in
     switch r {
     case .success(let data):
         // получили код, который можно обменять на токены
@@ -691,16 +692,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 В этом примере SDK создает SafariViewController, который необходимо отобразить пользователю(через navigation controller, например). После выполнения некоторой работы, вы попадете в completion, где можно скрыть сафари и продолжить авторизацию.
 
 ```swift
-let codeVerifier = try GIDPKCE.createVerifier()  
-let codeChallenge = try GIDPKCE.challenge(for: codeVerifier)  
-let state = randomString(length: 32)
-let nonce = randomString(length: 32)
 
-let vc = GIDSDK.shared.app2Auth.createSafariViewController(state: state, nonce: nonce, codeChallenge: codeChallenge) { [weak self] r in
+let vc = GIDSDK.shared.app2Auth.createSafariViewController { [weak self] r in
     self?.navigationController?.popViewController(animated: true)
     switch r {
     case .success(let loginResult):
-        GIDSDK.shared.app2Auth.auth(loginResult: loginResult, codeVerifier: codeVerifier) { r in
+        GIDSDK.shared.app2Auth.auth(loginResult: loginResult) { r in
             switch r {
             case .success(let data):
                 print(data.accessToken)
@@ -736,16 +733,12 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
 Получение токена
 
 ```swift
-let codeVerifier = try GIDPKCE.createVerifier()  
-let codeChallenge = try GIDPKCE.challenge(for: codeVerifier)  
-let state = randomString(length: 32)
-let nonce = randomString(length: 32)
 
-let loginURL = GIDSDK.shared.app2Auth.createLoginURL(state: state, nonce: nonce, codeChallenge: codeChallenge) { [weak self] r in
+let loginURL = GIDSDK.shared.app2Auth.createLoginURL { [weak self] r in
     self?.hideWebView()
     switch r {
     case .success(let loginResult):
-        GIDSDK.shared.app2Auth.auth(loginResult: loginResult, codeVerifier: codeVerifier) { r in
+        GIDSDK.shared.app2Auth.auth(loginResult: loginResult) { r in
             switch r {
             case .success(let data):
                 print(data.accessToken)
@@ -761,7 +754,74 @@ let loginURL = GIDSDK.shared.app2Auth.createLoginURL(state: state, nonce: nonce,
 webView.load(URLRequest(url: loginURL))
 ```
 
+### Завершение сессии
+
+Если вы хотите завершить сессию в webView, SafariViewController или браузере, то вам необходимо создать logoutURL и перейти по ней
+
+```swift
+let url = GIDSDK.shared.appToAuth.createLogoutURL()
+
+webView.load(URLRequest(url: url))
+// or
+safariViewController.load(URLRequest(url: url))
+// or
+application.openURL(url)
+```
+
 ## Change log
+
+### 0.3.2
+
+- Поддержка AppGroup
+- В AppToAuth добавлен метод createLogoutURL
+- Code challenge, code verifier, state, nonce - теперь скрыты
+- Мелкие правки
+
+Deprecated:
+
+```swift
+
+// GIDMobileLight
+
+/// Register user by phone
+@available(*, unavailable, message: "Remove 'codeChallenge' parameter")
+public func register(phone: String, codeChallenge: String, completion: @escaping Handler<GIDApiRegisterResponse, GIDApiErrorRegister>) {}
+
+/// Send OTP code to phone, use GIDPKCE to generate codeChallenge and codeVerifier
+@available(*, unavailable, message: "Remove 'codeChallenge' parameter")
+public func getOTP(codeChallenge: String, phone: String, completion: @escaping Handler<GIDApiOTPResponse, GIDApiErrorGetOTP>) {}
+
+/// Get tokens with otpSID from getOTP(), otp code, phone and scope, use GIDPKCE to generate codeChallenge and codeVerifier
+@available(*, unavailable, message: "Remove 'codeVerifier' parameter")
+public func auth(otpSID: String, otp: String, phone: String, codeVerifier: String, completion: @escaping Handler<GIDSDKAuthResponse, GIDApiErrorAuth>) {}
+
+
+// GIDApp2Auth
+
+/// Auth by loginResult
+@available(*, unavailable, message: "Remove 'codeVerifier' parameter")
+public func auth(loginResult: GIDSDKDeeplinkLoginResult, codeVerifier: String, completion: @escaping Handler<GIDSDKAuthResponse, GIDApiErrorAny>) {}
+
+/// Create loginURL. You can open via webView, SafariViewController or Application.openURL. If use webView, you need to handle navigation action in delegate, see handleWebView method
+/// - Parameter completion: on completion close your webView or safariViewController, use result to auth
+@available(*, unavailable, message: "Remove 'codeChallenge', 'state' and 'nonce' parameter")
+public func createLoginURL(state: String, nonce: String, codeChallenge: String, completion: @escaping Handler<GIDSDKDeeplinkLoginResult, GIDApiErrorAny>) -> URL {
+    return URL(string: "")!
+}
+
+/// Create safari view controller with loginURL
+/// - Parameter completion: on completion close your safariViewController, use result to auth
+@available(*, unavailable, message: "Remove 'codeChallenge', 'state' and 'nonce' parameter")
+public func createSafariViewController(state: String, nonce: String, codeChallenge: String, completion: @escaping Handler<GIDSDKDeeplinkLoginResult, GIDApiErrorAny>) -> SFSafariViewController {
+    return SFSafariViewController(url: URL(string: "")!)
+}
+
+// GIDAnchor2Anchor
+
+@available(*, unavailable, message: "Remove 'state' and 'nonce' parameter")
+public func login(app: GIDSDKApp, state: String, nonce: String, completion: @escaping Handler<GIDSDKDeeplinkLoginResult, GIDApiErrorAny>) {}
+
+```
 
 ### 0.3.1
 
