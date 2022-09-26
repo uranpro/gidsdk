@@ -33,17 +33,17 @@ let package = Package(
         
         .binaryTarget(name: "AFNetworking",
                       url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.2/AFNetworking.xcframework.4.0.1.zip",
-                      checksum: "82e72117537856b320804bee2f694d232b25a168b989099ad470bd1e52396c2d"
+                      checksum: "dd22f8c21c2a8bb13390450df438a96fc2b4634fd6b3730207e70d3820ec0cb8"
         ),
         
         .binaryTarget(name: "Cybertonica",
                       url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.2/Cybertonica.xcframework.4.3.1.zip",
-                      checksum: "d014cf483bee9c37a4ea2fa5e271da8334bdbcf0ed138f10d98e7795b1f3c6ce"
+                      checksum: "309d2a3e9cd4c7f9b4f2b37105f9b7be9b5adc0de15305d1940b013ff408e477"
                       ),
         
         .binaryTarget(name: "GIDSDK",
                       url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.2/GIDSDK.xcframework.0.3.2.zip",
-                      checksum: "01b6a53c2609ec95f6faa885f7ec3a46dd7c98b111b2e35c4197a8446be84dcf"
+                      checksum: "8ab5dd75b7467b1c0cee767da37b4b6da0786649a394bb64b65cd10a5387f3fe"
         ),
         
     ]
