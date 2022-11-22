@@ -1,7 +1,7 @@
 
-# GIDSDK for iOS v0.3.2
+# GIDSDK for iOS v0.3.3
 
-> Минимальная версия iOS 11
+> Минимальная версия iOS 11, tvOS 10
 
 ## Установка
 
@@ -47,7 +47,7 @@
 
 Добавьте следующие строки в Info.plist
 
-```
+```xml
 <key>NSPrincipalClass</key>
 <string>ApplicationWrapper</string>
 ```
@@ -335,7 +335,7 @@ case matchTV
 
 Добавьте URL схему в ваш проект. Откройте *Info.plist* как Source file и добавьте строки:
 
-```
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>ru.gid.sdk.premier</string>
@@ -404,7 +404,7 @@ GIDSDK.shared.anchor2Anchor.login(app: selectedApp) { r in
 
 Варианты ошибок
 
-```
+```swift
 public enum ErrorType: String {
     /// В запросе: отсутствуют обязательные параметры, параметры невалидные
     case invalidRequest = "invalid_request"
@@ -494,7 +494,7 @@ public enum ErrorType: String {
 
 Добавьте URL схему в ваш проект. Откройте *Info.plist* как Source file и добавьте строки:
 
-```
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>ru.gid.sdk.premier</string>
@@ -558,7 +558,7 @@ GIDSDK.shared.app2Anchor.login(app: selectedApp) { r in
 
 Варианты ошибок
 
-```
+```swift
 public enum ErrorType: String {
     /// В запросе: отсутствуют обязательные параметры, параметры невалидные
     case invalidRequest = "invalid_request"
@@ -650,7 +650,7 @@ public enum ErrorType: String {
 
 Добавьте URL схему в ваш проект. Откройте *Info.plist* как Source file и добавьте строки:
 
-```
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>ru.gid.sdk.premier</string>
@@ -769,6 +769,12 @@ application.openURL(url)
 ```
 
 ## Change log
+
+### 0.3.3
+
+- Убрали Cybertonica
+- В GIDApiErrorResponse параметр errorDescription теперь опциональный
+- Ошибки при Anchor to Anchor теперь возвращаются в формате enum GIDApiError\<GIDApiErrorClientAuth>
 
 ### 0.3.2
 
