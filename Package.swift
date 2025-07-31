@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "GIDSDK",
-    platforms: [.iOS(.v11), .tvOS(.v10)],
+    platforms: [.iOS(.v13), .tvOS(.v10)],
     products: [
         .library(
             name: "GIDSDK",
@@ -25,22 +25,22 @@ let package = Package(
         .target(name: "GIDSDKWrapper",
                 dependencies: [
                     .target(name: "GIDSDK", condition: .when(platforms: [.iOS, .tvOS])),
-                    .target(name: "AFNetworking", condition: .when(platforms: [.iOS, .tvOS])),
+                    .target(name: "KFPMobileKit", condition: .when(platforms: [.iOS, .tvOS])),
                     
                 ],
                 path: "SwiftPM/GIDSDKWrapper"
         ),
         
-        .binaryTarget(name: "AFNetworking",
-                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.3/AFNetworking.xcframework.4.0.1.zip",
-                      checksum: "ed110c64fc39ce225f3d5546bada873afb00a15c76cc08ed0367250bb2f09401"
+        .binaryTarget(name: "KFPMobileKit",
+                      url: "https://gitlab.gid.team/sso/sdk/mobile/gidsdk.pod/-/raw/main/SwiftPM/releases/1.2.0/KFPMobileKit.xcframework.zip",
+                      checksum: "25beb3a16b988025bfc9f72164ced749cd05a8c76995dc9452e1dc7c4c710db7"
         ),
         
         
         
         .binaryTarget(name: "GIDSDK",
-                      url: "https://gitlab.zxz.su/gid-public/gidsdk.ios/-/raw/main/SwiftPM/releases/0.3.3/GIDSDK.xcframework.0.3.3.zip",
-                      checksum: "de494d51fbfaca4b56f86e975435eb09b6d8fd8a475386e9f1683e05c2748c4f"
+                      url: "https://gitlab.gid.team/sso/sdk/mobile/gidsdk.pod/-/raw/main/SwiftPM/releases/1.2.0/GIDSDK.xcframework.zip",
+                      checksum: "0811e4a86e24b6f91680b24b8d3318356c2973fb304eac58e2219cbab50536b4"
         ),
         
     ]

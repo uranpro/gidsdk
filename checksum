@@ -1,8 +1,6 @@
 read -p "Enter GIDSDK version: " version
 
 echo GIDSDK
-swift package compute-checksum "./SwiftPM/releases/$version/GIDSDK.xcframework.$version.zip"
-echo Cybertonica
-swift package compute-checksum "./SwiftPM/releases/$version/Cybertonica.xcframework.4.3.1.zip"
-echo AFNetworking
-swift package compute-checksum "./SwiftPM/releases/$version/AFNetworking.xcframework.4.0.1.zip"
+swift package compute-checksum "./SwiftPM/releases/$version/GIDSDK-public.xcframework.zip"
+echo KFPMobileKit
+swift package compute-checksum "./SwiftPM/releases/$version/KFPMobileKit.xcframework.zip"

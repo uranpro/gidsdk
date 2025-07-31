@@ -9,6 +9,7 @@ dist/
 
 xcuserdata
 build
+.build
 .swiftpm
 
 # Compiled Java class files
