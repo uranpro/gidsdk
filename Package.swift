@@ -32,14 +32,14 @@ let package = Package(
         ),
         
         .binaryTarget(name: "KFPMobileKit",
-                      url: "https://gitlab.gid.team/sso/sdk/mobile/gidsdk.pod/-/raw/main/SwiftPM/releases/1.2.0/KFPMobileKit.xcframework.zip",
+                      url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/1.2.0/KFPMobileKit.xcframework.zip",
                       checksum: "25beb3a16b988025bfc9f72164ced749cd05a8c76995dc9452e1dc7c4c710db7"
         ),
         
         
         
         .binaryTarget(name: "GIDSDK",
-                      url: "https://gitlab.gid.team/sso/sdk/mobile/gidsdk.pod/-/raw/main/SwiftPM/releases/1.2.0/GIDSDK-public.xcframework.zip",
+                      url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/1.2.0/GIDSDK-public.xcframework.zip",
                       checksum: "0811e4a86e24b6f91680b24b8d3318356c2973fb304eac58e2219cbab50536b4"
         ),
         
