@@ -12,7 +12,10 @@ let package = Package(
             targets: ["GIDSDKTarget"]
         ),
     ],
-    
+    dependencies: [
+        .package(url: "https://github.com/segmentio/analytics-swift.git", from: "1.8.0"),
+        .package(url: "https://github.com/getsentry/sentry-cocoa.git", from: "8.53.2")
+    ],
     targets: [
         .target(
               name: "GIDSDKTarget",
@@ -25,11 +28,18 @@ let package = Package(
         .target(name: "GIDSDKWrapper",
                 dependencies: [
                     .target(name: "GIDSDK", condition: .when(platforms: [.iOS, .tvOS])),
-                    .target(name: "KFPMobileKit", condition: .when(platforms: [.iOS, .tvOS])),
-                    
+                    .target(name: "KFPMobileKit", condition: .when(platforms: [.iOS, .tvOS])), 
+                    .target(name: "GIDSDKDependencies", condition: .when(platforms: [.iOS, .tvOS])), 
                 ],
                 path: "SwiftPM/GIDSDKWrapper"
         ),
+
+        .target(name: "GIDSDKDependencies",
+         dependencies: [
+            .product(name: "Segment", package: "analytics-swift"),
+            .product(name: "Sentry", package: "sentry-cocoa")
+            ],
+            path: "SwiftPM/GIDSDKDependencies"),
         
         .binaryTarget(name: "KFPMobileKit",
                       url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/1.2.0/KFPMobileKit.xcframework.zip",
