@@ -13,7 +13,4 @@ Pod::Spec.new do |spec|
     spec.ios.deployment_target  = '13.0'
     spec.tvos.deployment_target  = '13.0'
 
-    spec.dependency 'Segmentio', '~> 4.1'
-    spec.dependency 'Sentry', '~> 8.53.2'
-
 end
