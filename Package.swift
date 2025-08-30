@@ -34,29 +34,22 @@ let package = Package(
             dependencies: [
                 .target(name: "GIDSDK", condition: .when(platforms: [.iOS, .tvOS])),
                 .target(name: "KFPMobileKit", condition: .when(platforms: [.iOS, .tvOS])), 
-                .target(name: "GIDSDKDependencies", condition: .when(platforms: [.iOS, .tvOS])), 
-            ],
-            path: "SwiftPM/GIDSDKWrapper"
-        ),
-
-        .target(
-            name: "GIDSDKDependencies",
-            dependencies: [
                 .product(name: "Segment", package: "analytics-swift"),
                 .product(name: "Sentry", package: "sentry-cocoa")
             ],
-            path: "SwiftPM/GIDSDKDependencies"),
+            path: "SwiftPM/GIDSDKWrapper"
+        ),
         
         .binaryTarget(
             name: "KFPMobileKit",
-            url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/1.2.0/KFPMobileKit.xcframework.zip",
-            checksum: "25beb3a16b988025bfc9f72164ced749cd05a8c76995dc9452e1dc7c4c710db7"
+            url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/KFPMobileKit.xcframework-5.3.0.24.zip",
+            checksum: "701c93afc4a120ae4d13fb1c4cbcfec24cef04828b5c67d2d40e9615e704f761"
         ),
         
         .binaryTarget(
             name: "GIDSDK",
-            url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/1.2.1/GIDSDK-public.xcframework.zip",
-            checksum: "41b44cdf680e46f081956170ade1ea8851daeded20e28216f59c03d4404665cb"
+            url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/GIDSDK-public-spm.xcframework-1.2.1.zip",
+            checksum: "03d98c260977157f982acbac75108525155161c2e4b804f908d3f0374e4ff99e"
         ),
     ]
 )

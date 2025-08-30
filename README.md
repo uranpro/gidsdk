@@ -1,7 +1,7 @@
 
-# GIDSDK for iOS v0.3.3
+# GIDSDK for iOS v1.2.1
 
-> Минимальная версия iOS 11, tvOS 10
+> Минимальная версия iOS 13, tvOS 13
 
 ## Установка
 
@@ -13,7 +13,7 @@
     
 3.  В появившемся окне найдите строку поиска и укажите адрес репозитория:
     
-`https://gitlab.zxz.su/gid-public/gidsdk.ios.git`
+`https://gitlab.gid.team/sso/sdk/mobile/gidsdk.pod.git`
 
 4. Выберите нужную версию, проект и нажмите *AddPackage*
 
