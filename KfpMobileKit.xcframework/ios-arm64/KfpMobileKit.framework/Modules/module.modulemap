@@ -1,0 +1,8 @@
+framework module KfpMobileKit {
+    umbrella header "KfpMobileKit.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}
