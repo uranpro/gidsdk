@@ -13544,6 +13544,302 @@
         "printedName": "GIDApiTokenResult",
         "children": [
           {
+            "kind": "Var",
+            "name": "tokenID",
+            "printedName": "tokenID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit17GIDApiTokenResultV7tokenIDSSvp",
+            "mangledName": "$s6GIDKit17GIDApiTokenResultV7tokenIDSSvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit17GIDApiTokenResultV7tokenIDSSvg",
+                "mangledName": "$s6GIDKit17GIDApiTokenResultV7tokenIDSSvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "accessToken",
+            "printedName": "accessToken",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit17GIDApiTokenResultV06accessC0SSvp",
+            "mangledName": "$s6GIDKit17GIDApiTokenResultV06accessC0SSvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit17GIDApiTokenResultV06accessC0SSvg",
+                "mangledName": "$s6GIDKit17GIDApiTokenResultV06accessC0SSvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "refreshToken",
+            "printedName": "refreshToken",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit17GIDApiTokenResultV07refreshC0SSSgvp",
+            "mangledName": "$s6GIDKit17GIDApiTokenResultV07refreshC0SSSgvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit17GIDApiTokenResultV07refreshC0SSSgvg",
+                "mangledName": "$s6GIDKit17GIDApiTokenResultV07refreshC0SSSgvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "expiresIn",
+            "printedName": "expiresIn",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit17GIDApiTokenResultV9expiresInSivp",
+            "mangledName": "$s6GIDKit17GIDApiTokenResultV9expiresInSivp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit17GIDApiTokenResultV9expiresInSivg",
+                "mangledName": "$s6GIDKit17GIDApiTokenResultV9expiresInSivg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "scope",
+            "printedName": "scope",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit17GIDApiTokenResultV5scopeSSvp",
+            "mangledName": "$s6GIDKit17GIDApiTokenResultV5scopeSSvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit17GIDApiTokenResultV5scopeSSvg",
+                "mangledName": "$s6GIDKit17GIDApiTokenResultV5scopeSSvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "additionalData",
+            "printedName": "additionalData",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit17GIDApiTokenResultV14additionalDataSSSgvp",
+            "mangledName": "$s6GIDKit17GIDApiTokenResultV14additionalDataSSSgvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit17GIDApiTokenResultV14additionalDataSSSgvg",
+                "mangledName": "$s6GIDKit17GIDApiTokenResultV14additionalDataSSSgvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(from:)",
@@ -14328,66 +14624,6 @@
           },
           {
             "kind": "Var",
-            "name": "googleRecaptcha",
-            "printedName": "googleRecaptcha",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit20GIDApiConfigResponseV15googleRecaptchaSSSgvp",
-            "mangledName": "$s6GIDKit20GIDApiConfigResponseV15googleRecaptchaSSSgvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit20GIDApiConfigResponseV15googleRecaptchaSSSgvg",
-                "mangledName": "$s6GIDKit20GIDApiConfigResponseV15googleRecaptchaSSSgvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "state",
             "printedName": "state",
             "children": [
@@ -14696,6 +14932,142 @@
                 "declKind": "Accessor",
                 "usr": "s:6GIDKit20GIDApiConfigResponseV10externalIDSiSgvg",
                 "mangledName": "$s6GIDKit20GIDApiConfigResponseV10externalIDSiSgvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "loginTag",
+            "printedName": "loginTag",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit20GIDApiConfigResponseV8loginTagSaySSGSgvp",
+            "mangledName": "$s6GIDKit20GIDApiConfigResponseV8loginTagSaySSGSgvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit20GIDApiConfigResponseV8loginTagSaySSGSgvg",
+                "mangledName": "$s6GIDKit20GIDApiConfigResponseV8loginTagSaySSGSgvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "trackingReciever",
+            "printedName": "trackingReciever",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit20GIDApiConfigResponseV16trackingRecieverSbSgvp",
+            "mangledName": "$s6GIDKit20GIDApiConfigResponseV16trackingRecieverSbSgvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit20GIDApiConfigResponseV16trackingRecieverSbSgvg",
+                "mangledName": "$s6GIDKit20GIDApiConfigResponseV16trackingRecieverSbSgvg",
                 "moduleName": "GIDKit",
                 "implicit": true,
                 "accessorKind": "get"
@@ -16259,12 +16631,56 @@
           {
             "kind": "Function",
             "name": "createQrURL",
-            "printedName": "createQrURL(completion:)",
+            "printedName": "createQrURL(clientId:_:completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -16308,8 +16724,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:6GIDKit14GIDMobileLightC11createQrURL10completionyys6ResultOyAA12GIDQrCodeUrlVAA11GIDApiErrorOyAA0lM3AnyCGGc_tF",
-            "mangledName": "$s6GIDKit14GIDMobileLightC11createQrURL10completionyys6ResultOyAA12GIDQrCodeUrlVAA11GIDApiErrorOyAA0lM3AnyCGGc_tF",
+            "usr": "s:6GIDKit14GIDMobileLightC11createQrURL8clientId_10completionySSSg_SDyS2SGSgys6ResultOyAA12GIDQrCodeUrlVAA11GIDApiErrorOyAA0nO3AnyCGGctF",
+            "mangledName": "$s6GIDKit14GIDMobileLightC11createQrURL8clientId_10completionySSSg_SDyS2SGSgys6ResultOyAA12GIDQrCodeUrlVAA11GIDApiErrorOyAA0nO3AnyCGGctF",
             "moduleName": "GIDKit",
             "declAttributes": [
               "Final",
@@ -16341,12 +16757,27 @@
           {
             "kind": "Function",
             "name": "getQrFlowStatus",
-            "printedName": "getQrFlowStatus(completion:)",
+            "printedName": "getQrFlowStatus(_:completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -16390,8 +16821,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:6GIDKit14GIDMobileLightC15getQrFlowStatus10completionyys6ResultOyAA18GIDSDKAuthResponseVAA11GIDApiErrorOyAA0lM4AuthCGGc_tF",
-            "mangledName": "$s6GIDKit14GIDMobileLightC15getQrFlowStatus10completionyys6ResultOyAA18GIDSDKAuthResponseVAA11GIDApiErrorOyAA0lM4AuthCGGc_tF",
+            "usr": "s:6GIDKit14GIDMobileLightC15getQrFlowStatus_10completionySSSg_ys6ResultOyAA18GIDSDKAuthResponseVAA11GIDApiErrorOyAA0lM4AuthCGGctF",
+            "mangledName": "$s6GIDKit14GIDMobileLightC15getQrFlowStatus_10completionySSSg_ys6ResultOyAA18GIDSDKAuthResponseVAA11GIDApiErrorOyAA0lM4AuthCGGctF",
             "moduleName": "GIDKit",
             "declAttributes": [
               "Final",
@@ -16984,7 +17415,7 @@
           {
             "kind": "Function",
             "name": "createLoginURL",
-            "printedName": "createLoginURL(_:_:_:completion:)",
+            "printedName": "createLoginURL(_:loginTag:customScope:customCid:customSessionId:flowName:completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -16998,6 +17429,36 @@
                     "usr": "s:10Foundation3URLV"
                   }
                 ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
                 "usr": "s:Sq"
               },
               {
@@ -17056,6 +17517,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
+                "printedName": "GIDKit.GIDSDKTrackingFlowName?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKTrackingFlowName",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                    "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
                 "printedName": "((Swift.Result<GIDKit.GIDSDKDeeplinkLoginResult, GIDKit.GIDApiError<GIDKit.GIDApiErrorAny>>) -> ())?",
                 "children": [
                   {
@@ -17103,8 +17579,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:6GIDKit11GIDApp2AuthC14createLoginURL___10completion10Foundation0F0VSgShyAA11GIDApiScopeOGSg_SSSgANys6ResultOyAA014GIDSDKDeeplinkeK0VAA0I5ErrorOyAA0iM3AnyCGGcSgtF",
-            "mangledName": "$s6GIDKit11GIDApp2AuthC14createLoginURL___10completion10Foundation0F0VSgShyAA11GIDApiScopeOGSg_SSSgANys6ResultOyAA014GIDSDKDeeplinkeK0VAA0I5ErrorOyAA0iM3AnyCGGcSgtF",
+            "usr": "s:6GIDKit11GIDApp2AuthC14createLoginURL_8loginTag11customScope0I3Cid0I9SessionId8flowName10completion10Foundation0F0VSgSSSg_AOShyAA06GIDApiJ0OGSgA2oA018GIDSDKTrackingFlowO0OSgys6ResultOyAA014GIDSDKDeeplinkeU0VAA0R5ErrorOyAA0rW3AnyCGGcSgtF",
+            "mangledName": "$s6GIDKit11GIDApp2AuthC14createLoginURL_8loginTag11customScope0I3Cid0I9SessionId8flowName10completion10Foundation0F0VSgSSSg_AOShyAA06GIDApiJ0OGSgA2oA018GIDSDKTrackingFlowO0OSgys6ResultOyAA014GIDSDKDeeplinkeU0VAA0R5ErrorOyAA0rW3AnyCGGcSgtF",
             "moduleName": "GIDKit",
             "declAttributes": [
               "Final",
@@ -22517,55 +22993,6 @@
           },
           {
             "kind": "Var",
-            "name": "app2Anchor",
-            "printedName": "app2Anchor",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDApp2Anchor",
-                "printedName": "GIDKit.GIDApp2Anchor",
-                "usr": "s:6GIDKit13GIDApp2AnchorC"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit6GIDSDKC10app2AnchorAA07GIDApp2D0Cvp",
-            "mangledName": "$s6GIDKit6GIDSDKC10app2AnchorAA07GIDApp2D0Cvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GIDApp2Anchor",
-                    "printedName": "GIDKit.GIDApp2Anchor",
-                    "usr": "s:6GIDKit13GIDApp2AnchorC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit6GIDSDKC10app2AnchorAA07GIDApp2D0Cvg",
-                "mangledName": "$s6GIDKit6GIDSDKC10app2AnchorAA07GIDApp2D0Cvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "app2Auth",
             "printedName": "app2Auth",
             "children": [
@@ -22604,55 +23031,6 @@
                 "declKind": "Accessor",
                 "usr": "s:6GIDKit6GIDSDKC8app2AuthAA07GIDApp2D0Cvg",
                 "mangledName": "$s6GIDKit6GIDSDKC8app2AuthAA07GIDApp2D0Cvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "anchor2Anchor",
-            "printedName": "anchor2Anchor",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDAnchor2Anchor",
-                "printedName": "GIDKit.GIDAnchor2Anchor",
-                "usr": "s:6GIDKit16GIDAnchor2AnchorC"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit6GIDSDKC13anchor2AnchorAA010GIDAnchor2D0Cvp",
-            "mangledName": "$s6GIDKit6GIDSDKC13anchor2AnchorAA010GIDAnchor2D0Cvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GIDAnchor2Anchor",
-                    "printedName": "GIDKit.GIDAnchor2Anchor",
-                    "usr": "s:6GIDKit16GIDAnchor2AnchorC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit6GIDSDKC13anchor2AnchorAA010GIDAnchor2D0Cvg",
-                "mangledName": "$s6GIDKit6GIDSDKC13anchor2AnchorAA010GIDAnchor2D0Cvg",
                 "moduleName": "GIDKit",
                 "implicit": true,
                 "declAttributes": [
@@ -23047,6 +23425,162 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "getForceLoginVariantss",
+            "printedName": "getForceLoginVariantss",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String]) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvp",
+            "mangledName": "$s6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "([Swift.String]) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvg",
+                "mangledName": "$s6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "([Swift.String]) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvs",
+                "mangledName": "$s6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvs",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvM",
+                "mangledName": "$s6GIDKit6GIDSDKC22getForceLoginVariantssyySaySSGcvM",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "installedAnchorApps",
             "printedName": "installedAnchorApps()",
@@ -23194,6 +23728,39 @@
             "usr": "s:6GIDKit6GIDSDKC19appGroupsAuthTokensAA18GIDSDKAuthResponseVSgyF",
             "mangledName": "$s6GIDKit6GIDSDKC19appGroupsAuthTokensAA18GIDSDKAuthResponseVSgyF",
             "moduleName": "GIDKit",
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Available",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getSharedAuthTokens",
+            "printedName": "getSharedAuthTokens()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GIDKit.GIDSDKAuthResponse?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKAuthResponse",
+                    "printedName": "GIDKit.GIDSDKAuthResponse",
+                    "usr": "s:6GIDKit18GIDSDKAuthResponseV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit6GIDSDKC19getSharedAuthTokensAA18GIDSDKAuthResponseVSgyF",
+            "mangledName": "$s6GIDKit6GIDSDKC19getSharedAuthTokensAA18GIDSDKAuthResponseVSgyF",
+            "moduleName": "GIDKit",
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -23232,6 +23799,109 @@
             "declKind": "Func",
             "usr": "s:6GIDKit6GIDSDKC14appGroupTokensSayAA18GIDSDKAuthResponseVGSgyF",
             "mangledName": "$s6GIDKit6GIDSDKC14appGroupTokensSayAA18GIDSDKAuthResponseVGSgyF",
+            "moduleName": "GIDKit",
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Available",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getLatestSharedAuthToken",
+            "printedName": "getLatestSharedAuthToken()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GIDKit.GIDSDKAuthResponse?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKAuthResponse",
+                    "printedName": "GIDKit.GIDSDKAuthResponse",
+                    "usr": "s:6GIDKit18GIDSDKAuthResponseV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit6GIDSDKC24getLatestSharedAuthTokenAA18GIDSDKAuthResponseVSgyF",
+            "mangledName": "$s6GIDKit6GIDSDKC24getLatestSharedAuthTokenAA18GIDSDKAuthResponseVSgyF",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAllSharedAuthTokens",
+            "printedName": "getAllSharedAuthTokens()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[GIDKit.GIDSDKAuthResponse]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKAuthResponse",
+                    "printedName": "GIDKit.GIDSDKAuthResponse",
+                    "usr": "s:6GIDKit18GIDSDKAuthResponseV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit6GIDSDKC22getAllSharedAuthTokensSayAA18GIDSDKAuthResponseVGyF",
+            "mangledName": "$s6GIDKit6GIDSDKC22getAllSharedAuthTokensSayAA18GIDSDKAuthResponseVGyF",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getSharedProfiles",
+            "printedName": "getSharedProfiles()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[GIDKit.GIDSDKAuthResponse]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[GIDKit.GIDSDKAuthResponse]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDSDKAuthResponse",
+                        "printedName": "GIDKit.GIDSDKAuthResponse",
+                        "usr": "s:6GIDKit18GIDSDKAuthResponseV"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit6GIDSDKC17getSharedProfilesSayAA18GIDSDKAuthResponseVGSgyF",
+            "mangledName": "$s6GIDKit6GIDSDKC17getSharedProfilesSayAA18GIDSDKAuthResponseVGSgyF",
             "moduleName": "GIDKit",
             "declAttributes": [
               "Final",
@@ -23859,6 +24529,50 @@
             "declAttributes": [
               "Final",
               "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackAuthSuccess",
+            "printedName": "trackAuthSuccess()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit6GIDSDKC16trackAuthSuccessyyF",
+            "mangledName": "$s6GIDKit6GIDSDKC16trackAuthSuccessyyF",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackAuthFlowCanceled",
+            "printedName": "trackAuthFlowCanceled()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit6GIDSDKC21trackAuthFlowCanceledyyF",
+            "mangledName": "$s6GIDKit6GIDSDKC21trackAuthFlowCanceledyyF",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           }
@@ -25208,170 +25922,6 @@
           },
           {
             "kind": "Var",
-            "name": "authBaseURL",
-            "printedName": "authBaseURL",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit19GIDSDKConfigurationV11authBaseURL10Foundation0E0Vvp",
-            "mangledName": "$s6GIDKit19GIDSDKConfigurationV11authBaseURL10Foundation0E0Vvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "URL",
-                    "printedName": "Foundation.URL",
-                    "usr": "s:10Foundation3URLV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit19GIDSDKConfigurationV11authBaseURL10Foundation0E0Vvg",
-                "mangledName": "$s6GIDKit19GIDSDKConfigurationV11authBaseURL10Foundation0E0Vvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "antifraudUrl",
-            "printedName": "antifraudUrl",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.URL?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "URL",
-                    "printedName": "Foundation.URL",
-                    "usr": "s:10Foundation3URLV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit19GIDSDKConfigurationV12antifraudUrl10Foundation3URLVSgvp",
-            "mangledName": "$s6GIDKit19GIDSDKConfigurationV12antifraudUrl10Foundation3URLVSgvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.URL?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "URL",
-                        "printedName": "Foundation.URL",
-                        "usr": "s:10Foundation3URLV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit19GIDSDKConfigurationV12antifraudUrl10Foundation3URLVSgvg",
-                "mangledName": "$s6GIDKit19GIDSDKConfigurationV12antifraudUrl10Foundation3URLVSgvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "statisticsURL",
-            "printedName": "statisticsURL",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.URL?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "URL",
-                    "printedName": "Foundation.URL",
-                    "usr": "s:10Foundation3URLV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit19GIDSDKConfigurationV13statisticsURL10Foundation0D0VSgvp",
-            "mangledName": "$s6GIDKit19GIDSDKConfigurationV13statisticsURL10Foundation0D0VSgvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.URL?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "URL",
-                        "printedName": "Foundation.URL",
-                        "usr": "s:10Foundation3URLV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit19GIDSDKConfigurationV13statisticsURL10Foundation0D0VSgvg",
-                "mangledName": "$s6GIDKit19GIDSDKConfigurationV13statisticsURL10Foundation0D0VSgvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "anchorApp",
             "printedName": "anchorApp",
             "children": [
@@ -25632,6 +26182,66 @@
                 "declKind": "Accessor",
                 "usr": "s:6GIDKit19GIDSDKConfigurationV18appGroupIdentifierSSSgvg",
                 "mangledName": "$s6GIDKit19GIDSDKConfigurationV18appGroupIdentifierSSSgvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sharedAccessGroup",
+            "printedName": "sharedAccessGroup",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit19GIDSDKConfigurationV17sharedAccessGroupSSSgvp",
+            "mangledName": "$s6GIDKit19GIDSDKConfigurationV17sharedAccessGroupSSSgvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit19GIDSDKConfigurationV17sharedAccessGroupSSSgvg",
+                "mangledName": "$s6GIDKit19GIDSDKConfigurationV17sharedAccessGroupSSSgvg",
                 "moduleName": "GIDKit",
                 "implicit": true,
                 "accessorKind": "get"
@@ -25994,66 +26604,6 @@
           },
           {
             "kind": "Var",
-            "name": "goyaURL",
-            "printedName": "goyaURL",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.URL?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "URL",
-                    "printedName": "Foundation.URL",
-                    "usr": "s:10Foundation3URLV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit19GIDSDKConfigurationV7goyaURL10Foundation0D0VSgvp",
-            "mangledName": "$s6GIDKit19GIDSDKConfigurationV7goyaURL10Foundation0D0VSgvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.URL?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "URL",
-                        "printedName": "Foundation.URL",
-                        "usr": "s:10Foundation3URLV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit19GIDSDKConfigurationV7goyaURL10Foundation0D0VSgvg",
-                "mangledName": "$s6GIDKit19GIDSDKConfigurationV7goyaURL10Foundation0D0VSgvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "goyaCid",
             "printedName": "goyaCid",
             "children": [
@@ -26294,186 +26844,6 @@
           },
           {
             "kind": "Var",
-            "name": "writeKey",
-            "printedName": "writeKey",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit19GIDSDKConfigurationV8writeKeySSSgvp",
-            "mangledName": "$s6GIDKit19GIDSDKConfigurationV8writeKeySSSgvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit19GIDSDKConfigurationV8writeKeySSSgvg",
-                "mangledName": "$s6GIDKit19GIDSDKConfigurationV8writeKeySSSgvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "trackingReceiverUrl",
-            "printedName": "trackingReceiverUrl",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit19GIDSDKConfigurationV19trackingReceiverUrlSSSgvp",
-            "mangledName": "$s6GIDKit19GIDSDKConfigurationV19trackingReceiverUrlSSSgvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit19GIDSDKConfigurationV19trackingReceiverUrlSSSgvg",
-                "mangledName": "$s6GIDKit19GIDSDKConfigurationV19trackingReceiverUrlSSSgvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "sentryDSN",
-            "printedName": "sentryDSN",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6GIDKit19GIDSDKConfigurationV9sentryDSNSSSgvp",
-            "mangledName": "$s6GIDKit19GIDSDKConfigurationV9sentryDSNSSSgvp",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6GIDKit19GIDSDKConfigurationV9sentryDSNSSSgvg",
-                "mangledName": "$s6GIDKit19GIDSDKConfigurationV9sentryDSNSSSgvg",
-                "moduleName": "GIDKit",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "sentryEnabled",
             "printedName": "sentryEnabled",
             "children": [
@@ -26510,6 +26880,94 @@
                 "declKind": "Accessor",
                 "usr": "s:6GIDKit19GIDSDKConfigurationV13sentryEnabledSbvg",
                 "mangledName": "$s6GIDKit19GIDSDKConfigurationV13sentryEnabledSbvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "trackingReciverEnabled",
+            "printedName": "trackingReciverEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit19GIDSDKConfigurationV22trackingReciverEnabledSbvp",
+            "mangledName": "$s6GIDKit19GIDSDKConfigurationV22trackingReciverEnabledSbvp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit19GIDSDKConfigurationV22trackingReciverEnabledSbvg",
+                "mangledName": "$s6GIDKit19GIDSDKConfigurationV22trackingReciverEnabledSbvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "trackingURLsProvider",
+            "printedName": "trackingURLsProvider",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GIDTrackingUrlsProvider",
+                "printedName": "GIDKit.GIDTrackingUrlsProvider",
+                "usr": "s:6GIDKit23GIDTrackingUrlsProviderO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit19GIDSDKConfigurationV20trackingURLsProviderAA015GIDTrackingUrlsE0Ovp",
+            "mangledName": "$s6GIDKit19GIDSDKConfigurationV20trackingURLsProviderAA015GIDTrackingUrlsE0Ovp",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingUrlsProvider",
+                    "printedName": "GIDKit.GIDTrackingUrlsProvider",
+                    "usr": "s:6GIDKit23GIDTrackingUrlsProviderO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit19GIDSDKConfigurationV20trackingURLsProviderAA015GIDTrackingUrlsE0Ovg",
+                "mangledName": "$s6GIDKit19GIDSDKConfigurationV20trackingURLsProviderAA015GIDTrackingUrlsE0Ovg",
                 "moduleName": "GIDKit",
                 "implicit": true,
                 "accessorKind": "get"
@@ -27857,64 +28315,6 @@
           },
           {
             "kind": "Function",
-            "name": "setAuthBaseURL",
-            "printedName": "setAuthBaseURL(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDSDKConfigurationBuilder",
-                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
-                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC14setAuthBaseURLyAC10Foundation0G0VF",
-            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC14setAuthBaseURLyAC10Foundation0G0VF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setStatisticsURL",
-            "printedName": "setStatisticsURL(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDSDKConfigurationBuilder",
-                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
-                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC16setStatisticsURLyAC10Foundation0F0VF",
-            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC16setStatisticsURLyAC10Foundation0F0VF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "setGidURL",
             "printedName": "setGidURL(_:)",
             "children": [
@@ -28032,6 +28432,43 @@
           },
           {
             "kind": "Function",
+            "name": "setSharedAccessGroup",
+            "printedName": "setSharedAccessGroup(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GIDSDKConfigurationBuilder",
+                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
+                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC20setSharedAccessGroupyACSSSgF",
+            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC20setSharedAccessGroupyACSSSgF",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setAnchorApp",
             "printedName": "setAnchorApp(_:)",
             "children": [
@@ -28088,35 +28525,6 @@
             "declKind": "Func",
             "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC16setClientBaseURLyAC10Foundation0G0VF",
             "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC16setClientBaseURLyAC10Foundation0G0VF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setAntifraudUrl",
-            "printedName": "setAntifraudUrl(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDSDKConfigurationBuilder",
-                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
-                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC15setAntifraudUrlyAC10Foundation3URLVF",
-            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC15setAntifraudUrlyAC10Foundation3URLVF",
             "moduleName": "GIDKit",
             "declAttributes": [
               "Final",
@@ -28275,42 +28683,6 @@
           },
           {
             "kind": "Function",
-            "name": "setGoyaURL",
-            "printedName": "setGoyaURL(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDSDKConfigurationBuilder",
-                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
-                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.URL?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "URL",
-                    "printedName": "Foundation.URL",
-                    "usr": "s:10Foundation3URLV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC10setGoyaURLyAC10Foundation0F0VSgF",
-            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC10setGoyaURLyAC10Foundation0F0VSgF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "setGoyaCid",
             "printedName": "setGoyaCid(_:)",
             "children": [
@@ -28455,114 +28827,6 @@
           },
           {
             "kind": "Function",
-            "name": "setWriteKey",
-            "printedName": "setWriteKey(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDSDKConfigurationBuilder",
-                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
-                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC11setWriteKeyyACSSSgF",
-            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC11setWriteKeyyACSSSgF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setTrackingReceiverUrl",
-            "printedName": "setTrackingReceiverUrl(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDSDKConfigurationBuilder",
-                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
-                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC22setTrackingReceiverUrlyACSSSgF",
-            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC22setTrackingReceiverUrlyACSSSgF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setSentryDsn",
-            "printedName": "setSentryDsn(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GIDSDKConfigurationBuilder",
-                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
-                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC12setSentryDsnyACSSSgF",
-            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC12setSentryDsnyACSSSgF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "setSentryEnabled",
             "printedName": "setSentryEnabled(_:)",
             "children": [
@@ -28582,6 +28846,34 @@
             "declKind": "Func",
             "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC16setSentryEnabledyACSbF",
             "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC16setSentryEnabledyACSbF",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setTrackingReciverEnabled",
+            "printedName": "setTrackingReciverEnabled(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GIDSDKConfigurationBuilder",
+                "printedName": "GIDKit.GIDSDKConfigurationBuilder",
+                "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit26GIDSDKConfigurationBuilderC25setTrackingReciverEnabledyACSbF",
+            "mangledName": "$s6GIDKit26GIDSDKConfigurationBuilderC25setTrackingReciverEnabledyACSbF",
             "moduleName": "GIDKit",
             "declAttributes": [
               "Final",
@@ -28845,6 +29137,60 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(code:state:phone:sub:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GIDSDKDeeplinkLoginResult",
+                "printedName": "GIDKit.GIDSDKDeeplinkLoginResult",
+                "usr": "s:6GIDKit25GIDSDKDeeplinkLoginResultV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6GIDKit25GIDSDKDeeplinkLoginResultV4code5state5phone3subACSS_S3SSgtcfc",
+            "mangledName": "$s6GIDKit25GIDSDKDeeplinkLoginResultV4code5state5phone3subACSS_S3SSgtcfc",
+            "moduleName": "GIDKit",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
           },
           {
             "kind": "Function",
@@ -29905,8 +30251,8 @@
           },
           {
             "kind": "Var",
-            "name": "phone",
-            "printedName": "phone",
+            "name": "idToken",
+            "printedName": "idToken",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -29924,8 +30270,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:6GIDKit18GIDSDKAuthResponseV5phoneSSSgvp",
-            "mangledName": "$s6GIDKit18GIDSDKAuthResponseV5phoneSSSgvp",
+            "usr": "s:6GIDKit18GIDSDKAuthResponseV7idTokenSSSgvp",
+            "mangledName": "$s6GIDKit18GIDSDKAuthResponseV7idTokenSSSgvp",
             "moduleName": "GIDKit",
             "declAttributes": [
               "HasStorage",
@@ -29955,8 +30301,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6GIDKit18GIDSDKAuthResponseV5phoneSSSgvg",
-                "mangledName": "$s6GIDKit18GIDSDKAuthResponseV5phoneSSSgvg",
+                "usr": "s:6GIDKit18GIDSDKAuthResponseV7idTokenSSSgvg",
+                "mangledName": "$s6GIDKit18GIDSDKAuthResponseV7idTokenSSSgvg",
                 "moduleName": "GIDKit",
                 "implicit": true,
                 "accessorKind": "get"
@@ -30095,6 +30441,31 @@
           },
           {
             "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6GIDKit18GIDSDKAuthResponseV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s6GIDKit18GIDSDKAuthResponseV4hash4intoys6HasherVz_tF",
+            "moduleName": "GIDKit",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "==",
             "printedName": "==(_:_:)",
             "children": [
@@ -30122,38 +30493,7 @@
             "mangledName": "$s6GIDKit18GIDSDKAuthResponseV2eeoiySbAC_ACtFZ",
             "moduleName": "GIDKit",
             "static": true,
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "hash",
-            "printedName": "hash(into:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Hasher",
-                "printedName": "Swift.Hasher",
-                "paramValueOwnership": "InOut",
-                "usr": "s:s6HasherV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit18GIDSDKAuthResponseV4hash4intoys6HasherVz_tF",
-            "mangledName": "$s6GIDKit18GIDSDKAuthResponseV4hash4intoys6HasherVz_tF",
-            "moduleName": "GIDKit",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "isFromExtension": true,
+            "implicit": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -30456,7 +30796,8 @@
         "mangledName": "$s6GIDKit20GIDSDKParamsResponseV",
         "moduleName": "GIDKit",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "RawDocComment"
         ],
         "conformances": [
           {
@@ -30856,6 +31197,293 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "GIDSDKTrackingFlowName",
+        "printedName": "GIDSDKTrackingFlowName",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "createLoginURL",
+            "printedName": "createLoginURL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDSDKTrackingFlowName.Type) -> GIDKit.GIDSDKTrackingFlowName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKTrackingFlowName",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                    "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDSDKTrackingFlowName",
+                        "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                        "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO14createLoginURLyA2CmF",
+            "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO14createLoginURLyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "loginViaSafariViewController",
+            "printedName": "loginViaSafariViewController",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDSDKTrackingFlowName.Type) -> GIDKit.GIDSDKTrackingFlowName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKTrackingFlowName",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                    "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDSDKTrackingFlowName",
+                        "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                        "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO28loginViaSafariViewControlleryA2CmF",
+            "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO28loginViaSafariViewControlleryA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "launchLoginWebViewIntent",
+            "printedName": "launchLoginWebViewIntent",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDSDKTrackingFlowName.Type) -> GIDKit.GIDSDKTrackingFlowName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKTrackingFlowName",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                    "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDSDKTrackingFlowName",
+                        "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                        "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO24launchLoginWebViewIntentyA2CmF",
+            "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO24launchLoginWebViewIntentyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "auth",
+            "printedName": "auth",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDSDKTrackingFlowName.Type) -> GIDKit.GIDSDKTrackingFlowName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKTrackingFlowName",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                    "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDSDKTrackingFlowName",
+                        "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                        "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO4authyA2CmF",
+            "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO4authyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GIDKit.GIDSDKTrackingFlowName?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDSDKTrackingFlowName",
+                    "printedName": "GIDKit.GIDSDKTrackingFlowName",
+                    "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO8rawValueACSgSS_tcfc",
+            "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO8rawValueACSgSS_tcfc",
+            "moduleName": "GIDKit",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO8rawValueSSvp",
+            "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO8rawValueSSvp",
+            "moduleName": "GIDKit",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO8rawValueSSvg",
+                "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO8rawValueSSvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:6GIDKit22GIDSDKTrackingFlowNameO",
+        "mangledName": "$s6GIDKit22GIDSDKTrackingFlowNameO",
+        "moduleName": "GIDKit",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -31220,6 +31848,154 @@
           },
           {
             "kind": "Var",
+            "name": "eventAuthSuccess",
+            "printedName": "eventAuthSuccess",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO16eventAuthSuccessyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO16eventAuthSuccessyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventHandleDeeplinkNoParams",
+            "printedName": "eventHandleDeeplinkNoParams",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO27eventHandleDeeplinkNoParamsyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO27eventHandleDeeplinkNoParamsyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventGetTokenError",
+            "printedName": "eventGetTokenError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO18eventGetTokenErroryA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO18eventGetTokenErroryA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventAuthTokenReceivedLite",
+            "printedName": "eventAuthTokenReceivedLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO26eventAuthTokenReceivedLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO26eventAuthTokenReceivedLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
             "name": "initialization",
             "printedName": "initialization",
             "children": [
@@ -31256,52 +32032,423 @@
             "moduleName": "GIDKit"
           },
           {
-            "kind": "Function",
-            "name": "==",
-            "printedName": "==(_:_:)",
+            "kind": "Var",
+            "name": "eventAuthFlowStartedForce",
+            "printedName": "eventAuthFlowStartedForce",
             "children": [
               {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "GIDTrackingTypes",
-                "printedName": "GIDKit.GIDTrackingTypes",
-                "usr": "s:6GIDKit16GIDTrackingTypesO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "GIDTrackingTypes",
-                "printedName": "GIDKit.GIDTrackingTypes",
-                "usr": "s:6GIDKit16GIDTrackingTypesO"
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
               }
             ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit16GIDTrackingTypesO2eeoiySbAC_ACtFZ",
-            "mangledName": "$s6GIDKit16GIDTrackingTypesO2eeoiySbAC_ACtFZ",
-            "moduleName": "GIDKit",
-            "static": true,
-            "implicit": true,
-            "funcSelfKind": "NonMutating"
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO25eventAuthFlowStartedForceyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO25eventAuthFlowStartedForceyA2CmF",
+            "moduleName": "GIDKit"
           },
           {
             "kind": "Var",
-            "name": "hashValue",
-            "printedName": "hashValue",
+            "name": "eventAuthFlowCanceled",
+            "printedName": "eventAuthFlowCanceled",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO21eventAuthFlowCanceledyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO21eventAuthFlowCanceledyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventAuthFlowStartedLite",
+            "printedName": "eventAuthFlowStartedLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO24eventAuthFlowStartedLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO24eventAuthFlowStartedLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventAuthOtpSendLite",
+            "printedName": "eventAuthOtpSendLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO20eventAuthOtpSendLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO20eventAuthOtpSendLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventAuthCodeReceivedLite",
+            "printedName": "eventAuthCodeReceivedLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO25eventAuthCodeReceivedLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO25eventAuthCodeReceivedLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventAuthErrorLite",
+            "printedName": "eventAuthErrorLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO18eventAuthErrorLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO18eventAuthErrorLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventGetTokenErrorLite",
+            "printedName": "eventGetTokenErrorLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO22eventGetTokenErrorLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO22eventGetTokenErrorLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventCaptchaErrorLite",
+            "printedName": "eventCaptchaErrorLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO21eventCaptchaErrorLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO21eventCaptchaErrorLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventScoreErrorLite",
+            "printedName": "eventScoreErrorLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO19eventScoreErrorLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO19eventScoreErrorLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "eventSignInErrorLite",
+            "printedName": "eventSignInErrorLite",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingTypes.Type) -> GIDKit.GIDTrackingTypes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingTypes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingTypes",
+                        "printedName": "GIDKit.GIDTrackingTypes",
+                        "usr": "s:6GIDKit16GIDTrackingTypesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit16GIDTrackingTypesO20eventSignInErrorLiteyA2CmF",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO20eventSignInErrorLiteyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "Optional",
+                "printedName": "GIDKit.GIDTrackingTypes?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingTypes",
+                    "printedName": "GIDKit.GIDTrackingTypes",
+                    "usr": "s:6GIDKit16GIDTrackingTypesO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6GIDKit16GIDTrackingTypesO8rawValueACSgSS_tcfc",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO8rawValueACSgSS_tcfc",
+            "moduleName": "GIDKit",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Var",
-            "usr": "s:6GIDKit16GIDTrackingTypesO9hashValueSivp",
-            "mangledName": "$s6GIDKit16GIDTrackingTypesO9hashValueSivp",
+            "usr": "s:6GIDKit16GIDTrackingTypesO8rawValueSSvp",
+            "mangledName": "$s6GIDKit16GIDTrackingTypesO8rawValueSSvp",
             "moduleName": "GIDKit",
             "implicit": true,
             "accessors": [
@@ -31312,44 +32459,19 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6GIDKit16GIDTrackingTypesO9hashValueSivg",
-                "mangledName": "$s6GIDKit16GIDTrackingTypesO9hashValueSivg",
+                "usr": "s:6GIDKit16GIDTrackingTypesO8rawValueSSvg",
+                "mangledName": "$s6GIDKit16GIDTrackingTypesO8rawValueSSvg",
                 "moduleName": "GIDKit",
                 "implicit": true,
                 "accessorKind": "get"
               }
             ]
-          },
-          {
-            "kind": "Function",
-            "name": "hash",
-            "printedName": "hash(into:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Hasher",
-                "printedName": "Swift.Hasher",
-                "paramValueOwnership": "InOut",
-                "usr": "s:s6HasherV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6GIDKit16GIDTrackingTypesO4hash4intoys6HasherVz_tF",
-            "mangledName": "$s6GIDKit16GIDTrackingTypesO4hash4intoys6HasherVz_tF",
-            "moduleName": "GIDKit",
-            "implicit": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Enum",
@@ -31359,6 +32481,7 @@
         "declAttributes": [
           "AccessControl"
         ],
+        "enumRawTypeName": "String",
         "conformances": [
           {
             "kind": "Conformance",
@@ -31387,6 +32510,251 @@
             "printedName": "Hashable",
             "usr": "s:SH",
             "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GIDKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GIDTrackingUrlsProvider",
+        "printedName": "GIDTrackingUrlsProvider",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "prod",
+            "printedName": "prod",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingUrlsProvider.Type) -> GIDKit.GIDTrackingUrlsProvider",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingUrlsProvider",
+                    "printedName": "GIDKit.GIDTrackingUrlsProvider",
+                    "usr": "s:6GIDKit23GIDTrackingUrlsProviderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingUrlsProvider.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingUrlsProvider",
+                        "printedName": "GIDKit.GIDTrackingUrlsProvider",
+                        "usr": "s:6GIDKit23GIDTrackingUrlsProviderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit23GIDTrackingUrlsProviderO4prodyA2CmF",
+            "mangledName": "$s6GIDKit23GIDTrackingUrlsProviderO4prodyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Var",
+            "name": "preprod",
+            "printedName": "preprod",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit.GIDTrackingUrlsProvider.Type) -> GIDKit.GIDTrackingUrlsProvider",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingUrlsProvider",
+                    "printedName": "GIDKit.GIDTrackingUrlsProvider",
+                    "usr": "s:6GIDKit23GIDTrackingUrlsProviderO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit.GIDTrackingUrlsProvider.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDTrackingUrlsProvider",
+                        "printedName": "GIDKit.GIDTrackingUrlsProvider",
+                        "usr": "s:6GIDKit23GIDTrackingUrlsProviderO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6GIDKit23GIDTrackingUrlsProviderO7preprodyA2CmF",
+            "mangledName": "$s6GIDKit23GIDTrackingUrlsProviderO7preprodyA2CmF",
+            "moduleName": "GIDKit"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GIDKit.GIDTrackingUrlsProvider?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDTrackingUrlsProvider",
+                    "printedName": "GIDKit.GIDTrackingUrlsProvider",
+                    "usr": "s:6GIDKit23GIDTrackingUrlsProviderO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6GIDKit23GIDTrackingUrlsProviderO8rawValueACSgSS_tcfc",
+            "mangledName": "$s6GIDKit23GIDTrackingUrlsProviderO8rawValueACSgSS_tcfc",
+            "moduleName": "GIDKit",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6GIDKit23GIDTrackingUrlsProviderO8rawValueSSvp",
+            "mangledName": "$s6GIDKit23GIDTrackingUrlsProviderO8rawValueSSvp",
+            "moduleName": "GIDKit",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6GIDKit23GIDTrackingUrlsProviderO8rawValueSSvg",
+                "mangledName": "$s6GIDKit23GIDTrackingUrlsProviderO8rawValueSSvg",
+                "moduleName": "GIDKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:6GIDKit23GIDTrackingUrlsProviderO",
+        "mangledName": "$s6GIDKit23GIDTrackingUrlsProviderO",
+        "moduleName": "GIDKit",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
           }
         ]
       },
@@ -37104,21 +38472,21 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApi.swift",
       "kind": "StringLiteral",
-      "offset": 5887,
+      "offset": 6036,
       "length": 23,
       "value": "\"Session.requestsQueue\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApi.swift",
       "kind": "BooleanLiteral",
-      "offset": 6011,
+      "offset": 6160,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApi.swift",
       "kind": "BooleanLiteral",
-      "offset": 6041,
+      "offset": 6190,
       "length": 5,
       "value": "false"
     },
@@ -38259,315 +39627,322 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9043,
+      "offset": 9085,
       "length": 10,
       "value": "\"id_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9081,
+      "offset": 9123,
       "length": 14,
       "value": "\"access_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9124,
+      "offset": 9166,
       "length": 15,
       "value": "\"refresh_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9165,
+      "offset": 9207,
       "length": 12,
       "value": "\"expires_in\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9203,
+      "offset": 9245,
       "length": 12,
       "value": "\"token_type\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9246,
+      "offset": 9288,
       "length": 17,
       "value": "\"additional_data\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9775,
+      "offset": 9817,
       "length": 14,
       "value": "\"has_password\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9827,
+      "offset": 9869,
       "length": 25,
       "value": "\"restore_password_window\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9884,
+      "offset": 9926,
       "length": 18,
       "value": "\"accept_targeting\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9935,
+      "offset": 9977,
       "length": 20,
       "value": "\"has_reset_password\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10226,
+      "offset": 10268,
       "length": 11,
       "value": "\"client_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10265,
+      "offset": 10307,
       "length": 14,
       "value": "\"redirect_uri\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10484,
+      "offset": 10526,
       "length": 13,
       "value": "\"redirect_to\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11094,
+      "offset": 11136,
       "length": 14,
       "value": "\"partner_name\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11140,
+      "offset": 11182,
       "length": 18,
       "value": "\"branding_enabled\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11210,
+      "offset": 11252,
       "length": 20,
       "value": "\"background_enabled\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11277,
+      "offset": 11319,
       "length": 9,
       "value": "\"qr_auth\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11333,
+      "offset": 11375,
       "length": 14,
       "value": "\"gid_branding\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11370,
+      "offset": 11412,
       "length": 9,
       "value": "\"num_key\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11408,
+      "offset": 11450,
       "length": 15,
       "value": "\"custom_colors\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11461,
+      "offset": 11503,
       "length": 25,
       "value": "\"personal_data_agreement\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11516,
+      "offset": 11558,
       "length": 16,
       "value": "\"user_agreement\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11567,
+      "offset": 11609,
       "length": 22,
       "value": "\"personal_data_policy\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11617,
+      "offset": 11659,
       "length": 14,
       "value": "\"legal_entity\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11663,
+      "offset": 11705,
       "length": 18,
       "value": "\"extend_agreement\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11931,
+      "offset": 11973,
       "length": 8,
       "value": "\"accent\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11967,
+      "offset": 12009,
       "length": 16,
       "value": "\"accent_hovered\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12013,
+      "offset": 12055,
       "length": 16,
       "value": "\"accent_pressed\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12061,
+      "offset": 12103,
       "length": 19,
       "value": "\"color_text_button\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12390,
+      "offset": 12437,
       "length": 14,
       "value": "\"access_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12428,
+      "offset": 12475,
       "length": 10,
       "value": "\"id_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12464,
+      "offset": 12511,
       "length": 12,
       "value": "\"token_type\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12505,
+      "offset": 12552,
       "length": 15,
       "value": "\"refresh_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12546,
+      "offset": 12593,
       "length": 12,
       "value": "\"expires_in\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12608,
+      "offset": 12655,
       "length": 17,
       "value": "\"additional_data\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13146,
+      "offset": 13227,
       "length": 12,
       "value": "\"enable_kfp\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13190,
-      "length": 18,
-      "value": "\"google_recaptcha\""
-    },
-    {
-      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
-      "kind": "StringLiteral",
-      "offset": 13250,
+      "offset": 13281,
       "length": 9,
       "value": "\"num_key\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13326,
+      "offset": 13357,
       "length": 13,
       "value": "\"external_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 14339,
+      "offset": 13395,
+      "length": 11,
+      "value": "\"login_tag\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
+      "kind": "StringLiteral",
+      "offset": 13439,
+      "length": 19,
+      "value": "\"tracking_receiver\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
+      "kind": "StringLiteral",
+      "offset": 14546,
       "length": 12,
       "value": "\"captcha_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 14380,
+      "offset": 14587,
       "length": 22,
       "value": "\"captcha_image_base64\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 14626,
+      "offset": 14833,
       "length": 14,
       "value": "\"wait_seconds\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 14662,
+      "offset": 14869,
       "length": 8,
       "value": "\"sms_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 14693,
+      "offset": 14900,
       "length": 9,
       "value": "\"otp_sid\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 15084,
+      "offset": 15291,
       "length": 8,
       "value": "\"qr_url\""
     },
@@ -38695,33 +40070,33 @@
       "kind": "StringLiteral",
       "offset": 175,
       "length": 31,
-      "value": "\"2025-08-14 21:56:16 +0300 MSK\""
+      "value": "\"2026-04-20 22:19:03 +0300 MSK\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
       "kind": "StringLiteral",
       "offset": 245,
-      "length": 9,
-      "value": "\"f65558e\""
+      "length": 10,
+      "value": "\"1bafd1b9\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
       "kind": "StringLiteral",
-      "offset": 292,
+      "offset": 293,
       "length": 7,
-      "value": "\"1.2.1\""
+      "value": "\"2.0.0\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
       "kind": "StringLiteral",
-      "offset": 335,
+      "offset": 336,
       "length": 5,
       "value": "\"1.0\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
       "kind": "IntegerLiteral",
-      "offset": 380,
+      "offset": 381,
       "length": 1,
       "value": "1"
     },
@@ -38782,6 +40157,13 @@
       "value": "[\"application\/json; charset=UTF-8\", \"application\/problem+json\", \"text\/json\"]"
     },
     {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDK.swift",
+      "kind": "Array",
+      "offset": 2696,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDKApps.swift",
       "kind": "StringLiteral",
       "offset": 227,
@@ -38805,86 +40187,135 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "Array",
-      "offset": 1308,
+      "offset": 1214,
       "length": 384,
       "value": "[0x77, 0x41, 0x76, 0x47, 0x61, 0x56, 0x72, 0x52, 0x4D, 0x58, 0x7A, 0x67, 0x5A, 0x75, 0x4F, 0x37, 0x36, 0x39, 0x72, 0x6C, 0x6B, 0x63, 0x57, 0x63, 0x33, 0x70, 0x75, 0x49, 0x58, 0x69, 0x52, 0x32, 0x78, 0x51, 0x4E, 0x73, 0x77, 0x4A, 0x61, 0x6D, 0x69, 0x61, 0x6D, 0x67, 0x54, 0x51, 0x32, 0x76, 0x6B, 0x47, 0x61, 0x44, 0x35, 0x42, 0x34, 0x34, 0x30, 0x5A, 0x4F, 0x32, 0x61, 0x61, 0x61, 0x61]"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "Array",
-      "offset": 1733,
+      "offset": 1639,
       "length": 408,
       "value": "[0x33, 0x34, 0x31, 0x63, 0x64, 0x37, 0x38, 0x35, 0x65, 0x38, 0x34, 0x36, 0x32, 0x62, 0x34, 0x37, 0x37, 0x37, 0x32, 0x33, 0x36, 0x36, 0x39, 0x39, 0x64, 0x33, 0x31, 0x36, 0x38, 0x66, 0x31, 0x64, 0x33, 0x36, 0x61, 0x64, 0x64, 0x64, 0x62, 0x31, 0x63, 0x62, 0x61, 0x39, 0x30, 0x33, 0x61, 0x62, 0x65, 0x61, 0x37, 0x36, 0x38, 0x37, 0x36, 0x61, 0x38, 0x61, 0x30, 0x36, 0x37, 0x64, 0x62, 0x37, 0x38, 0x38, 0x37, 0x31]"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "Array",
-      "offset": 2194,
+      "offset": 2100,
       "length": 384,
       "value": "[0x44, 0x79, 0x32, 0x54, 0x68, 0x75, 0x69, 0x57, 0x6d, 0x32, 0x67, 0x61, 0x52, 0x5a, 0x4f, 0x6f, 0x6d, 0x30, 0x7a, 0x4f, 0x4b, 0x6c, 0x6c, 0x6e, 0x53, 0x4e, 0x6d, 0x33, 0x70, 0x77, 0x36, 0x32, 0x75, 0x57, 0x67, 0x37, 0x56, 0x39, 0x61, 0x64, 0x57, 0x72, 0x79, 0x55, 0x6f, 0x66, 0x6c, 0x30, 0x33, 0x32, 0x63, 0x45, 0x48, 0x33, 0x6c, 0x6e, 0x42, 0x61, 0x71, 0x46, 0x44, 0x39, 0x70, 0x73]"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 3509,
+      "offset": 3415,
       "length": 8,
       "value": "\"mobile\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 3548,
+      "offset": 3454,
       "length": 10,
       "value": "\"apple-tv\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 5193,
+      "offset": 4922,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 6044,
+      "offset": 5688,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 6939,
+      "offset": 6494,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 7690,
+      "offset": 7245,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 8458,
+      "offset": 8013,
       "length": 21,
       "value": "\"https:\/\/auth.gid.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 8759,
+      "offset": 8314,
       "length": 70,
       "value": "\"341cd785e8462b4777236699d3168f1d36adddb1cba903abea76876a8a067db78871\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 8935,
+      "offset": 8490,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8548,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 18127,
+      "length": 21,
+      "value": "\"https:\/\/auth.gid.ru\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 18168,
+      "length": 29,
+      "value": "\"https:\/\/preprod.gid-auth.ru\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 18213,
+      "length": 35,
+      "value": "\"https:\/\/dev-auth.k8s-dev.gid.team\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 18265,
+      "length": 36,
+      "value": "\"https:\/\/test-auth.k8s-dev.gid.team\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 18321,
+      "length": 29,
+      "value": "\"https:\/\/sandbox.gid-auth.ru\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 18368,
+      "length": 37,
+      "value": "\"https:\/\/stage-auth.k8s-dev.gid.team\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDKDeeplinks.swift",
@@ -38992,6 +40423,13 @@
       "value": "\"product_name\""
     },
     {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDKDeeplinks.swift",
+      "kind": "StringLiteral",
+      "offset": 1106,
+      "length": 11,
+      "value": "\"login_tag\""
+    },
+    {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
       "kind": "StringLiteral",
       "offset": 152,
@@ -39001,119 +40439,119 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
       "kind": "StringLiteral",
-      "offset": 333,
-      "length": 22,
-      "value": "\"kAuthorizationTokens\""
+      "offset": 337,
+      "length": 26,
+      "value": "\"kKfpWrapperVersionNumber\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
       "kind": "StringLiteral",
-      "offset": 380,
-      "length": 11,
-      "value": "\"kUserInfo\""
-    },
-    {
-      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
-      "kind": "StringLiteral",
-      "offset": 436,
-      "length": 31,
-      "value": "\"kAppGroupsAuthorizationTokens\""
-    },
-    {
-      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
-      "kind": "StringLiteral",
-      "offset": 501,
-      "length": 20,
-      "value": "\"kAppGroupsProfiles\""
-    },
-    {
-      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
-      "kind": "StringLiteral",
-      "offset": 551,
-      "length": 16,
-      "value": "\"kLocalProfiles\""
-    },
-    {
-      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
-      "kind": "StringLiteral",
-      "offset": 595,
-      "length": 14,
-      "value": "\"kCookiesData\""
-    },
-    {
-      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
-      "kind": "StringLiteral",
-      "offset": 646,
+      "offset": 400,
       "length": 23,
       "value": "\"kCurrentOAuth2IdToken\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
       "kind": "StringLiteral",
-      "offset": 705,
+      "offset": 459,
+      "length": 22,
+      "value": "\"kAuthorizationTokens\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
+      "kind": "StringLiteral",
+      "offset": 517,
       "length": 22,
       "value": "\"kKfpWrapperDeviceTag\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
       "kind": "StringLiteral",
-      "offset": 767,
-      "length": 26,
-      "value": "\"kKfpWrapperVersionNumber\""
+      "offset": 569,
+      "length": 16,
+      "value": "\"kLocalProfiles\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12526,
-      "length": 5,
-      "value": "false"
+      "kind": "StringLiteral",
+      "offset": 613,
+      "length": 14,
+      "value": "\"kCookiesData\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
+      "kind": "StringLiteral",
+      "offset": 652,
+      "length": 11,
+      "value": "\"kUserInfo\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
+      "kind": "StringLiteral",
+      "offset": 816,
+      "length": 31,
+      "value": "\"kAppGroupsAuthorizationTokens\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKKeychainService.swift",
+      "kind": "StringLiteral",
+      "offset": 885,
+      "length": 20,
+      "value": "\"kAppGroupsProfiles\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKModels.swift",
       "kind": "StringLiteral",
-      "offset": 807,
+      "offset": 791,
       "length": 17,
       "value": "\"additional_data\""
     },
     {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKModels.swift",
+      "kind": "StringLiteral",
+      "offset": 832,
+      "length": 10,
+      "value": "\"id_token\""
+    },
+    {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
       "kind": "StringLiteral",
-      "offset": 556,
+      "offset": 591,
       "length": 20,
       "value": "\"GIDKIT.buildConfig\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
       "kind": "StringLiteral",
-      "offset": 581,
+      "offset": 616,
       "length": 6,
       "value": "\"test\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
       "kind": "StringLiteral",
-      "offset": 622,
+      "offset": 657,
       "length": 48,
       "value": "\"web_sso:p:5dd6d752-522a-4852-add6-c5f0a5983bfd\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
       "kind": "StringLiteral",
-      "offset": 704,
-      "length": 15,
-      "value": "\"app.gid.ru\/v1\""
-    },
-    {
-      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
-      "kind": "StringLiteral",
-      "offset": 787,
+      "offset": 747,
       "length": 5,
       "value": "\"1.0\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
+      "kind": "BooleanLiteral",
+      "offset": 841,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
       "kind": "StringLiteral",
-      "offset": 6164,
+      "offset": 9559,
       "length": 19,
       "value": "\"tracking_receiver\""
     },
@@ -39137,6 +40575,90 @@
       "offset": 416,
       "length": 14,
       "value": "\"kKfpMPConfig\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 212,
+      "length": 9,
+      "value": "\"akkaunt\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 249,
+      "length": 23,
+      "value": "\"voiti_drugim_sposobom\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 293,
+      "length": 10,
+      "value": "\"authcode\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 405,
+      "length": 14,
+      "value": "\"avtorizaciya\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 458,
+      "length": 19,
+      "value": "\"avtorizaciya_lite\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 531,
+      "length": 6,
+      "value": "\"init\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 571,
+      "length": 20,
+      "value": "\"auth_flow_canceled\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 628,
+      "length": 11,
+      "value": "\"init_lite\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 672,
+      "length": 10,
+      "value": "\"otp_lite\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDTrackingTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 720,
+      "length": 15,
+      "value": "\"authcode_lite\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDTrackingUrlsProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 173,
+      "length": 21,
+      "value": "\"https:\/\/auth.gid.ru\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDTrackingUrlsProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 214,
+      "length": 33,
+      "value": "\"https:\/\/preprod-sdk.gid-auth.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/NetworkManager\/GIDValidationURL.swift",
@@ -39386,7 +40908,7 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/KFPWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 5023,
+      "offset": 5010,
       "length": 5,
       "value": "false"
     },

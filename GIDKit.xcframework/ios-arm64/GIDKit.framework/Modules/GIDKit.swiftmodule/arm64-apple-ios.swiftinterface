@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
 // swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GIDKit
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import AuthenticationServices
 import CommonCrypto
 import DeveloperToolsSupport
@@ -497,6 +497,12 @@ public struct GIDApiRegisterResponse : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct GIDApiTokenResult : Swift.Codable {
+  public let tokenID: Swift.String
+  public let accessToken: Swift.String
+  public let refreshToken: Swift.String?
+  public let expiresIn: Swift.Int
+  public let scope: Swift.String
+  public let additionalData: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -525,12 +531,13 @@ public struct GIDApiUserInfoResponse {
 }
 public struct GIDApiConfigResponse : Swift.Codable {
   public let enableKfp: Swift.Bool
-  public let googleRecaptcha: Swift.String?
   public let state: Swift.String?
   public let numKey: Swift.Bool?
   public let goya: Swift.Bool?
   public let trackers: [Swift.String]?
   public let externalID: Swift.Int?
+  public let loginTag: [Swift.String]?
+  public let trackingReciever: Swift.Bool?
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
@@ -592,7 +599,7 @@ public struct GIDQrCodeUrl : Swift.Codable {
 }
 @_hasMissingDesignatedInitializers final public class GIDApp2Auth : GIDKit.GIDAuthMethod {
   final public func auth(loginResult: GIDKit.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKAuthResponse, GIDKit.GIDApiErrorAny>)
-  final public func createLoginURL(_ customScope: Swift.Set<GIDKit.GIDApiScope>? = nil, _ customCid: Swift.String? = nil, _ customSessionId: Swift.String? = nil, completion: GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKDeeplinkLoginResult, GIDKit.GIDApiErrorAny>?) -> Foundation.URL?
+  final public func createLoginURL(_ quuid: Swift.String? = nil, loginTag: Swift.String? = nil, customScope: Swift.Set<GIDKit.GIDApiScope>? = nil, customCid: Swift.String? = nil, customSessionId: Swift.String? = nil, flowName: GIDKit.GIDSDKTrackingFlowName? = nil, completion: GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKDeeplinkLoginResult, GIDKit.GIDApiErrorAny>?) -> Foundation.URL?
   final public func createLogoutURL(idToken: Swift.String) -> Foundation.URL?
   final public func loginViaSafariViewController(_ url: Foundation.URL? = nil, completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKDeeplinkLoginResult, GIDKit.GIDApiErrorAny>) -> SafariServices.SFSafariViewController?
   @discardableResult
@@ -600,6 +607,9 @@ public struct GIDQrCodeUrl : Swift.Codable {
   @available(iOS 13, *)
   final public func loginViaWebAuthSession(_ url: Foundation.URL? = nil, asWebAuthenticationPresentation: any AuthenticationServices.ASWebAuthenticationPresentationContextProviding, completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKDeeplinkLoginResult, GIDKit.GIDApiErrorAny>)
   final public func loginViaWebView(navigationDelegate: any WebKit.WKNavigationDelegate, completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKDeeplinkLoginResult, GIDKit.GIDApiErrorAny>) -> WebKit.WKWebView?
+  final public func loginWithQR(_ quuid: Swift.String, asWebAuthenticationPresentation: any AuthenticationServices.ASWebAuthenticationPresentationContextProviding, completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKDeeplinkLoginResult, GIDKit.GIDApiErrorAny>)
+  final public func forceLoginWithTag(loginTag: Swift.String, completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKAuthResponse, GIDKit.GIDApiErrorAny>)
+  final public func loginWAS(completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDSDKAuthResponse, GIDKit.GIDApiErrorAny>)
   @objc deinit
 }
 public protocol GIDAutoAuthSheetCellDelegate : AnyObject {
@@ -900,18 +910,23 @@ public typealias GIDSDKHandler<T, E> = (GIDKit.ResultHandler<T, GIDKit.GIDApiErr
   public static let shared: GIDKit.GIDSDK
   public static func createSDK(configuration: GIDKit.GIDSDKConfiguration) -> GIDKit.GIDSDK
   final public let configuration: GIDKit.GIDSDKConfiguration
-  final public let app2Anchor: GIDKit.GIDApp2Anchor
   final public let app2Auth: GIDKit.GIDApp2Auth
-  final public let anchor2Anchor: GIDKit.GIDAnchor2Anchor
   final public let logger: any GIDKit.GIDLogger
   final public var theme: GIDKit.GIDSDKColorStyle
   final public var branding: GIDKit.GIDApiClientBrandingResponse?
   final public var consents: [GIDKit.GIDConsent]
+  final public var getForceLoginVariantss: ([Swift.String]) -> Swift.Void
   final public func installedAnchorApps() -> [GIDKit.GIDSDKApp]
   final public func authTokens() -> GIDKit.GIDSDKAuthResponse?
   final public func userInfo(completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDApiUserInfoResponse, GIDKit.GIDApiErrorGetUserInfo>)
+  @available(*, deprecated, message: "Используйте getSharedAuthTokens() вместо этого")
   final public func appGroupsAuthTokens() -> GIDKit.GIDSDKAuthResponse?
+  final public func getSharedAuthTokens() -> GIDKit.GIDSDKAuthResponse?
+  @available(*, deprecated, message: "Используйте getSharedProfiles() вместо этого")
   final public func appGroupTokens() -> [GIDKit.GIDSDKAuthResponse]?
+  final public func getLatestSharedAuthToken() -> GIDKit.GIDSDKAuthResponse?
+  final public func getAllSharedAuthTokens() -> [GIDKit.GIDSDKAuthResponse]
+  final public func getSharedProfiles() -> [GIDKit.GIDSDKAuthResponse]?
   final public func getIdToken() -> Swift.String?
   final public func appGroupAnchor(variants: [Swift.String], completion: @escaping GIDKit.GIDSDKApiHandler<[GIDKit.GIDSDKDeeplinkLoginResult], GIDKit.GIDApiErrorAny>)
   final public func getLocalProfiles() -> [GIDKit.GIDSDKAuthResponse]?
@@ -926,6 +941,8 @@ public typealias GIDSDKHandler<T, E> = (GIDKit.ResultHandler<T, GIDKit.GIDApiErr
   final public func getBranding(completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDApiClientBrandingResponse, GIDKit.GIDApiErrorAny>)
   final public func refreshToken(completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDApiTokenResult, GIDKit.GIDApiErrorAny>)
   final public func checkPostLoginScore(sub: Swift.String?, completion: @escaping GIDKit.GIDSDKApiHandler<GIDKit.GIDApiPostLoginScoreResponse, GIDKit.GIDApiErrorScore>)
+  final public func trackAuthSuccess()
+  final public func trackAuthFlowCanceled()
   @objc deinit
 }
 public enum GIDSDKApp : Swift.String, Swift.CaseIterable, Swift.Codable {
@@ -982,28 +999,24 @@ public struct GIDSDKConfiguration {
   public let logLevels: Swift.Set<GIDKit.GIDLogLevel>
   public let clientBaseURL: Foundation.URL
   public let gidBaseURL: Foundation.URL
-  public let authBaseURL: Foundation.URL
-  public let antifraudUrl: Foundation.URL?
-  public let statisticsURL: Foundation.URL?
   public let anchorApp: GIDKit.GIDSDKApp?
   public let scope: Swift.Set<GIDKit.GIDApiScope>
   public let customPaths: [GIDKit.GIDApiPath : Swift.String]?
   public let appGroupIdentifier: Swift.String?
+  public let sharedAccessGroup: Swift.String?
   public let env: GIDKit.GIDSDKEnv
   public let secret: Swift.String?
   public let deviceType: GIDKit.GIDSDKDeviceType
   public let loggerType: any GIDKit.GIDLogger.Type
   public let qrBaseURL: Foundation.URL?
   public let clientCustomHeaders: [Swift.String : Swift.String]?
-  public let goyaURL: Foundation.URL?
   public let goyaCid: Swift.String?
   public let goyaSessionId: Swift.String?
   public let goyaAppMetricaDeviceId: Swift.String?
   public let goyaProductName: Swift.String?
-  public let writeKey: Swift.String?
-  public let trackingReceiverUrl: Swift.String?
-  public let sentryDSN: Swift.String?
   public let sentryEnabled: Swift.Bool
+  public let trackingReciverEnabled: Swift.Bool
+  public let trackingURLsProvider: GIDKit.GIDTrackingUrlsProvider
 }
 public enum GIDSDKEnv : Swift.String, Swift.CaseIterable {
   case production
@@ -1055,27 +1068,22 @@ final public class GIDSDKConfigurationBuilder {
   final public func setLoggerType<T>(_ loggerType: T.Type) -> GIDKit.GIDSDKConfigurationBuilder where T : GIDKit.GIDLogger
   final public func setGIDBaseURL(_ gidBaseURL: Foundation.URL) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setClientCustomHeaders(_ headers: [Swift.String : Swift.String]?) -> GIDKit.GIDSDKConfigurationBuilder
-  final public func setAuthBaseURL(_ authBaseURL: Foundation.URL) -> GIDKit.GIDSDKConfigurationBuilder
-  final public func setStatisticsURL(_ statisticsURL: Foundation.URL) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setGidURL(_ qrBaseURL: Foundation.URL) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setCustomPaths(_ customPaths: [GIDKit.GIDApiPath : Swift.String]?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setAppGroupIdentifier(_ identifier: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
+  final public func setSharedAccessGroup(_ identifier: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setAnchorApp(_ anchorApp: GIDKit.GIDSDKApp?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setClientBaseURL(_ clientBaseURL: Foundation.URL) -> GIDKit.GIDSDKConfigurationBuilder
-  final public func setAntifraudUrl(_ antifraudUrl: Foundation.URL) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setScope(_ scope: Swift.Set<GIDKit.GIDApiScope>?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setClientID(_ clientID: Swift.String) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setSecret(_ secret: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setDeviceType(_ deviceType: GIDKit.GIDSDKDeviceType?) -> GIDKit.GIDSDKConfigurationBuilder
-  final public func setGoyaURL(_ url: Foundation.URL?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setGoyaCid(_ cid: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setGoyaSessionId(_ sessionId: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setGoyaProductName(_ productName: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setGoyaAppMetricaDeviceId(_ appMetricaDeviceId: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
-  final public func setWriteKey(_ writeKey: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
-  final public func setTrackingReceiverUrl(_ url: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
-  final public func setSentryDsn(_ dsn: Swift.String?) -> GIDKit.GIDSDKConfigurationBuilder
   final public func setSentryEnabled(_ enabled: Swift.Bool) -> GIDKit.GIDSDKConfigurationBuilder
+  final public func setTrackingReciverEnabled(_ enabled: Swift.Bool) -> GIDKit.GIDSDKConfigurationBuilder
   final public func build() -> GIDKit.GIDSDKConfiguration
   @objc deinit
 }
@@ -1088,6 +1096,7 @@ public struct GIDSDKDeeplinkLoginResult {
   public var maskedPhone: Swift.String {
     get
   }
+  public init(code: Swift.String, state: Swift.String, phone: Swift.String, sub: Swift.String? = nil)
 }
 extension GIDKit.GIDSDKDeeplinkLoginResult : Swift.Equatable, Swift.Hashable {
   public static func == (lhs: GIDKit.GIDSDKDeeplinkLoginResult, rhs: GIDKit.GIDSDKDeeplinkLoginResult) -> Swift.Bool
@@ -1134,19 +1143,17 @@ public struct GIDSDKAuthResponse : Swift.Codable, Swift.Hashable {
   public let scope: Swift.String
   public let date: Foundation.Date
   public let additionalData: Swift.String?
-  public let phone: Swift.String?
+  public let idToken: Swift.String?
   public var isExpired: Swift.Bool {
     get
   }
+  public static func == (a: GIDKit.GIDSDKAuthResponse, b: GIDKit.GIDSDKAuthResponse) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
   public init(from decoder: any Swift.Decoder) throws
-}
-extension GIDKit.GIDSDKAuthResponse {
-  public static func == (lhs: GIDKit.GIDSDKAuthResponse, rhs: GIDKit.GIDSDKAuthResponse) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct GIDSDKParamsResponse {
   public let clientID: Swift.String
@@ -1163,6 +1170,14 @@ public enum ResultHandler<Success, Failure, Void> where Failure : Swift.Error {
   case failure(Failure)
   case none
 }
+public enum GIDSDKTrackingFlowName : Swift.String {
+  case createLoginURL, loginViaSafariViewController, launchLoginWebViewIntent, auth
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 @objc @_Concurrency.MainActor @preconcurrency public class GIDSheetViewBase : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency public init(frame: CoreFoundation.CGRect, branding: GIDKit.GIDApiClientBrandingResponse?, theme: GIDKit.GIDSDKColorStyle)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
@@ -1176,11 +1191,30 @@ public enum GIDGoyaPath : Swift.String {
     get
   }
 }
-public enum GIDTrackingTypes {
-  case accountClick, loginAnotherWay, authCode, authorization, initialization
-  public static func == (a: GIDKit.GIDTrackingTypes, b: GIDKit.GIDTrackingTypes) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
+public enum GIDTrackingTypes : Swift.String {
+  case accountClick
+  case loginAnotherWay
+  case authCode
+  case authorization, eventAuthSuccess, eventHandleDeeplinkNoParams, eventGetTokenError
+  case eventAuthTokenReceivedLite
+  case initialization, eventAuthFlowStartedForce
+  case eventAuthFlowCanceled
+  case eventAuthFlowStartedLite
+  case eventAuthOtpSendLite
+  case eventAuthCodeReceivedLite
+  case eventAuthErrorLite, eventGetTokenErrorLite, eventCaptchaErrorLite, eventScoreErrorLite, eventSignInErrorLite
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GIDTrackingUrlsProvider : Swift.String {
+  case prod
+  case preprod
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
 }
@@ -1287,10 +1321,17 @@ extension GIDKit.GIDSDKDeviceType : Swift.Hashable {}
 extension GIDKit.GIDSDKDeviceType : Swift.RawRepresentable {}
 extension GIDKit.GIDSDKError : Swift.Equatable {}
 extension GIDKit.GIDSDKError : Swift.Hashable {}
+extension GIDKit.GIDSDKTrackingFlowName : Swift.Equatable {}
+extension GIDKit.GIDSDKTrackingFlowName : Swift.Hashable {}
+extension GIDKit.GIDSDKTrackingFlowName : Swift.RawRepresentable {}
 extension GIDKit.GIDGoyaPath : Swift.Equatable {}
 extension GIDKit.GIDGoyaPath : Swift.Hashable {}
 extension GIDKit.GIDGoyaPath : Swift.RawRepresentable {}
 extension GIDKit.GIDTrackingTypes : Swift.Equatable {}
 extension GIDKit.GIDTrackingTypes : Swift.Hashable {}
+extension GIDKit.GIDTrackingTypes : Swift.RawRepresentable {}
+extension GIDKit.GIDTrackingUrlsProvider : Swift.Equatable {}
+extension GIDKit.GIDTrackingUrlsProvider : Swift.Hashable {}
+extension GIDKit.GIDTrackingUrlsProvider : Swift.RawRepresentable {}
 @available(iOS 13, *)
 extension GIDKit.SUIGIDButton : Swift.Sendable {}

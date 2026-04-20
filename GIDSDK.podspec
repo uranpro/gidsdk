@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'GIDSDK'
-    spec.version                  = '1.2.1'
+    spec.version                  = '2.0.0'
     spec.homepage                 = 'https://gid.ru'
     spec.source                   = { :http=> '' }
     spec.authors                  = 'GID'

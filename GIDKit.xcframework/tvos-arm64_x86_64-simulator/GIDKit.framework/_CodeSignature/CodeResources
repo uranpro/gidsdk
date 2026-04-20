@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		cVPTa4O10XtOHybPNizZEILQ8+c=
+		cIgztUGtWcF6B7pqUtj7HFCPC1I=
 		</data>
 		<key>Headers/GIDKit-Swift.h</key>
 		<data>
-		oJuOha6oVU/w5OLuCiFqEEpp/9M=
+		wdUKA3/l5s9RoMti5oP7Ms8YHWA=
 		</data>
 		<key>Headers/GIDSDK.h</key>
 		<data>
@@ -18,47 +18,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+spTqcRFAFUakh+JqdJEcyAez1A=
+		6wxPHO6us0eHgQXBb03jCkykKD0=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		40JaTF8QrZA1L5pYKhtPzDi7zgA=
+		YRkDN5zZL0B0JCYZw7Sx5yDxtes=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		qx9WSlw34CgX8e2YeTaITtCHC2Y=
+		JXVyeWGP2HQ67A8jt+cHMArQIDA=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		RKfAHsjM3xo9Z/EoH9qJE513+0U=
+		9XsHJ5UcUbBszuM6SEMYjJfT7Us=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		qx9WSlw34CgX8e2YeTaITtCHC2Y=
+		JXVyeWGP2HQ67A8jt+cHMArQIDA=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		NWLNlEOZiRoA9ri3ruxlDqsYrDY=
+		xE3FZoICYFxGdVZZHJz+48+BvjM=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		40JaTF8QrZA1L5pYKhtPzDi7zgA=
+		YRkDN5zZL0B0JCYZw7Sx5yDxtes=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		wqDD0POaBOIDgtaL1AtFuaNQHD8=
+		JTAnqG/4Nl3MYX7btqa8SNulwIY=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		OSNudqH3aGuKNEC7/huqfse+OBw=
+		i60MBBmc4qomVo0dHVGC0RiC3Oo=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		wqDD0POaBOIDgtaL1AtFuaNQHD8=
+		JTAnqG/4Nl3MYX7btqa8SNulwIY=
 		</data>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		fBPdSq18U0iUU3UY+f2vUj/Ea/Y=
+		n34po0HY8y9jDMfq7GtKeI/wNl0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -87,14 +87,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gZgEPfBjkGXM5fqo6ORe3ksoe+ixx7vmDJqODIkUXqI=
+			5TidFcINJ8FjwB6UQneu1we+MoC1e2UhEEhyxm+80p0=
 			</data>
 		</dict>
 		<key>Headers/GIDKit-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			s4W4Mx6AEcaAQrsFwHJDzhzDuJy40trfPIlg+sEBIj0=
+			6vZDSS2SA7BjvK10b3D+lb12OEJZpAo+e6RnY5sd4VM=
 			</data>
 		</dict>
 		<key>Headers/GIDSDK.h</key>
@@ -108,70 +108,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eJV+bh0djmnZ65Fyq9jts2ZmNeiDFfg4IyEH/WyBQZY=
+			t3Dy2ER4LeDX4rlcKqYBEdwDiE47GeNhiS+Tbelu35I=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S4CV0Q0YqSMght3BDWMUo86I4goEZo9cV4bs6/SsQ2U=
+			mShxhGm+BOhkyfNucMJw/PuKYwQJpnSrEiapD5MDUts=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rDZa9CDAOVaKGufYWSVZYWFH5RiX6SA1hS5xhjorqwQ=
+			MvNZYkHMEbXnD+S4f4dQnQuUAWugwtk3+024xol1yT8=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S4CV0Q0YqSMght3BDWMUo86I4goEZo9cV4bs6/SsQ2U=
+			mShxhGm+BOhkyfNucMJw/PuKYwQJpnSrEiapD5MDUts=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ffGu00OCMPVEbiicDK5EkrS2AXTQ0lsYkqQzRggP6o4=
+			1GEReXu6/KIF/7Bm8uhIzXu0EO1VRFCAXBB/0aX6oXo=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eJV+bh0djmnZ65Fyq9jts2ZmNeiDFfg4IyEH/WyBQZY=
+			t3Dy2ER4LeDX4rlcKqYBEdwDiE47GeNhiS+Tbelu35I=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M1EIzVVhUF1x91XifWqDcovm1i9Zypgc3BFLTXt8s44=
+			0vcWz4UJqG0oyJk/QXDQvTLpvYo9GEHRlqWxDZuXuGw=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hyeBEM27iwlkqDki9+PHcRokcFKfKH/sqs0LSun6+9U=
+			dbX4Kp9OFRkBQkcJHgHZFhmdOEvcXlsv3DDpXzNTOgQ=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M1EIzVVhUF1x91XifWqDcovm1i9Zypgc3BFLTXt8s44=
+			0vcWz4UJqG0oyJk/QXDQvTLpvYo9GEHRlqWxDZuXuGw=
 			</data>
 		</dict>
 		<key>Modules/GIDKit.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HLObk4qloplhRfoscJTc5tGle17F3RtiUBpEaVYocmI=
+			yW2e9PhauBdbOQLktvDlTWGwpcdSkK7W3Gf1RCLafHA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
