@@ -1,0 +1,4 @@
+framework module GIDKit_NS {
+  header "GIDKit_NS-Swift.h"
+  requires objc
+}
