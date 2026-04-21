@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GIDKit_NS
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name GIDKit_NS
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AuthenticationServices
 import CommonCrypto
 import DeveloperToolsSupport
@@ -65,9 +65,9 @@ public struct GIDApiErrorResponse : Swift.Codable, Swift.Hashable {
   public var isCaptchaRequired: Swift.Bool {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: GIDKit_NS.GIDApiErrorResponse, b: GIDKit_NS.GIDApiErrorResponse) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -76,9 +76,9 @@ public struct GIDApiErrorResponse : Swift.Codable, Swift.Hashable {
 public struct GIDApiFieldErrors : Swift.Codable, Swift.Hashable {
   public let fieldName: Swift.String?
   public let errorDescription: Swift.String?
+  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: GIDKit_NS.GIDApiFieldErrors, b: GIDKit_NS.GIDApiFieldErrors) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -536,8 +536,6 @@ public struct GIDApiConfigResponse : Swift.Codable {
   public let goya: Swift.Bool?
   public let trackers: [Swift.String]?
   public let externalID: Swift.Int?
-  public let loginTag: [Swift.String]?
-  public let trackingReciever: Swift.Bool?
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
@@ -599,7 +597,7 @@ public struct GIDQrCodeUrl : Swift.Codable {
 }
 @_hasMissingDesignatedInitializers final public class GIDApp2Auth : GIDKit_NS.GIDAuthMethod {
   final public func auth(loginResult: GIDKit_NS.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKAuthResponse, GIDKit_NS.GIDApiErrorAny>)
-  final public func createLoginURL(_ quuid: Swift.String? = nil, loginTag: Swift.String? = nil, customScope: Swift.Set<GIDKit_NS.GIDApiScope>? = nil, customCid: Swift.String? = nil, customSessionId: Swift.String? = nil, flowName: GIDKit_NS.GIDSDKTrackingFlowName? = nil, completion: GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKDeeplinkLoginResult, GIDKit_NS.GIDApiErrorAny>?) -> Foundation.URL?
+  final public func createLoginURL(_ quuid: Swift.String? = nil, customScope: Swift.Set<GIDKit_NS.GIDApiScope>? = nil, customCid: Swift.String? = nil, customSessionId: Swift.String? = nil, flowName: GIDKit_NS.GIDSDKTrackingFlowName? = nil, completion: GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKDeeplinkLoginResult, GIDKit_NS.GIDApiErrorAny>?) -> Foundation.URL?
   final public func createLogoutURL(idToken: Swift.String) -> Foundation.URL?
   final public func loginViaSafariViewController(_ url: Foundation.URL? = nil, completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKDeeplinkLoginResult, GIDKit_NS.GIDApiErrorAny>) -> SafariServices.SFSafariViewController?
   @discardableResult
@@ -608,7 +606,6 @@ public struct GIDQrCodeUrl : Swift.Codable {
   final public func loginViaWebAuthSession(_ url: Foundation.URL? = nil, asWebAuthenticationPresentation: any AuthenticationServices.ASWebAuthenticationPresentationContextProviding, completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKDeeplinkLoginResult, GIDKit_NS.GIDApiErrorAny>)
   final public func loginViaWebView(navigationDelegate: any WebKit.WKNavigationDelegate, completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKDeeplinkLoginResult, GIDKit_NS.GIDApiErrorAny>) -> WebKit.WKWebView?
   final public func loginWithQR(_ quuid: Swift.String, asWebAuthenticationPresentation: any AuthenticationServices.ASWebAuthenticationPresentationContextProviding, completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKDeeplinkLoginResult, GIDKit_NS.GIDApiErrorAny>)
-  final public func forceLoginWithTag(loginTag: Swift.String, completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKAuthResponse, GIDKit_NS.GIDApiErrorAny>)
   final public func loginWAS(completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDSDKAuthResponse, GIDKit_NS.GIDApiErrorAny>)
   @objc deinit
 }
@@ -704,11 +701,11 @@ public enum GIDLogLevel : Swift.CaseIterable {
   case warning
   case error
   public static func == (a: GIDKit_NS.GIDLogLevel, b: GIDKit_NS.GIDLogLevel) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public typealias AllCases = [GIDKit_NS.GIDLogLevel]
   nonisolated public static var allCases: [GIDKit_NS.GIDLogLevel] {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -757,8 +754,8 @@ public enum GIDLoginButtonStyle : Swift.Equatable {
   case white
   case dark
   case sheetButton
-  public static func == (a: GIDKit_NS.GIDLoginButtonStyle, b: GIDKit_NS.GIDLoginButtonStyle) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: GIDKit_NS.GIDLoginButtonStyle, b: GIDKit_NS.GIDLoginButtonStyle) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
@@ -917,7 +914,6 @@ public typealias GIDSDKHandler<T, E> = (GIDKit_NS.ResultHandler<T, GIDKit_NS.GID
   final public var theme: GIDKit_NS.GIDSDKColorStyle
   final public var branding: GIDKit_NS.GIDApiClientBrandingResponse?
   final public var consents: [GIDKit_NS.GIDConsent]
-  final public var getForceLoginVariantss: ([Swift.String]) -> Swift.Void
   final public func installedAnchorApps() -> [GIDKit_NS.GIDSDKApp]
   final public func authTokens() -> GIDKit_NS.GIDSDKAuthResponse?
   final public func userInfo(completion: @escaping GIDKit_NS.GIDSDKApiHandler<GIDKit_NS.GIDApiUserInfoResponse, GIDKit_NS.GIDApiErrorGetUserInfo>)
@@ -1149,9 +1145,9 @@ public struct GIDSDKAuthResponse : Swift.Codable, Swift.Hashable {
   public var isExpired: Swift.Bool {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: GIDKit_NS.GIDSDKAuthResponse, b: GIDKit_NS.GIDSDKAuthResponse) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -1197,14 +1193,13 @@ public enum GIDTrackingTypes : Swift.String {
   case accountClick
   case loginAnotherWay
   case authCode
-  case authorization, eventAuthSuccess, eventHandleDeeplinkNoParams, eventGetTokenError
-  case eventAuthTokenReceivedLite
-  case initialization, eventAuthFlowStartedForce
+  case authorization, eventAuthSuccess, eventHandleDeeplinkNoParams, eventGetTokenError, eventAuthTokenReceivedLite
+  case initialization
   case eventAuthFlowCanceled
   case eventAuthFlowStartedLite
   case eventAuthOtpSendLite
   case eventAuthCodeReceivedLite
-  case eventAuthErrorLite, eventGetTokenErrorLite, eventCaptchaErrorLite, eventScoreErrorLite, eventSignInErrorLite
+  case eventAuthErrorLite
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
