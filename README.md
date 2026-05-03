@@ -1,7 +1,7 @@
 
-# GIDSDK for iOS v1.2.1
+# GIDSDK for iOS v2.0.1
 
-> Минимальная версия iOS 13, tvOS 13
+> Минимальная версия iOS 14.1, tvOS 13
 
 ## Установка
 

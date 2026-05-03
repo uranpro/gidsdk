@@ -1,0 +1,4 @@
+framework module GIDKit_pod {
+  header "GIDKit_pod-Swift.h"
+  requires objc
+}

@@ -1,0 +1,1355 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-tvos13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GIDKit_pod
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+import AuthenticationServices
+import CommonCrypto
+import DeveloperToolsSupport
+import Foundation
+import KfpMobileKit
+import Security
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum GIDApiError<T> : Swift.Error where T : GIDKit_pod.GIDApiErrorTypeable {
+  case noInternetConnectionError
+  case unknownError((any Swift.Error)?)
+  case serverError(T)
+  case responseCode(Swift.Int)
+  public var description: Swift.String {
+    get
+  }
+}
+public struct GIDApiErrorResponse : Swift.Codable, Swift.Hashable {
+  public let error: Swift.String?
+  public let errorDescription: Swift.String?
+  public let errorDebug: Swift.String?
+  public let statusCode: Swift.Int?
+  public let idpErrorCode: Swift.String?
+  public let idpErrorDescription: Swift.String?
+  public let retryAfterSeconds: Swift.Int?
+  public let captchaID: Swift.String?
+  public let captchaImageBase64: Swift.String?
+  public let fieldErrors: [GIDKit_pod.GIDApiFieldErrors]?
+  public var isCaptchaRequired: Swift.Bool {
+    get
+  }
+  public static func == (a: GIDKit_pod.GIDApiErrorResponse, b: GIDKit_pod.GIDApiErrorResponse) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiFieldErrors : Swift.Codable, Swift.Hashable {
+  public let fieldName: Swift.String?
+  public let errorDescription: Swift.String?
+  public static func == (a: GIDKit_pod.GIDApiFieldErrors, b: GIDKit_pod.GIDApiFieldErrors) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol GIDApiErrorTypeable : Swift.Decodable, Swift.Encodable {
+  associatedtype ET : Swift.RawRepresentable where Self.ET.RawValue == Swift.String
+  init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  var errorResponse: GIDKit_pod.GIDApiErrorResponse { get }
+  var type: Self.ET? { get }
+  var description: Swift.String? { get }
+}
+extension GIDKit_pod.GIDApiErrorTypeable {
+  public var type: Self.ET? {
+    get
+  }
+  public var description: Swift.String? {
+    get
+  }
+}
+public class GIDApiErrorBase : Swift.Codable {
+  final public let errorResponse: GIDKit_pod.GIDApiErrorResponse
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorAny : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorType
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorSignIn : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorSignIn.ErrorType
+  public enum ErrorType : Swift.String {
+    case fieldErrors
+    case captchaIsNotCorrect
+    case accountIsDisabled
+    case permissionDenied
+    case notValidMethod
+    case conflict
+    case otpRateLimit
+    case otpError
+    case captchaRateLimit
+    case internalServerError
+    case invalidPhoneField
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorCheckPhone : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorCheckPhone.ErrorType
+  public enum ErrorType : Swift.String {
+    case emptyPhoneField
+    case invalidPhoneField
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorGetConfig : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorGetConfig.ErrorType
+  public enum ErrorType : Swift.String {
+    case invalidClientID
+    case fieldError
+    case notValidMethod
+    case internalServerError
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorScore : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorScore.ErrorType
+  public enum ErrorType : Swift.String {
+    case fieldError
+    case permissionDenied
+    case notValidMethod
+    case conflict
+    case captchaRateLimit
+    case internalServerError
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorGetOTP : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorGetOTP.ErrorType
+  public enum ErrorType : Swift.String {
+    case validationError
+    case emptyPhoneField
+    case invalidPhoneField
+    case permissionDenied
+    case notFound
+    case throttled
+    case internalServerError
+    case requestError
+    case authenticationFailed
+    case notAuthenticated
+    case requestConflict
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorRegister : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorRegister.ErrorType
+  public enum ErrorType : Swift.String {
+    case validationError
+    case userExists
+    case emptyPhoneField
+    case invalidPhoneField
+    case throttled
+    case permissionDenied
+    case internalServerError
+    case requestError
+    case notAuthenticated
+    case requestConflict
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorAuth : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorAuth.ErrorType
+  public enum ErrorType : Swift.String {
+    case emptyPhoneField
+    case invalidPhoneField
+    case invalidRequest
+    case unsupportedGrantType
+    case invalidGrant
+    case invalidScope
+    case otpRequestValidationError
+    case invalidOtpCode
+    case validationError
+    case expiredOtpCode
+    case usedOtpCode
+    case invalidClient
+    case scopeNotGranted
+    case requestThrottled
+    case temporarilyUnavailable
+    case permissionDenied
+    case internalServerError
+    case requestError
+    case requestConflict
+    case deletedUser
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorClientAuth : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorClientAuth.ErrorType
+  public enum ErrorType : Swift.String {
+    case invalidRequest
+    case invalidGrant
+    case invalidScope
+    case validationError
+    case emptyPhoneField
+    case invalidPhoneField
+    case invalidOtpCode
+    case expiredOtpCode
+    case usedOtpCode
+    case invalidClient
+    case scopeNotGranted
+    case requestThrottled
+    case internalServerError
+    case temporarilyUnavailable
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorGetTokens : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorGetTokens.ErrorType
+  public enum ErrorType : Swift.String {
+    case invalidRequest
+    case unsupportedGrantType
+    case authorizationPending
+    case invalidGrant
+    case unauthorizedClient
+    case requestThrottled
+    case internalServerError
+    case temporarilyUnavailable
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorGetUserInfo : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorGetUserInfo.ErrorType
+  public enum ErrorType : Swift.String {
+    case invalidRequest
+    case unauthorizedClient
+    case requestThrottled
+    case internalServerError
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDApiErrorRevoke : GIDKit_pod.GIDApiErrorBase, GIDKit_pod.GIDApiErrorTypeable {
+  public typealias ET = GIDKit_pod.GIDApiErrorRevoke.ErrorType
+  public enum ErrorType : Swift.String {
+    case invalidRequest
+    case invalidClient
+    case internalServerError
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  required public init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc deinit
+}
+public enum GIDApiErrorType : Swift.String, Swift.Codable {
+  case emptyPhoneField
+  case invalidPhoneField
+  case validationError
+  case permissionDenied
+  case notFound
+  case throttled
+  case requestError
+  case invalidRequest
+  case userExists
+  case unsupportedGrantType
+  case invalidGrant
+  case invalidScope
+  case otpRequestValidationError
+  case invalidOtpCode
+  case expiredOtpCode
+  case usedOtpCode
+  case invalidClient
+  case scopeNotGranted
+  case requestThrottled
+  case internalServerError
+  case authenticationFailed
+  case notAuthenticated
+  case requestConflict
+  case deletedUser
+  case invalidClientID
+  case fieldErrors
+  case captchaIsNotCorrect
+  case accountIsDisabled
+  case permissionDenied2
+  case notValidMethod
+  case conflict
+  case otpRateLimit
+  case otpError
+  case captchaRateLimit
+  case internalServerError2
+  case a2aError
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension GIDKit_pod.GIDApiError : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: GIDKit_pod.GIDApiError<T>, rhs: GIDKit_pod.GIDApiError<T>) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension GIDKit_pod.GIDApiError : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum GIDApiPath : Swift.String, Swift.CaseIterable {
+  case auth
+  case score
+  case userinfo
+  case revokeToken
+  case refreshToken
+  case refreshCaptcha
+  case logout
+  case getConfig
+  case mpConfig
+  case a2aAuth
+  case a2aGetTokens
+  case app2AuthGetTokens
+  case signIn
+  case getBranding
+  case consents
+  case postLoginScore
+  case createQrUrl
+  case qrFlowStatus
+  public static var defaultPaths: [GIDKit_pod.GIDApiPath : Swift.String] {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [GIDKit_pod.GIDApiPath]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [GIDKit_pod.GIDApiPath] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GIDApiScope : Swift.CaseIterable {
+  public static var allCases: [GIDKit_pod.GIDApiScope] {
+    get
+  }
+  case sub
+  case openid
+  case profile
+  case phone
+  case patronymic
+  case nickname
+  case firstName
+  case lastName
+  case offline
+  case offlineAccess
+  case email
+  case emailConfirmed
+  case emailUnconfirmed
+  case birthdate
+  case gender
+  case city
+  case age
+  case anchorValidate
+  case emailsConfirmed
+  case addressDelivery
+  case custom(Swift.String)
+  public init(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+  public static func scopeFrom(string: Swift.String) -> GIDKit_pod.GIDApiScope
+  public typealias AllCases = [GIDKit_pod.GIDApiScope]
+}
+extension GIDKit_pod.GIDApiScope : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+extension GIDKit_pod.GIDApiScope : Swift.Encodable {
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension GIDKit_pod.GIDApiScope : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: GIDKit_pod.GIDApiScope, b: GIDKit_pod.GIDApiScope) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct GIDApiOTPResponse : Swift.Codable {
+  public let status: Swift.String
+  public let waitSeconds: Swift.Int
+  public let smsID: Swift.String
+  public let otpSID: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiRegisterResponse : Swift.Codable {
+  public let phone: Swift.String
+  public let waitSeconds: Swift.Int?
+  public let id: Swift.String
+  public let smsID: Swift.String
+  public let otpSID: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiTokenResult : Swift.Codable {
+  public let tokenID: Swift.String
+  public let accessToken: Swift.String
+  public let refreshToken: Swift.String?
+  public let expiresIn: Swift.Int
+  public let scope: Swift.String
+  public let additionalData: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiCheckPhoneResponse : Swift.Codable {
+  public let success: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiEmptyResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiClientBrandingResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiClientBrandingColorResponse : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiUserInfoResponse {
+  public subscript(key: GIDKit_pod.GIDApiScope) -> Any? {
+    get
+  }
+  public var fields: [Swift.String : Any]
+}
+public struct GIDApiConfigResponse : Swift.Codable {
+  public let enableKfp: Swift.Bool
+  public let state: Swift.String?
+  public let numKey: Swift.Bool?
+  public let goya: Swift.Bool?
+  public let trackers: [Swift.String]?
+  public let externalID: Swift.Int?
+  public let loginTag: [Swift.String]?
+  public let trackingReciever: Swift.Bool?
+  public let gidGpb: Swift.Bool?
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct GIDApiScoreResponse : Swift.Codable {
+  public let captchaID: Swift.String
+  public let captchaImage: Swift.String
+  public var isCaptchaRequired: Swift.Bool {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiSignInResponse : Swift.Codable {
+  public let waitSeconds: Swift.Int
+  public let smsID: Swift.String
+  public let otpSID: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDApiPostLoginScoreResponse {
+  public subscript(key: Swift.String) -> Any? {
+    get
+  }
+  public var fields: [Swift.String : Any]
+}
+public struct GIDQrCodeFlowStatus : Swift.Codable {
+  public let code: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDQrCodeUrl : Swift.Codable {
+  public let qrUrl: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class GIDAuthMethod {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class GIDMobileLight : GIDKit_pod.GIDAuthMethod {
+  final public func checkUserScore(phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiScoreResponse, GIDKit_pod.GIDApiErrorScore>)
+  final public func refreshCaptcha(captchaID: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiScoreResponse, GIDKit_pod.GIDApiErrorSignIn>)
+  final public func getConfig(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiConfigResponse, GIDKit_pod.GIDApiErrorGetConfig>)
+  final public func signIn(phone: Swift.String, captchaID: Swift.String?, captchaKey: Swift.String?, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiSignInResponse, GIDKit_pod.GIDApiErrorSignIn>)
+  final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAuth>)
+  final public func getBranding(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiClientBrandingResponse, GIDKit_pod.GIDApiErrorAny>)
+  final public func createQrURL(clientId: Swift.String? = nil, _ queryParams: [Swift.String : Swift.String]? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDQrCodeUrl, GIDKit_pod.GIDApiErrorAny>)
+  final public func cancelQrFlow()
+  final public func getQrFlowStatus(_ customClientId: Swift.String? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAuth>)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class GIDAnchor2Anchor : GIDKit_pod.GIDAuthMethod {
+  public func auth(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorGetTokens>)
+  public func login(app: GIDKit_pod.GIDSDKApp, moreProfiles: Swift.Bool? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>)
+  public func appGroupLogin(appGroupData: GIDKit_pod.GIDSDKAuthResponse, _ completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorClientAuth>)
+  public func getMaskedPhone(for anchorApp: GIDKit_pod.GIDSDKApp) -> Swift.String?
+  public func getAllAnchorLogins(variants: [Swift.String], completion: @escaping GIDKit_pod.GIDSDKApiHandler<[GIDKit_pod.GIDSDKDeeplinkLoginResult], GIDKit_pod.GIDApiErrorAny>)
+  public func getConsents(sub: Swift.String? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiUserInfoResponse, GIDKit_pod.GIDApiErrorGetUserInfo>)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GIDApp2Anchor : GIDKit_pod.GIDAnchor2Anchor {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class GIDApp2Auth : GIDKit_pod.GIDAuthMethod {
+  final public func auth(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
+  final public func createLoginURL(_ quuid: Swift.String? = nil, loginTag: Swift.String? = nil, gpbFlow: Swift.Bool = false, customScope: Swift.Set<GIDKit_pod.GIDApiScope>? = nil, customCid: Swift.String? = nil, customSessionId: Swift.String? = nil, flowName: GIDKit_pod.GIDSDKTrackingFlowName? = nil, completion: GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>?) -> Foundation.URL?
+  final public func createLogoutURL(idToken: Swift.String) -> Foundation.URL?
+  @objc deinit
+}
+public enum SheetViewType {
+  case anchor, keychain
+  public static func == (a: GIDKit_pod.SheetViewType, b: GIDKit_pod.SheetViewType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct GIDSDKBuildInfo {
+  public static let buildDate: Swift.String
+  public static let buildRevision: Swift.String
+  public static let buildVersion: Swift.String
+  public static let apiVersion: Swift.String
+  public static let apiBuildNumber: Swift.Int
+}
+public struct GIDCaptchaControllerData {
+  public let phone: Swift.String
+  public let captchaID: Swift.String
+  public let captchaImage: Swift.String
+  public init(phone: Swift.String, captchaID: Swift.String, captchaImage: Swift.String)
+  public init(score: GIDKit_pod.GIDApiScoreResponse, phone: Swift.String)
+  public init(error: GIDKit_pod.GIDApiErrorSignIn, phone: Swift.String)
+}
+public protocol GIDCaptchaControllerDelegate : AnyObject {
+  func didSuccessSendCaptcha(with result: GIDKit_pod.GIDApiSignInResponse)
+  func didFailSendCaptcha(with error: GIDKit_pod.GIDApiError<GIDKit_pod.GIDApiErrorSignIn>)
+  func didTapCancelButton()
+  var sdk: GIDKit_pod.GIDSDK { get }
+}
+extension GIDKit_pod.GIDCaptchaControllerDelegate {
+  public var sdk: GIDKit_pod.GIDSDK {
+    get
+  }
+}
+public struct GIDConsent : Swift.Identifiable {
+  public var id: Swift.String
+  public var key: GIDKit_pod.GIDApiScope
+  public var value: Swift.String
+  public typealias ID = Swift.String
+}
+extension GIDKit_pod.GIDSDK {
+  public typealias GIDSDKApiHandler<T, E> = (Swift.Result<T, GIDKit_pod.GIDApiError<E>>) -> Swift.Void where E : GIDKit_pod.GIDApiErrorTypeable
+  @available(*, unavailable, renamed: "mobileLight.checkPhone")
+  final public func checkPhone(phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiCheckPhoneResponse, GIDKit_pod.GIDApiErrorCheckPhone>)
+  @available(*, unavailable, renamed: "mobileLight.register")
+  final public func register(phone: Swift.String, codeChallenge: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiRegisterResponse, GIDKit_pod.GIDApiErrorRegister>)
+  @available(*, unavailable, renamed: "mobileLight.getOTP")
+  final public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiOTPResponse, GIDKit_pod.GIDApiErrorGetOTP>)
+  @available(*, unavailable, renamed: "mobileLight.auth")
+  final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, codeVerifier: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAuth>)
+  @available(*, unavailable, renamed: "authTokens")
+  final public func getAuthTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+}
+extension GIDKit_pod.GIDSDKConfigurationBuilder {
+  @available(*, unavailable, message: "Not used")
+  final public func setApiKey(_ apiKey: Swift.String) -> GIDKit_pod.GIDSDKConfigurationBuilder
+}
+extension GIDKit_pod.GIDMobileLight {
+  @available(*, unavailable, message: "Remove 'codeChallenge' parameter")
+  final public func register(phone: Swift.String, codeChallenge: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiRegisterResponse, GIDKit_pod.GIDApiErrorRegister>)
+  @available(*, unavailable, message: "Remove 'codeChallenge' parameter")
+  final public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiOTPResponse, GIDKit_pod.GIDApiErrorGetOTP>)
+  @available(*, unavailable, message: "Remove 'codeVerifier' parameter")
+  final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, codeVerifier: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAuth>)
+  @available(*, unavailable, message: "Use signIn method")
+  final public func checkPhone(phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiCheckPhoneResponse, GIDKit_pod.GIDApiErrorCheckPhone>)
+  @available(*, unavailable, message: "Use signIn method")
+  final public func register(phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiRegisterResponse, GIDKit_pod.GIDApiErrorRegister>)
+  @available(*, unavailable, message: "Use signIn method")
+  final public func getOTP(phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiOTPResponse, GIDKit_pod.GIDApiErrorGetOTP>)
+}
+extension GIDKit_pod.GIDApp2Auth {
+  @available(*, unavailable, message: "Remove 'codeVerifier' parameter")
+  final public func auth(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, codeVerifier: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
+  @available(*, unavailable, message: "Remove 'codeChallenge', 'state' and 'nonce' parameter")
+  final public func createLoginURL(state: Swift.String, nonce: Swift.String, codeChallenge: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>) -> Foundation.URL
+}
+extension GIDKit_pod.GIDAnchor2Anchor {
+  @available(*, unavailable, message: "Remove 'state' and 'nonce' parameter")
+  public func login(app: GIDKit_pod.GIDSDKApp, state: Swift.String, nonce: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>)
+}
+public enum GIDLogLevel : Swift.CaseIterable {
+  case info
+  case debug
+  case warning
+  case error
+  public static func == (a: GIDKit_pod.GIDLogLevel, b: GIDKit_pod.GIDLogLevel) -> Swift.Bool
+  public typealias AllCases = [GIDKit_pod.GIDLogLevel]
+  nonisolated public static var allCases: [GIDKit_pod.GIDLogLevel] {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol GIDLogger {
+  init(levels: Swift.Set<GIDKit_pod.GIDLogLevel>)
+  func i(_ message: Any?)
+  func d(_ message: Any?)
+  func e(_ message: Any?)
+  func w(_ message: Any?)
+}
+public class GIDLoggerSimple : GIDKit_pod.GIDLogger {
+  required public init(levels: Swift.Set<GIDKit_pod.GIDLogLevel>)
+  public func i(_ message: Any?)
+  public func d(_ message: Any?)
+  public func e(_ message: Any?)
+  public func w(_ message: Any?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class GIDLoggerHistory : GIDKit_pod.GIDLoggerSimple {
+  public func getMessages() -> [Swift.String]
+  required public init(levels: Swift.Set<GIDKit_pod.GIDLogLevel>)
+  @objc deinit
+}
+public enum GIDNetworkError : Swift.Error {
+  public enum ParameterEncodingFailureReason {
+    case missingURL
+    case jsonEncodingFailed(error: any Swift.Error)
+    case customEncodingFailed(error: any Swift.Error)
+  }
+  public enum ResponseValidationFailureReason {
+    case dataFileNil
+    case dataFileReadFailed(at: Foundation.URL)
+    case missingContentType(acceptableContentTypes: [Swift.String])
+    case unacceptableContentType(acceptableContentTypes: [Swift.String], responseContentType: Swift.String)
+    case unacceptableStatusCode(code: Swift.Int)
+    case customValidationFailed(error: any Swift.Error)
+  }
+  public enum ResponseSerializationFailureReason {
+    case inputDataNilOrZeroLength
+    case inputFileNil
+    case inputFileReadFailed(at: Foundation.URL)
+    case stringSerializationFailed(encoding: Swift.String.Encoding)
+    case jsonSerializationFailed(error: any Swift.Error)
+    case decodingFailed(error: any Swift.Error)
+    case customSerializationFailed(error: any Swift.Error)
+    case invalidEmptyResponse(type: Swift.String)
+    case responseDataError(data: Foundation.Data)
+  }
+  public enum URLRequestValidationFailureReason {
+    case bodyDataInGETRequest(Foundation.Data)
+  }
+  case invalidURL(url: Foundation.URL)
+  case parameterEncodingFailed(reason: GIDKit_pod.GIDNetworkError.ParameterEncodingFailureReason)
+  case responseValidationFailed(reason: GIDKit_pod.GIDNetworkError.ResponseValidationFailureReason)
+  case responseSerializationFailed(reason: GIDKit_pod.GIDNetworkError.ResponseSerializationFailureReason)
+  case urlRequestValidationFailed(reason: GIDKit_pod.GIDNetworkError.URLRequestValidationFailureReason)
+}
+extension Swift.Error {
+  public var asGIDNetworkError: GIDKit_pod.GIDNetworkError? {
+    get
+  }
+  public func asGIDNetworkError(orFailWith message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line) -> GIDKit_pod.GIDNetworkError
+}
+extension GIDKit_pod.GIDNetworkError {
+  public var isInvalidURLError: Swift.Bool {
+    get
+  }
+  public var isParameterEncodingError: Swift.Bool {
+    get
+  }
+  public var isResponseValidationError: Swift.Bool {
+    get
+  }
+  public var isResponseSerializationError: Swift.Bool {
+    get
+  }
+}
+extension GIDKit_pod.GIDNetworkError {
+  public var urlConvertible: Foundation.URL? {
+    get
+  }
+  public var underlyingError: (any Swift.Error)? {
+    get
+  }
+  public var acceptableContentTypes: [Swift.String]? {
+    get
+  }
+  public var responseContentType: Swift.String? {
+    get
+  }
+  public var responseCode: Swift.Int? {
+    get
+  }
+  public var failedStringEncoding: Swift.String.Encoding? {
+    get
+  }
+}
+extension GIDKit_pod.GIDNetworkError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum GIDPKCEMethod : Swift.String {
+  case SHA256
+  case S256
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GIDPKCEError : Swift.Error {
+  case failedToGenerateRandomOctets
+  case failedToCreateChallengeForVerifier
+  case octetCountOverRange(minimum: Swift.Int, maximum: Swift.Int)
+}
+@_hasMissingDesignatedInitializers final public class GIDPKCE {
+  public static func generateCryptographicallySecureRandomOctets(count: Swift.Int = 32) throws -> [Swift.UInt8]
+  public static func base64URLEncode<S>(octets: S) -> Swift.String where S : Swift.Sequence, S.Element == Swift.UInt8
+  public static func createVerifier(count: Swift.Int = 32) throws -> Swift.String
+  public static func challenge(for verifier: Swift.String) throws -> Swift.String
+  public static func generateState() -> Swift.String
+  public static func generateNonce() -> Swift.String
+  @objc deinit
+}
+public typealias GIDSDKApiHandler<T, E> = (Swift.Result<T, GIDKit_pod.GIDApiError<E>>) -> Swift.Void where E : GIDKit_pod.GIDApiErrorTypeable
+public typealias GIDSDKHandler<T, E> = (GIDKit_pod.ResultHandler<T, GIDKit_pod.GIDApiError<E>, Swift.Void>) -> Swift.Void where E : GIDKit_pod.GIDApiErrorTypeable
+@_hasMissingDesignatedInitializers final public class GIDSDK {
+  public static func setup(configuration: GIDKit_pod.GIDSDKConfiguration)
+  public static let shared: GIDKit_pod.GIDSDK
+  public static func createSDK(configuration: GIDKit_pod.GIDSDKConfiguration) -> GIDKit_pod.GIDSDK
+  final public let configuration: GIDKit_pod.GIDSDKConfiguration
+  final public let app2Anchor: GIDKit_pod.GIDApp2Anchor
+  final public let app2Auth: GIDKit_pod.GIDApp2Auth
+  final public let anchor2Anchor: GIDKit_pod.GIDAnchor2Anchor
+  final public let logger: any GIDKit_pod.GIDLogger
+  final public var theme: GIDKit_pod.GIDSDKColorStyle
+  final public var branding: GIDKit_pod.GIDApiClientBrandingResponse?
+  final public var consents: [GIDKit_pod.GIDConsent]
+  final public var getForceLoginVariantss: ([Swift.String]) -> Swift.Void
+  final public var gpbCompletion: (Swift.Result<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiError<GIDKit_pod.GIDApiErrorAny>>) -> Swift.Void
+  final public func installedAnchorApps() -> [GIDKit_pod.GIDSDKApp]
+  final public func authTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+  final public func userInfo(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiUserInfoResponse, GIDKit_pod.GIDApiErrorGetUserInfo>)
+  @available(*, deprecated, message: "Используйте getSharedAuthTokens() вместо этого")
+  final public func appGroupsAuthTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+  final public func getSharedAuthTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+  @available(*, deprecated, message: "Используйте getSharedProfiles() вместо этого")
+  final public func appGroupTokens() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  final public func getLatestSharedAuthToken() -> GIDKit_pod.GIDSDKAuthResponse?
+  final public func getAllSharedAuthTokens() -> [GIDKit_pod.GIDSDKAuthResponse]
+  final public func getSharedProfiles() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  final public func getIdToken() -> Swift.String?
+  final public func appGroupAnchor(variants: [Swift.String], completion: @escaping GIDKit_pod.GIDSDKApiHandler<[GIDKit_pod.GIDSDKDeeplinkLoginResult], GIDKit_pod.GIDApiErrorAny>)
+  final public func getLocalProfiles() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  final public func logout(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiEmptyResponse, GIDKit_pod.GIDApiErrorRevoke>)
+  final public func handle(url: Foundation.URL) -> Swift.Bool
+  final public func getKeychain() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  final public func getDeviceTag() -> Swift.String?
+  final public func getVersionNumber() -> Swift.String?
+  final public func getConfig()
+  final public func getKFPInfo() -> GIDKit_pod.GIDKFPInfo
+  final public func getConsents(sub: Swift.String? = nil)
+  final public func getBranding(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiClientBrandingResponse, GIDKit_pod.GIDApiErrorAny>)
+  final public func refreshToken(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiTokenResult, GIDKit_pod.GIDApiErrorAny>)
+  final public func checkPostLoginScore(sub: Swift.String?, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiPostLoginScoreResponse, GIDKit_pod.GIDApiErrorScore>)
+  final public func trackAuthSuccess()
+  final public func trackAuthFlowCanceled()
+  @objc deinit
+}
+public enum GIDSDKApp : Swift.String, Swift.CaseIterable, Swift.Codable {
+  case premier
+  case matchTV
+  case pub
+  case lite
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [GIDKit_pod.GIDSDKApp]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [GIDKit_pod.GIDSDKApp] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension GIDKit_pod.GIDSDKApp {
+  public var scheme: Swift.String {
+    get
+  }
+  public var id: Swift.String {
+    get
+  }
+  public var sortIndex: Swift.Int {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public var installed: Swift.Bool {
+    get
+  }
+  public static func fromURL(url: Swift.String) -> GIDKit_pod.GIDSDKApp?
+  public static var schemePrefix: Swift.String {
+    get
+  }
+  public static func schemeFor(clientID: Swift.String) -> Swift.String
+  public static func resultURLFor(clientID: Swift.String) -> Swift.String
+  public static func loginURLFor(clientID: Swift.String) -> Swift.String
+  public static func logoutURLFor(clientID: Swift.String) -> Swift.String
+}
+public enum GIDSDKColorStyle {
+  case light
+  case dark
+  public static func == (a: GIDKit_pod.GIDSDKColorStyle, b: GIDKit_pod.GIDSDKColorStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct GIDSDKConfiguration {
+  public let clientID: Swift.String
+  public let logLevels: Swift.Set<GIDKit_pod.GIDLogLevel>
+  public let clientBaseURL: Foundation.URL
+  public let gidBaseURL: Foundation.URL
+  public let anchorApp: GIDKit_pod.GIDSDKApp?
+  public let scope: Swift.Set<GIDKit_pod.GIDApiScope>
+  public let customPaths: [GIDKit_pod.GIDApiPath : Swift.String]?
+  public let appGroupIdentifier: Swift.String?
+  public let sharedAccessGroup: Swift.String?
+  public let env: GIDKit_pod.GIDSDKEnv
+  public let secret: Swift.String?
+  public let deviceType: GIDKit_pod.GIDSDKDeviceType
+  public let loggerType: any GIDKit_pod.GIDLogger.Type
+  public let qrBaseURL: Foundation.URL?
+  public let clientCustomHeaders: [Swift.String : Swift.String]?
+  public let goyaCid: Swift.String?
+  public let goyaSessionId: Swift.String?
+  public let goyaAppMetricaDeviceId: Swift.String?
+  public let goyaProductName: Swift.String?
+  public let sentryEnabled: Swift.Bool
+  public let trackingReciverEnabled: Swift.Bool
+  public let trackingURLsProvider: GIDKit_pod.GIDTrackingUrlsProvider
+}
+public enum GIDSDKEnv : Swift.String, Swift.CaseIterable {
+  case production
+  case test
+  case development
+  case preprod
+  case stage
+  public var envTracker: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [GIDKit_pod.GIDSDKEnv]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [GIDKit_pod.GIDSDKEnv] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GIDSDKDeviceType : Swift.String, Swift.CaseIterable {
+  case mobile
+  case tablet
+  case tv
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [GIDKit_pod.GIDSDKDeviceType]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [GIDKit_pod.GIDSDKDeviceType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+final public class GIDSDKConfigurationFactory {
+  public init()
+  final public func createDevConfiguration(for app: GIDKit_pod.GIDSDKApp) -> GIDKit_pod.GIDSDKConfiguration
+  final public func createTFConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String) -> GIDKit_pod.GIDSDKConfiguration
+  final public func createTestConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  final public func createTVTestConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  final public func createSandboxConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  final public func createPreprodConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  @objc deinit
+}
+final public class GIDSDKConfigurationBuilder {
+  public init()
+  final public func setLogLevels(_ logLevels: Swift.Set<GIDKit_pod.GIDLogLevel>?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setEnv(_ env: GIDKit_pod.GIDSDKEnv?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setLoggerType<T>(_ loggerType: T.Type) -> GIDKit_pod.GIDSDKConfigurationBuilder where T : GIDKit_pod.GIDLogger
+  final public func setGIDBaseURL(_ gidBaseURL: Foundation.URL) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setClientCustomHeaders(_ headers: [Swift.String : Swift.String]?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setGidURL(_ qrBaseURL: Foundation.URL) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setCustomPaths(_ customPaths: [GIDKit_pod.GIDApiPath : Swift.String]?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setAppGroupIdentifier(_ identifier: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setSharedAccessGroup(_ identifier: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setAnchorApp(_ anchorApp: GIDKit_pod.GIDSDKApp?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setClientBaseURL(_ clientBaseURL: Foundation.URL) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setScope(_ scope: Swift.Set<GIDKit_pod.GIDApiScope>?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setClientID(_ clientID: Swift.String) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setSecret(_ secret: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setDeviceType(_ deviceType: GIDKit_pod.GIDSDKDeviceType?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setGoyaCid(_ cid: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setGoyaSessionId(_ sessionId: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setGoyaProductName(_ productName: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setGoyaAppMetricaDeviceId(_ appMetricaDeviceId: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setSentryEnabled(_ enabled: Swift.Bool) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func setTrackingReciverEnabled(_ enabled: Swift.Bool) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  final public func build() -> GIDKit_pod.GIDSDKConfiguration
+  @objc deinit
+}
+public protocol GIDSDKDeeplinkManagerDelegate : AnyObject {
+  func authorized(isSucces: Swift.Bool)
+}
+public struct GIDSDKDeeplinkLoginResult {
+  public let code: Swift.String
+  public let state: Swift.String
+  public var maskedPhone: Swift.String {
+    get
+  }
+  public init(code: Swift.String, state: Swift.String, phone: Swift.String, sub: Swift.String? = nil)
+}
+extension GIDKit_pod.GIDSDKDeeplinkLoginResult : Swift.Equatable, Swift.Hashable {
+  public static func == (lhs: GIDKit_pod.GIDSDKDeeplinkLoginResult, rhs: GIDKit_pod.GIDSDKDeeplinkLoginResult) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class GIDSDKDeeplinkManager {
+  public func handle(url: Foundation.URL) -> Swift.Bool
+  @objc deinit
+}
+extension GIDKit_pod.GIDSDKApp {
+  public var loginURL: Swift.String {
+    get
+  }
+  public var resultURL: Swift.String {
+    get
+  }
+  public var logoutURL: Swift.String {
+    get
+  }
+}
+public enum GIDSDError : Swift.Error {
+  case error(message: Swift.String)
+}
+public enum GIDSDKError : Swift.Error {
+  case loginError
+  public static func == (a: GIDKit_pod.GIDSDKError, b: GIDKit_pod.GIDSDKError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct GIDSDKOtpResponse {
+  public let otpSID: Swift.String
+  public let waitSeconds: Swift.Int?
+}
+public struct GIDSDKAuthResponse : Swift.Codable, Swift.Hashable {
+  public let accessToken: Swift.String
+  public let refreshToken: Swift.String?
+  public let tokenType: Swift.String
+  public let expiresIn: Swift.Int
+  public let scope: Swift.String
+  public let date: Foundation.Date
+  public let additionalData: Swift.String?
+  public let idToken: Swift.String?
+  public var isExpired: Swift.Bool {
+    get
+  }
+  public static func == (a: GIDKit_pod.GIDSDKAuthResponse, b: GIDKit_pod.GIDSDKAuthResponse) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GIDSDKParamsResponse {
+  public let clientID: Swift.String
+  public let redirectURI: Swift.String
+  public let state: Swift.String
+  public let scope: [GIDKit_pod.GIDApiScope]
+  public let nonce: Swift.String
+}
+public struct GIDSDKClientAuthResponse {
+  public let redirectURI: Swift.String
+}
+public enum ResultHandler<Success, Failure, Void> where Failure : Swift.Error {
+  case success(Success)
+  case failure(Failure)
+  case none
+}
+public enum GIDSDKTrackingFlowName : Swift.String {
+  case createLoginURL, loginViaSafariViewController, launchLoginWebViewIntent, auth
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GIDGoyaPath : Swift.String {
+  case auth
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GIDTrackingTypes : Swift.String {
+  case accountClick
+  case loginAnotherWay
+  case authCode
+  case authorization, eventAuthSuccess, eventHandleDeeplinkNoParams, eventGetTokenError
+  case eventAuthTokenReceivedLite
+  case initialization, eventAuthFlowStartedForce
+  case eventAuthFlowCanceled
+  case eventAuthFlowStartedLite
+  case eventAuthOtpSendLite
+  case eventAuthCodeReceivedLite
+  case eventAuthErrorLite, eventGetTokenErrorLite, eventCaptchaErrorLite, eventScoreErrorLite, eventSignInErrorLite
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GIDTrackingUrlsProvider : Swift.String {
+  case prod
+  case preprod
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct GIDKFPInfo : Swift.Codable {
+  public let tag: Swift.String
+  public let version: Swift.String
+  public let os: Swift.String
+  public let active: Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor @preconcurrency open class KeyboardButton : UIKit.UIButton {
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var selectedTitleColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var pressedTitleColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var selectedBackgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var selectedBackgroundEndColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var pressedBackgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var pressedBackgroundEndColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedBackgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedBackgroundEndColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedBorderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var normalBorderWidth: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedBorderColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var normalBorderColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var normalBackgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var normalBackgroundEndColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var cornerRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedScaleFactor: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedShadowRadius: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedShadowOpacity: Swift.Float {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var shadowColor: CoreGraphics.CGColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var shadowOffSetFocused: CoreFoundation.CGSize {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var animationDuration: Swift.Double {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedTitleColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedSpaceTitleColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var normalSpaceTitleColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var focusedSpaceBackgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var normalSpaceBackgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var titleFont: UIKit.UIFont {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var extraTitle: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var normalTitleColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var gradientStartPoint: CoreFoundation.CGPoint {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor @preconcurrency public var gradientEndPoint: CoreFoundation.CGPoint {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var isSelected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var buttonType: UIKit.UIButton.ButtonType {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func didUpdateFocus(in context: UIKit.UIFocusUpdateContext, with coordinator: UIKit.UIFocusAnimationCoordinator)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func pressesBegan(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func pressesCancelled(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func pressesEnded(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
+  @objc deinit
+}
+public struct ParallaxStyle {
+}
+public typealias Parameters = [Swift.String : Any]
+extension Swift.String {
+  public var isPhoneValid: Swift.Bool {
+    get
+  }
+  public var trimmedPhone: Swift.String? {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class GIDCaptchaController : UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public init(delegate: (any GIDKit_pod.GIDCaptchaControllerDelegate)?, data: GIDKit_pod.GIDCaptchaControllerData)
+  @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor @preconcurrency @objc override final public func didUpdateFocus(in context: UIKit.UIFocusUpdateContext, with coordinator: UIKit.UIFocusAnimationCoordinator)
+  @objc deinit
+}
+extension GIDKit_pod.GIDCaptchaController {
+  @_Concurrency.MainActor @preconcurrency final public func getBranding()
+}
+extension Foundation.CharacterSet {
+  public static let afURLQueryAllowed: Foundation.CharacterSet
+}
+extension GIDKit_pod.GIDApiErrorSignIn.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorSignIn.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorSignIn.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorCheckPhone.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorCheckPhone.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorCheckPhone.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorGetConfig.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorGetConfig.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorGetConfig.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorScore.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorScore.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorScore.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorGetOTP.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorGetOTP.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorGetOTP.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorRegister.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorRegister.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorRegister.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorAuth.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorAuth.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorAuth.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorClientAuth.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorClientAuth.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorClientAuth.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorGetTokens.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorGetTokens.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorGetTokens.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorGetUserInfo.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorGetUserInfo.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorGetUserInfo.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorRevoke.ErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorRevoke.ErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorRevoke.ErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiErrorType : Swift.Equatable {}
+extension GIDKit_pod.GIDApiErrorType : Swift.Hashable {}
+extension GIDKit_pod.GIDApiErrorType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDApiPath : Swift.Equatable {}
+extension GIDKit_pod.GIDApiPath : Swift.Hashable {}
+extension GIDKit_pod.GIDApiPath : Swift.RawRepresentable {}
+extension GIDKit_pod.SheetViewType : Swift.Equatable {}
+extension GIDKit_pod.SheetViewType : Swift.Hashable {}
+extension GIDKit_pod.GIDLogLevel : Swift.Equatable {}
+extension GIDKit_pod.GIDLogLevel : Swift.Hashable {}
+extension GIDKit_pod.GIDPKCEMethod : Swift.Equatable {}
+extension GIDKit_pod.GIDPKCEMethod : Swift.Hashable {}
+extension GIDKit_pod.GIDPKCEMethod : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDSDKApp : Swift.Equatable {}
+extension GIDKit_pod.GIDSDKApp : Swift.Hashable {}
+extension GIDKit_pod.GIDSDKApp : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDSDKColorStyle : Swift.Equatable {}
+extension GIDKit_pod.GIDSDKColorStyle : Swift.Hashable {}
+extension GIDKit_pod.GIDSDKEnv : Swift.Equatable {}
+extension GIDKit_pod.GIDSDKEnv : Swift.Hashable {}
+extension GIDKit_pod.GIDSDKEnv : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDSDKDeviceType : Swift.Equatable {}
+extension GIDKit_pod.GIDSDKDeviceType : Swift.Hashable {}
+extension GIDKit_pod.GIDSDKDeviceType : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDSDKError : Swift.Equatable {}
+extension GIDKit_pod.GIDSDKError : Swift.Hashable {}
+extension GIDKit_pod.GIDSDKTrackingFlowName : Swift.Equatable {}
+extension GIDKit_pod.GIDSDKTrackingFlowName : Swift.Hashable {}
+extension GIDKit_pod.GIDSDKTrackingFlowName : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDGoyaPath : Swift.Equatable {}
+extension GIDKit_pod.GIDGoyaPath : Swift.Hashable {}
+extension GIDKit_pod.GIDGoyaPath : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDTrackingTypes : Swift.Equatable {}
+extension GIDKit_pod.GIDTrackingTypes : Swift.Hashable {}
+extension GIDKit_pod.GIDTrackingTypes : Swift.RawRepresentable {}
+extension GIDKit_pod.GIDTrackingUrlsProvider : Swift.Equatable {}
+extension GIDKit_pod.GIDTrackingUrlsProvider : Swift.Hashable {}
+extension GIDKit_pod.GIDTrackingUrlsProvider : Swift.RawRepresentable {}
