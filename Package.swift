@@ -43,7 +43,7 @@ let package = Package(
        .binaryTarget(
            name: "KFPMobileKit",
            url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/KFPMobileKit.xcframework-5.3.0.24.zip",
-           checksum: "1714efefc4e46f2e2df0f67bc71421f42295ae7bb59537d40e59b928a080b175"
+           checksum: "701c93afc4a120ae4d13fb1c4cbcfec24cef04828b5c67d2d40e9615e704f761"
        ),
        
        .binaryTarget(
