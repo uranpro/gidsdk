@@ -34,12 +34,20 @@ let package = Package(
            dependencies: [
                .target(name: "GIDSDK", condition: .when(platforms: [.iOS, .tvOS])),
                .target(name: "KFPMobileKit", condition: .when(platforms: [.iOS, .tvOS])), 
-               .product(name: "Segment", package: "analytics-swift"),
-               .product(name: "Sentry", package: "sentry-cocoa")
+               .target(name: "GIDSDKDependencies", condition: .when(platforms: [.iOS, .tvOS])), 
            ],
            path: "SwiftPM/GIDSDKWrapper"
        ),
-       
+
+       .target(
+            name: "GIDSDKDependencies",
+            dependencies: [
+                .product(name: "Segment", package: "analytics-swift"),
+                .product(name: "Sentry", package: "sentry-cocoa")
+            ],
+            path: "SwiftPM/GIDSDKDependencies"
+        ),
+
        .binaryTarget(
            name: "KFPMobileKit",
            url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/KFPMobileKit.xcframework-5.3.0.24.zip",
