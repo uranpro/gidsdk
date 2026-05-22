@@ -4,13 +4,13 @@
 import PackageDescription
 
 let package = Package(
-   name: "GIDSDK",
+   name: "GIDKit",
 
    platforms: [.iOS(.v13), .tvOS(.v13)],
 
    products: [
        .library(
-           name: "GIDSDK",
+           name: "GIDKit",
            targets: ["GIDSDKTarget"]
        ),
    ],
