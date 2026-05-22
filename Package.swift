@@ -52,14 +52,16 @@ let package = Package(
        
        .binaryTarget(
            name: "KFPMobileKit",
-           url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/KFPMobileKit.xcframework-5.3.0.24.zip",
-           checksum: "701c93afc4a120ae4d13fb1c4cbcfec24cef04828b5c67d2d40e9615e704f761"
+           path: "KFPMobileKit.xcframework"
+        //    url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/KFPMobileKit.xcframework-5.3.0.24.zip",
+        //    checksum: "701c93afc4a120ae4d13fb1c4cbcfec24cef04828b5c67d2d40e9615e704f761"
        ),
        
        .binaryTarget(
            name: "GIDKit",
-           url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/GIDSDK-public-spm.xcframework-2.0.1.zip",
-           checksum: "ba9e9cfcdc4a63fe100012f134875242ea65cf9facffe7481f1a7a6273765de4"
+           path: "GIDSDK-public-spm.xcframework"
+        //    url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/GIDSDK-public-spm.xcframework-2.0.1.zip",
+        //    checksum: "ba9e9cfcdc4a63fe100012f134875242ea65cf9facffe7481f1a7a6273765de4"
        ),
    ],
    
