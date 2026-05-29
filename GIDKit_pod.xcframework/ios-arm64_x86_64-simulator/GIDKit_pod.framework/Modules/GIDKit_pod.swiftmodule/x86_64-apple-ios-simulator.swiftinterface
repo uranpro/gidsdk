@@ -421,6 +421,7 @@ public enum GIDApiPath : Swift.String, Swift.CaseIterable {
   case postLoginScore
   case createQrUrl
   case qrFlowStatus
+  case authKeycloack
   public static var defaultPaths: [GIDKit_pod.GIDApiPath : Swift.String] {
     get
   }
@@ -497,11 +498,11 @@ public struct GIDApiRegisterResponse : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct GIDApiTokenResult : Swift.Codable {
-  public let tokenID: Swift.String
-  public let accessToken: Swift.String
+  public let tokenID: Swift.String?
+  public let accessToken: Swift.String?
   public let refreshToken: Swift.String?
-  public let expiresIn: Swift.Int
-  public let scope: Swift.String
+  public let expiresIn: Swift.Int?
+  public let scope: Swift.String?
   public let additionalData: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -539,6 +540,7 @@ public struct GIDApiConfigResponse : Swift.Codable {
   public let loginTag: [Swift.String]?
   public let trackingReciever: Swift.Bool?
   public let gidGpb: Swift.Bool?
+  public var expirationDate: Swift.Double?
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
@@ -600,7 +602,8 @@ public struct GIDQrCodeUrl : Swift.Codable {
 }
 @_hasMissingDesignatedInitializers final public class GIDApp2Auth : GIDKit_pod.GIDAuthMethod {
   final public func auth(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
-  final public func createLoginURL(_ quuid: Swift.String? = nil, loginTag: Swift.String? = nil, gpbFlow: Swift.Bool = false, customScope: Swift.Set<GIDKit_pod.GIDApiScope>? = nil, customCid: Swift.String? = nil, customSessionId: Swift.String? = nil, flowName: GIDKit_pod.GIDSDKTrackingFlowName? = nil, completion: GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>?) -> Foundation.URL?
+  final public func authKeycloak(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
+  final public func createLoginURL(_ quuid: Swift.String? = nil, loginTag: Swift.String? = nil, gpbFlow: Swift.Bool = false, customScope: Swift.Set<GIDKit_pod.GIDApiScope>? = nil, customCid: Swift.String? = nil, customSessionId: Swift.String? = nil, flowName: GIDKit_pod.GIDSDKTrackingFlowName? = nil, keycloak: Swift.Bool = false, completion: GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>?) -> Foundation.URL?
   final public func createLogoutURL(idToken: Swift.String) -> Foundation.URL?
   final public func loginViaSafariViewController(_ url: Foundation.URL? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>) -> SafariServices.SFSafariViewController?
   @discardableResult
@@ -612,6 +615,7 @@ public struct GIDQrCodeUrl : Swift.Codable {
   final public func startGPBAuthFlow(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
   final public func forceLoginWithTag(loginTag: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
   final public func loginWAS(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
+  final public func keycloakLogin(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
   @objc deinit
 }
 public protocol GIDAutoAuthSheetCellDelegate : AnyObject {
@@ -921,6 +925,10 @@ public typealias GIDSDKHandler<T, E> = (GIDKit_pod.ResultHandler<T, GIDKit_pod.G
   final public var consents: [GIDKit_pod.GIDConsent]
   final public var getForceLoginVariantss: ([Swift.String]) -> Swift.Void
   final public var gpbCompletion: (Swift.Result<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiError<GIDKit_pod.GIDApiErrorAny>>) -> Swift.Void
+  final public var configExpiration: Foundation.Date? {
+    get
+    set
+  }
   final public func installedAnchorApps() -> [GIDKit_pod.GIDSDKApp]
   final public func authTokens() -> GIDKit_pod.GIDSDKAuthResponse?
   final public func userInfo(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiUserInfoResponse, GIDKit_pod.GIDApiErrorGetUserInfo>)
@@ -1206,7 +1214,6 @@ public enum GIDTrackingTypes : Swift.String {
   case eventAuthFlowCanceled
   case eventAuthFlowStartedLite
   case eventAuthOtpSendLite
-  case eventAuthCodeReceivedLite
   case eventAuthErrorLite, eventGetTokenErrorLite, eventCaptchaErrorLite, eventScoreErrorLite, eventSignInErrorLite
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String

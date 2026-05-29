@@ -41000,14 +41000,14 @@
       "kind": "StringLiteral",
       "offset": 175,
       "length": 31,
-      "value": "\"2026-05-18 23:13:22 +0300 MSK\""
+      "value": "\"2026-05-29 10:13:50 +0300 MSK\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
       "kind": "StringLiteral",
       "offset": 245,
       "length": 10,
-      "value": "\"1e16d1d2\""
+      "value": "\"611bfcfa\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
@@ -41964,7 +41964,7 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
       "kind": "StringLiteral",
-      "offset": 11986,
+      "offset": 12045,
       "length": 19,
       "value": "\"tracking_receiver\""
     },

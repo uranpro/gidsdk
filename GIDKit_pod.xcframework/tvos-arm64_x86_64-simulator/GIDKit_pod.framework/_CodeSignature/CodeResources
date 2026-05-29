@@ -22,43 +22,43 @@
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		xOtZGl1OJ0KsqFCkL/vNxbULZ3w=
+		tS1pWFlT8xBUylhQYZUKWv6bbjE=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		xUo0JGTh0DT4TTOnnddrMqDMKOo=
+		MU+Qdv0GDSVs3CS6kFMGYSlhZl8=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		phGoKwdjzTFhOEl5UPKON5gnqvk=
+		2O/13swZ40mnD440vGaCSb3lQr8=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		xUo0JGTh0DT4TTOnnddrMqDMKOo=
+		MU+Qdv0GDSVs3CS6kFMGYSlhZl8=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		hgrfl+Ywzk6o4FFX1J0zxpwV3pk=
+		BRGcprD2Cd5Xf8Ma7+RDpWNuZ5g=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		xOtZGl1OJ0KsqFCkL/vNxbULZ3w=
+		tS1pWFlT8xBUylhQYZUKWv6bbjE=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		WIG5FWpX59IW9YOvxtU4U+rEJx4=
+		eIaY0TgHkaN8JoVvXlPXeoSJKOI=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		oGINhCA7tjuSrKksEgm9OBCyzL0=
+		+ssbSTyptDbSooBHJF3iyhq/7NI=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		WIG5FWpX59IW9YOvxtU4U+rEJx4=
+		eIaY0TgHkaN8JoVvXlPXeoSJKOI=
 		</data>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		RgPN9cO3iKUrzPf5HDX9RVg9u34=
+		HoX54ONZHXNbKEKFftrkSxTsvuU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -108,70 +108,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			atn2GLcmqaGg+R6OKI8wVKZgGXX0gksmrGJCN2N+cN0=
+			cFuUdFw2VxmAPpMDDQtJVMI7t99beBVAaVsb4ZIYgV0=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8S5kqsiGrBa5OXwtVdibLxc/t49BeMm7lFCxTjA+1Sg=
+			ZV2CosyB/5FYoxikvMSykk6ZbMYT6m662/QklxQbXn0=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			e87kpVhbX3kgiFOLaEM4lmkX7MGamaq2/W9FV5fU9oc=
+			Pmna6UozQ6M1DTBrRgZDP25LXL0IeVteFmx42XMayWo=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8S5kqsiGrBa5OXwtVdibLxc/t49BeMm7lFCxTjA+1Sg=
+			ZV2CosyB/5FYoxikvMSykk6ZbMYT6m662/QklxQbXn0=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9wvF5rXt9kp6yYFtkRNEMiLaRxyDqr4YrRmvzSN8Ehw=
+			sQgHKB/IJ9N4kany140DI+t7bOFqs00VfvgQQz/3d9Y=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			atn2GLcmqaGg+R6OKI8wVKZgGXX0gksmrGJCN2N+cN0=
+			cFuUdFw2VxmAPpMDDQtJVMI7t99beBVAaVsb4ZIYgV0=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lJ/j9NWGp34DeLjlE0XCe//s6m0UkomhAHUeN98+dq4=
+			cE4W4ZS/PYyNo4+69/L06V4N/mKNs/OFcW3Zkfpus0Q=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gthgxrQOBZC1K9qg68YZV0CwHzxHoCmYsXNi/it4+Bo=
+			b9TFw2w+X6+6Uqpn2iUBtc4rpv6w9YOrR1o3xy+lo6o=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lJ/j9NWGp34DeLjlE0XCe//s6m0UkomhAHUeN98+dq4=
+			cE4W4ZS/PYyNo4+69/L06V4N/mKNs/OFcW3Zkfpus0Q=
 			</data>
 		</dict>
 		<key>Modules/GIDKit_pod.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			APvaDLUvMczAP/dFoN5UVqi5vik89EQ2aGQG2YU3aNE=
+			YriMb/yyyd/hVeG9mCzZzHhfPAgQexGxO0PgtaR+kQ0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
