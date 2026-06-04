@@ -59,7 +59,7 @@ let package = Package(
        
        .binaryTarget(
            name: "GIDKit",
-           path: "GIDSDK-public-spm.xcframework"
+           path: "GIDKit.xcframework"
         //    url: "https://nexus.gid.team/repository/sso-sdk-ios/gid/sdk/spm/GIDSDK-public-spm.xcframework-2.0.1.zip",
         //    checksum: "ba9e9cfcdc4a63fe100012f134875242ea65cf9facffe7481f1a7a6273765de4"
        ),
