@@ -33108,6 +33108,34 @@
           },
           {
             "kind": "Function",
+            "name": "setKeycloakEnabled",
+            "printedName": "setKeycloakEnabled(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GIDSDKConfigurationBuilder",
+                "printedName": "GIDKit_pod.GIDSDKConfigurationBuilder",
+                "usr": "s:10GIDKit_pod26GIDSDKConfigurationBuilderC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10GIDKit_pod26GIDSDKConfigurationBuilderC18setKeycloakEnabledyACSbF",
+            "mangledName": "$s10GIDKit_pod26GIDSDKConfigurationBuilderC18setKeycloakEnabledyACSbF",
+            "moduleName": "GIDKit_pod",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setGoyaProductName",
             "printedName": "setGoyaProductName(_:)",
             "children": [
@@ -38267,6 +38295,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GIDKit_pod",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -41171,14 +41209,14 @@
       "kind": "StringLiteral",
       "offset": 175,
       "length": 31,
-      "value": "\"2026-06-23 11:16:38 +0300 MSK\""
+      "value": "\"2026-06-23 11:33:08 +0300 MSK\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
       "kind": "StringLiteral",
       "offset": 245,
       "length": 10,
-      "value": "\"c540a006\""
+      "value": "\"17bd2200\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
@@ -41827,42 +41865,42 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18424,
+      "offset": 18578,
       "length": 21,
       "value": "\"https:\/\/auth.gid.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18465,
+      "offset": 18619,
       "length": 29,
       "value": "\"https:\/\/preprod.gid-auth.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18510,
+      "offset": 18664,
       "length": 35,
       "value": "\"https:\/\/dev-auth.k8s-dev.gid.team\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18562,
+      "offset": 18716,
       "length": 36,
       "value": "\"https:\/\/test-auth.k8s-dev.gid.team\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18618,
+      "offset": 18772,
       "length": 29,
       "value": "\"https:\/\/sandbox.gid-auth.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18665,
+      "offset": 18819,
       "length": 37,
       "value": "\"https:\/\/stage-auth.k8s-dev.gid.team\""
     },
@@ -42135,7 +42173,7 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKTrackers\/GIDSDKTrackingService.swift",
       "kind": "StringLiteral",
-      "offset": 12045,
+      "offset": 12152,
       "length": 19,
       "value": "\"tracking_receiver\""
     },
@@ -42159,6 +42197,13 @@
       "offset": 416,
       "length": 14,
       "value": "\"kKfpMPConfig\""
+    },
+    {
+      "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/Helpers\/GIDSDKUserDefaultsService.swift",
+      "kind": "StringLiteral",
+      "offset": 460,
+      "length": 12,
+      "value": "\"kTimeDelta\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSheetView\/SheetBase\/GIDSheetViewBase.swift",

@@ -1267,6 +1267,7 @@ final public class GIDSDKConfigurationBuilder {
   #if compiler(>=5.3) && $NonescapableTypes
   final public func setGoyaSessionId(_ sessionId: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
   #endif
+  final public func setKeycloakEnabled(_ enabled: Swift.Bool) -> GIDKit_pod.GIDSDKConfigurationBuilder
   #if compiler(>=5.3) && $NonescapableTypes
   final public func setGoyaProductName(_ productName: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
   #endif

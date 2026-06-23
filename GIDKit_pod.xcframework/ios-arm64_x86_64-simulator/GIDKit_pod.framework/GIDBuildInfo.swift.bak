@@ -1,0 +1,16 @@
+//
+//  GIDBuildInfo.swift
+//  GIDSDK
+//
+//  Created by Mikhail Bushuev on 20.10.2022.
+//
+
+import Foundation
+
+public struct GIDSDKBuildInfo {
+    public static let buildDate = "2026-06-23 11:33:08 +0300 MSK"
+    public static let buildRevision = "17bd2200"
+    public static let buildVersion = "2.0.1"
+    public static let apiVersion = "1.0"
+    public static let apiBuildNumber = 1
+}
