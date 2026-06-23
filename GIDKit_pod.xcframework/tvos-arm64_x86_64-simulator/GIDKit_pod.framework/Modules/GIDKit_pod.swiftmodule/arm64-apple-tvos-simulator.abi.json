@@ -611,6 +611,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Hashable",
             "printedName": "Hashable",
             "usr": "s:SH",
@@ -11487,6 +11494,43 @@
             "declKind": "EnumElement",
             "usr": "s:10GIDKit_pod10GIDApiPathO13authKeycloackyA2CmF",
             "mangledName": "$s10GIDKit_pod10GIDApiPathO13authKeycloackyA2CmF",
+            "moduleName": "GIDKit_pod"
+          },
+          {
+            "kind": "Var",
+            "name": "backendUserInfo",
+            "printedName": "backendUserInfo",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GIDKit_pod.GIDApiPath.Type) -> GIDKit_pod.GIDApiPath",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GIDApiPath",
+                    "printedName": "GIDKit_pod.GIDApiPath",
+                    "usr": "s:10GIDKit_pod10GIDApiPathO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GIDKit_pod.GIDApiPath.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GIDApiPath",
+                        "printedName": "GIDKit_pod.GIDApiPath",
+                        "usr": "s:10GIDKit_pod10GIDApiPathO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10GIDKit_pod10GIDApiPathO15backendUserInfoyA2CmF",
+            "mangledName": "$s10GIDKit_pod10GIDApiPathO15backendUserInfoyA2CmF",
             "moduleName": "GIDKit_pod"
           },
           {
@@ -22486,6 +22530,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "LocalizedError",
             "printedName": "LocalizedError",
             "usr": "s:10Foundation14LocalizedErrorP",
@@ -22918,6 +22969,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -27741,6 +27799,50 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "keycloakEnabled",
+            "printedName": "keycloakEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GIDKit_pod19GIDSDKConfigurationV15keycloakEnabledSbvp",
+            "mangledName": "$s10GIDKit_pod19GIDSDKConfigurationV15keycloakEnabledSbvp",
+            "moduleName": "GIDKit_pod",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GIDKit_pod19GIDSDKConfigurationV15keycloakEnabledSbvg",
+                "mangledName": "$s10GIDKit_pod19GIDSDKConfigurationV15keycloakEnabledSbvg",
+                "moduleName": "GIDKit_pod",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -30267,6 +30369,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -30535,6 +30644,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -37512,6 +37628,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -37986,6 +38109,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "UITraitChangeObservable",
             "printedName": "UITraitChangeObservable",
             "usr": "s:5UIKit23UITraitChangeObservableP",
@@ -38260,6 +38390,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -38462,6 +38599,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -39165,6 +39309,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       }
@@ -39203,21 +39354,21 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApi.swift",
       "kind": "StringLiteral",
-      "offset": 6256,
+      "offset": 6703,
       "length": 23,
       "value": "\"Session.requestsQueue\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApi.swift",
       "kind": "BooleanLiteral",
-      "offset": 6380,
+      "offset": 6827,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApi.swift",
       "kind": "BooleanLiteral",
-      "offset": 6410,
+      "offset": 6857,
       "length": 5,
       "value": "false"
     },
@@ -40176,511 +40327,511 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 3980,
+      "offset": 4082,
       "length": 5,
       "value": "\"sub\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4008,
+      "offset": 4110,
       "length": 8,
       "value": "\"openid\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4040,
+      "offset": 4142,
       "length": 9,
       "value": "\"profile\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4071,
+      "offset": 4173,
       "length": 7,
       "value": "\"phone\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4103,
+      "offset": 4205,
       "length": 10,
       "value": "\"nickname\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4139,
+      "offset": 4241,
       "length": 12,
       "value": "\"first_name\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4176,
+      "offset": 4278,
       "length": 11,
       "value": "\"last_name\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4214,
+      "offset": 4316,
       "length": 12,
       "value": "\"patronymic\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4250,
+      "offset": 4352,
       "length": 9,
       "value": "\"offline\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4289,
+      "offset": 4391,
       "length": 16,
       "value": "\"offline_access\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4327,
+      "offset": 4429,
       "length": 7,
       "value": "\"email\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4365,
+      "offset": 4467,
       "length": 17,
       "value": "\"email_confirmed\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4415,
+      "offset": 4517,
       "length": 19,
       "value": "\"email_unconfirmed\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4460,
+      "offset": 4562,
       "length": 11,
       "value": "\"birthdate\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4494,
+      "offset": 4596,
       "length": 8,
       "value": "\"gender\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4523,
+      "offset": 4625,
       "length": 6,
       "value": "\"city\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4549,
+      "offset": 4651,
       "length": 5,
       "value": "\"age\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4585,
+      "offset": 4687,
       "length": 17,
       "value": "\"anchor_validate\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4634,
+      "offset": 4736,
       "length": 18,
       "value": "\"emails_confirmed\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 4684,
+      "offset": 4786,
       "length": 18,
       "value": "\"address_delivery\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 8378,
+      "offset": 8480,
       "length": 14,
       "value": "\"wait_seconds\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 8414,
+      "offset": 8516,
       "length": 8,
       "value": "\"sms_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 8445,
+      "offset": 8547,
       "length": 9,
       "value": "\"otp_sid\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 8755,
+      "offset": 8857,
       "length": 14,
       "value": "\"wait_seconds\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 8791,
+      "offset": 8893,
       "length": 8,
       "value": "\"sms_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 8822,
+      "offset": 8924,
       "length": 9,
       "value": "\"otp_sid\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9213,
+      "offset": 9315,
       "length": 10,
       "value": "\"id_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9251,
+      "offset": 9353,
       "length": 14,
       "value": "\"access_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9294,
+      "offset": 9396,
       "length": 15,
       "value": "\"refresh_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9335,
+      "offset": 9437,
       "length": 12,
       "value": "\"expires_in\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9373,
+      "offset": 9475,
       "length": 12,
       "value": "\"token_type\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9416,
+      "offset": 9518,
       "length": 17,
       "value": "\"additional_data\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9945,
+      "offset": 10047,
       "length": 14,
       "value": "\"has_password\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 9997,
+      "offset": 10099,
       "length": 25,
       "value": "\"restore_password_window\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10054,
+      "offset": 10156,
       "length": 18,
       "value": "\"accept_targeting\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10105,
+      "offset": 10207,
       "length": 20,
       "value": "\"has_reset_password\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10396,
+      "offset": 10498,
       "length": 11,
       "value": "\"client_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10435,
+      "offset": 10537,
       "length": 14,
       "value": "\"redirect_uri\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 10654,
+      "offset": 10756,
       "length": 13,
       "value": "\"redirect_to\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11264,
+      "offset": 11366,
       "length": 14,
       "value": "\"partner_name\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11310,
+      "offset": 11412,
       "length": 18,
       "value": "\"branding_enabled\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11380,
+      "offset": 11482,
       "length": 20,
       "value": "\"background_enabled\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11447,
+      "offset": 11549,
       "length": 9,
       "value": "\"qr_auth\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11503,
+      "offset": 11605,
       "length": 14,
       "value": "\"gid_branding\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11540,
+      "offset": 11642,
       "length": 9,
       "value": "\"num_key\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11578,
+      "offset": 11680,
       "length": 15,
       "value": "\"custom_colors\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11631,
+      "offset": 11733,
       "length": 25,
       "value": "\"personal_data_agreement\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11686,
+      "offset": 11788,
       "length": 16,
       "value": "\"user_agreement\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11737,
+      "offset": 11839,
       "length": 22,
       "value": "\"personal_data_policy\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11787,
+      "offset": 11889,
       "length": 14,
       "value": "\"legal_entity\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 11833,
+      "offset": 11935,
       "length": 18,
       "value": "\"extend_agreement\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12101,
+      "offset": 12203,
       "length": 8,
       "value": "\"accent\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12137,
+      "offset": 12239,
       "length": 16,
       "value": "\"accent_hovered\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12183,
+      "offset": 12285,
       "length": 16,
       "value": "\"accent_pressed\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12231,
+      "offset": 12333,
       "length": 19,
       "value": "\"color_text_button\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12565,
+      "offset": 12667,
       "length": 14,
       "value": "\"access_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12603,
+      "offset": 12705,
       "length": 10,
       "value": "\"id_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12639,
+      "offset": 12741,
       "length": 12,
       "value": "\"token_type\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12680,
+      "offset": 12782,
       "length": 15,
       "value": "\"refresh_token\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12721,
+      "offset": 12823,
       "length": 12,
       "value": "\"expires_in\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 12783,
+      "offset": 12885,
       "length": 17,
       "value": "\"additional_data\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13423,
+      "offset": 13525,
       "length": 12,
       "value": "\"enable_kfp\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13477,
+      "offset": 13579,
       "length": 9,
       "value": "\"num_key\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13553,
+      "offset": 13655,
       "length": 13,
       "value": "\"external_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13591,
+      "offset": 13693,
       "length": 11,
       "value": "\"login_tag\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13635,
+      "offset": 13737,
       "length": 19,
       "value": "\"tracking_receiver\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 13677,
+      "offset": 13779,
       "length": 9,
       "value": "\"gid_gpb\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 14980,
+      "offset": 15082,
       "length": 12,
       "value": "\"captcha_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 15021,
+      "offset": 15123,
       "length": 22,
       "value": "\"captcha_image_base64\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 15267,
+      "offset": 15369,
       "length": 14,
       "value": "\"wait_seconds\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 15303,
+      "offset": 15405,
       "length": 8,
       "value": "\"sms_id\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 15334,
+      "offset": 15436,
       "length": 9,
       "value": "\"otp_sid\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDApi\/GIDApiModels.swift",
       "kind": "StringLiteral",
-      "offset": 15725,
+      "offset": 15827,
       "length": 8,
       "value": "\"qr_url\""
     },
@@ -40806,14 +40957,14 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDAuthMethods.swift",
       "kind": "BooleanLiteral",
-      "offset": 30018,
+      "offset": 30267,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDAuthMethods.swift",
       "kind": "BooleanLiteral",
-      "offset": 30219,
+      "offset": 30468,
       "length": 5,
       "value": "false"
     },
@@ -40822,14 +40973,14 @@
       "kind": "StringLiteral",
       "offset": 175,
       "length": 31,
-      "value": "\"2026-05-29 08:22:19 +0300 MSK\""
+      "value": "\"2026-06-23 11:16:38 +0300 MSK\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
       "kind": "StringLiteral",
       "offset": 245,
       "length": 10,
-      "value": "\"611bfcfa\""
+      "value": "\"c540a006\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDBuildInfo.swift",
@@ -40946,133 +41097,133 @@
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "Array",
-      "offset": 1214,
+      "offset": 1251,
       "length": 384,
       "value": "[0x77, 0x41, 0x76, 0x47, 0x61, 0x56, 0x72, 0x52, 0x4D, 0x58, 0x7A, 0x67, 0x5A, 0x75, 0x4F, 0x37, 0x36, 0x39, 0x72, 0x6C, 0x6B, 0x63, 0x57, 0x63, 0x33, 0x70, 0x75, 0x49, 0x58, 0x69, 0x52, 0x32, 0x78, 0x51, 0x4E, 0x73, 0x77, 0x4A, 0x61, 0x6D, 0x69, 0x61, 0x6D, 0x67, 0x54, 0x51, 0x32, 0x76, 0x6B, 0x47, 0x61, 0x44, 0x35, 0x42, 0x34, 0x34, 0x30, 0x5A, 0x4F, 0x32, 0x61, 0x61, 0x61, 0x61]"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "Array",
-      "offset": 1639,
+      "offset": 1676,
       "length": 408,
       "value": "[0x33, 0x34, 0x31, 0x63, 0x64, 0x37, 0x38, 0x35, 0x65, 0x38, 0x34, 0x36, 0x32, 0x62, 0x34, 0x37, 0x37, 0x37, 0x32, 0x33, 0x36, 0x36, 0x39, 0x39, 0x64, 0x33, 0x31, 0x36, 0x38, 0x66, 0x31, 0x64, 0x33, 0x36, 0x61, 0x64, 0x64, 0x64, 0x62, 0x31, 0x63, 0x62, 0x61, 0x39, 0x30, 0x33, 0x61, 0x62, 0x65, 0x61, 0x37, 0x36, 0x38, 0x37, 0x36, 0x61, 0x38, 0x61, 0x30, 0x36, 0x37, 0x64, 0x62, 0x37, 0x38, 0x38, 0x37, 0x31]"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "Array",
-      "offset": 2100,
+      "offset": 2137,
       "length": 384,
       "value": "[0x44, 0x79, 0x32, 0x54, 0x68, 0x75, 0x69, 0x57, 0x6d, 0x32, 0x67, 0x61, 0x52, 0x5a, 0x4f, 0x6f, 0x6d, 0x30, 0x7a, 0x4f, 0x4b, 0x6c, 0x6c, 0x6e, 0x53, 0x4e, 0x6d, 0x33, 0x70, 0x77, 0x36, 0x32, 0x75, 0x57, 0x67, 0x37, 0x56, 0x39, 0x61, 0x64, 0x57, 0x72, 0x79, 0x55, 0x6f, 0x66, 0x6c, 0x30, 0x33, 0x32, 0x63, 0x45, 0x48, 0x33, 0x6c, 0x6e, 0x42, 0x61, 0x71, 0x46, 0x44, 0x39, 0x70, 0x73]"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 3415,
+      "offset": 3452,
       "length": 8,
       "value": "\"mobile\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 3454,
+      "offset": 3491,
       "length": 10,
       "value": "\"apple-tv\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 4922,
+      "offset": 4959,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 5688,
+      "offset": 5725,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 6494,
+      "offset": 6531,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 7245,
+      "offset": 7282,
       "length": 11,
       "value": "\"sdk_otp_3\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 8013,
+      "offset": 8050,
       "length": 21,
       "value": "\"https:\/\/auth.gid.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 8314,
+      "offset": 8351,
       "length": 70,
       "value": "\"341cd785e8462b4777236699d3168f1d36adddb1cba903abea76876a8a067db78871\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 8490,
+      "offset": 8527,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 8548,
+      "offset": 8585,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18127,
+      "offset": 18424,
       "length": 21,
       "value": "\"https:\/\/auth.gid.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18168,
+      "offset": 18465,
       "length": 29,
       "value": "\"https:\/\/preprod.gid-auth.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18213,
+      "offset": 18510,
       "length": 35,
       "value": "\"https:\/\/dev-auth.k8s-dev.gid.team\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18265,
+      "offset": 18562,
       "length": 36,
       "value": "\"https:\/\/test-auth.k8s-dev.gid.team\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18321,
+      "offset": 18618,
       "length": 29,
       "value": "\"https:\/\/sandbox.gid-auth.ru\""
     },
     {
       "filePath": "\/Users\/mabushuev\/work\/gidsdk.ios\/GIDSDK\/GIDSDK\/GIDSDKConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 18368,
+      "offset": 18665,
       "length": 37,
       "value": "\"https:\/\/stage-auth.k8s-dev.gid.team\""
     },

@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
 // swift-module-flags: -target x86_64-apple-tvos13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GIDKit_pod
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
 import AuthenticationServices
 import CommonCrypto
 import DeveloperToolsSupport
@@ -60,16 +60,24 @@ public protocol GIDApiErrorTypeable : Swift.Decodable, Swift.Encodable {
   associatedtype ET : Swift.RawRepresentable where Self.ET.RawValue == Swift.String
   init(errorResponse: GIDKit_pod.GIDApiErrorResponse)
   var errorResponse: GIDKit_pod.GIDApiErrorResponse { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var type: Self.ET? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var description: Swift.String? { get }
+  #endif
 }
 extension GIDKit_pod.GIDApiErrorTypeable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var type: Self.ET? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var description: Swift.String? {
     get
   }
+  #endif
 }
 public class GIDApiErrorBase : Swift.Codable {
   final public let errorResponse: GIDKit_pod.GIDApiErrorResponse
@@ -98,7 +106,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case captchaRateLimit
     case internalServerError
     case invalidPhoneField
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -113,7 +123,9 @@ public class GIDApiErrorBase : Swift.Codable {
   public enum ErrorType : Swift.String {
     case emptyPhoneField
     case invalidPhoneField
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -130,7 +142,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case fieldError
     case notValidMethod
     case internalServerError
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -149,7 +163,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case conflict
     case captchaRateLimit
     case internalServerError
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -173,7 +189,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case authenticationFailed
     case notAuthenticated
     case requestConflict
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -196,7 +214,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case requestError
     case notAuthenticated
     case requestConflict
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -229,7 +249,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case requestError
     case requestConflict
     case deletedUser
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -256,7 +278,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case requestThrottled
     case internalServerError
     case temporarilyUnavailable
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -277,7 +301,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case requestThrottled
     case internalServerError
     case temporarilyUnavailable
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -294,7 +320,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case unauthorizedClient
     case requestThrottled
     case internalServerError
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -310,7 +338,9 @@ public class GIDApiErrorBase : Swift.Codable {
     case invalidRequest
     case invalidClient
     case internalServerError
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -357,7 +387,9 @@ public enum GIDApiErrorType : Swift.String, Swift.Codable {
   case captchaRateLimit
   case internalServerError2
   case a2aError
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -394,10 +426,13 @@ public enum GIDApiPath : Swift.String, Swift.CaseIterable {
   case createQrUrl
   case qrFlowStatus
   case authKeycloack
+  case backendUserInfo
   public static var defaultPaths: [GIDKit_pod.GIDApiPath : Swift.String] {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias AllCases = [GIDKit_pod.GIDApiPath]
   public typealias RawValue = Swift.String
   nonisolated public static var allCases: [GIDKit_pod.GIDApiPath] {
@@ -497,9 +532,11 @@ public struct GIDApiClientBrandingColorResponse : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct GIDApiUserInfoResponse {
+  #if compiler(>=5.3) && $NonescapableTypes
   public subscript(key: GIDKit_pod.GIDApiScope) -> Any? {
     get
   }
+  #endif
   public var fields: [Swift.String : Any]
 }
 public struct GIDApiConfigResponse : Swift.Codable {
@@ -533,9 +570,11 @@ public struct GIDApiSignInResponse : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct GIDApiPostLoginScoreResponse {
+  #if compiler(>=5.3) && $NonescapableTypes
   public subscript(key: Swift.String) -> Any? {
     get
   }
+  #endif
   public var fields: [Swift.String : Any]
 }
 public struct GIDQrCodeFlowStatus : Swift.Codable {
@@ -555,21 +594,33 @@ public struct GIDQrCodeUrl : Swift.Codable {
   final public func checkUserScore(phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiScoreResponse, GIDKit_pod.GIDApiErrorScore>)
   final public func refreshCaptcha(captchaID: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiScoreResponse, GIDKit_pod.GIDApiErrorSignIn>)
   final public func getConfig(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiConfigResponse, GIDKit_pod.GIDApiErrorGetConfig>)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func signIn(phone: Swift.String, captchaID: Swift.String?, captchaKey: Swift.String?, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiSignInResponse, GIDKit_pod.GIDApiErrorSignIn>)
+  #endif
   final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAuth>)
   final public func getBranding(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiClientBrandingResponse, GIDKit_pod.GIDApiErrorAny>)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createQrURL(clientId: Swift.String? = nil, _ queryParams: [Swift.String : Swift.String]? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDQrCodeUrl, GIDKit_pod.GIDApiErrorAny>)
+  #endif
   final public func cancelQrFlow()
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getQrFlowStatus(_ customClientId: Swift.String? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAuth>)
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class GIDAnchor2Anchor : GIDKit_pod.GIDAuthMethod {
   public func auth(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorGetTokens>)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func login(app: GIDKit_pod.GIDSDKApp, moreProfiles: Swift.Bool? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>)
+  #endif
   public func appGroupLogin(appGroupData: GIDKit_pod.GIDSDKAuthResponse, _ completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorClientAuth>)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getMaskedPhone(for anchorApp: GIDKit_pod.GIDSDKApp) -> Swift.String?
+  #endif
   public func getAllAnchorLogins(variants: [Swift.String], completion: @escaping GIDKit_pod.GIDSDKApiHandler<[GIDKit_pod.GIDSDKDeeplinkLoginResult], GIDKit_pod.GIDApiErrorAny>)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getConsents(sub: Swift.String? = nil, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiUserInfoResponse, GIDKit_pod.GIDApiErrorGetUserInfo>)
+  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GIDApp2Anchor : GIDKit_pod.GIDAnchor2Anchor {
@@ -578,8 +629,12 @@ public struct GIDQrCodeUrl : Swift.Codable {
 @_hasMissingDesignatedInitializers final public class GIDApp2Auth : GIDKit_pod.GIDAuthMethod {
   final public func auth(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
   final public func authKeycloak(loginResult: GIDKit_pod.GIDSDKDeeplinkLoginResult, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAny>)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createLoginURL(_ quuid: Swift.String? = nil, loginTag: Swift.String? = nil, gpbFlow: Swift.Bool = false, customScope: Swift.Set<GIDKit_pod.GIDApiScope>? = nil, customCid: Swift.String? = nil, customSessionId: Swift.String? = nil, flowName: GIDKit_pod.GIDSDKTrackingFlowName? = nil, keycloak: Swift.Bool = false, completion: GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKDeeplinkLoginResult, GIDKit_pod.GIDApiErrorAny>?) -> Foundation.URL?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createLogoutURL(idToken: Swift.String) -> Foundation.URL?
+  #endif
   @objc deinit
 }
 public enum SheetViewType {
@@ -632,8 +687,10 @@ extension GIDKit_pod.GIDSDK {
   final public func getOTP(codeChallenge: Swift.String, phone: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiOTPResponse, GIDKit_pod.GIDApiErrorGetOTP>)
   @available(*, unavailable, renamed: "mobileLight.auth")
   final public func auth(otpSID: Swift.String, otp: Swift.String, phone: Swift.String, codeVerifier: Swift.String, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDSDKAuthResponse, GIDKit_pod.GIDApiErrorAuth>)
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, unavailable, renamed: "authTokens")
   final public func getAuthTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+  #endif
 }
 extension GIDKit_pod.GIDSDKConfigurationBuilder {
   @available(*, unavailable, message: "Not used")
@@ -680,17 +737,33 @@ public enum GIDLogLevel : Swift.CaseIterable {
 }
 public protocol GIDLogger {
   init(levels: Swift.Set<GIDKit_pod.GIDLogLevel>)
+  #if compiler(>=5.3) && $NonescapableTypes
   func i(_ message: Any?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func d(_ message: Any?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func e(_ message: Any?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func w(_ message: Any?)
+  #endif
 }
 public class GIDLoggerSimple : GIDKit_pod.GIDLogger {
   required public init(levels: Swift.Set<GIDKit_pod.GIDLogLevel>)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func i(_ message: Any?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func d(_ message: Any?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func e(_ message: Any?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func w(_ message: Any?)
+  #endif
   @objc deinit
 }
 @_inheritsConvenienceInitializers public class GIDLoggerHistory : GIDKit_pod.GIDLoggerSimple {
@@ -733,9 +806,11 @@ public enum GIDNetworkError : Swift.Error {
   case urlRequestValidationFailed(reason: GIDKit_pod.GIDNetworkError.URLRequestValidationFailureReason)
 }
 extension Swift.Error {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var asGIDNetworkError: GIDKit_pod.GIDNetworkError? {
     get
   }
+  #endif
   public func asGIDNetworkError(orFailWith message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, line: Swift.UInt = #line) -> GIDKit_pod.GIDNetworkError
 }
 extension GIDKit_pod.GIDNetworkError {
@@ -753,34 +828,50 @@ extension GIDKit_pod.GIDNetworkError {
   }
 }
 extension GIDKit_pod.GIDNetworkError {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var urlConvertible: Foundation.URL? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var underlyingError: (any Swift.Error)? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var acceptableContentTypes: [Swift.String]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var responseContentType: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var responseCode: Swift.Int? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var failedStringEncoding: Swift.String.Encoding? {
     get
   }
+  #endif
 }
 extension GIDKit_pod.GIDNetworkError : Foundation.LocalizedError {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
+  #endif
 }
 public enum GIDPKCEMethod : Swift.String {
   case SHA256
   case S256
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -821,30 +912,56 @@ public typealias GIDSDKHandler<T, E> = (GIDKit_pod.ResultHandler<T, GIDKit_pod.G
     set
   }
   final public func installedAnchorApps() -> [GIDKit_pod.GIDSDKApp]
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func authTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+  #endif
   final public func userInfo(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiUserInfoResponse, GIDKit_pod.GIDApiErrorGetUserInfo>)
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, message: "Используйте getSharedAuthTokens() вместо этого")
   final public func appGroupsAuthTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getSharedAuthTokens() -> GIDKit_pod.GIDSDKAuthResponse?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(*, deprecated, message: "Используйте getSharedProfiles() вместо этого")
   final public func appGroupTokens() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getLatestSharedAuthToken() -> GIDKit_pod.GIDSDKAuthResponse?
+  #endif
   final public func getAllSharedAuthTokens() -> [GIDKit_pod.GIDSDKAuthResponse]
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getSharedProfiles() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getIdToken() -> Swift.String?
+  #endif
   final public func appGroupAnchor(variants: [Swift.String], completion: @escaping GIDKit_pod.GIDSDKApiHandler<[GIDKit_pod.GIDSDKDeeplinkLoginResult], GIDKit_pod.GIDApiErrorAny>)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getLocalProfiles() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  #endif
   final public func logout(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiEmptyResponse, GIDKit_pod.GIDApiErrorRevoke>)
   final public func handle(url: Foundation.URL) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getKeychain() -> [GIDKit_pod.GIDSDKAuthResponse]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getDeviceTag() -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getVersionNumber() -> Swift.String?
+  #endif
   final public func getConfig()
   final public func getKFPInfo() -> GIDKit_pod.GIDKFPInfo
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getConsents(sub: Swift.String? = nil)
+  #endif
   final public func getBranding(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiClientBrandingResponse, GIDKit_pod.GIDApiErrorAny>)
   final public func refreshToken(completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiTokenResult, GIDKit_pod.GIDApiErrorAny>)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func checkPostLoginScore(sub: Swift.String?, completion: @escaping GIDKit_pod.GIDSDKApiHandler<GIDKit_pod.GIDApiPostLoginScoreResponse, GIDKit_pod.GIDApiErrorScore>)
+  #endif
   final public func trackAuthSuccess()
   final public func trackAuthFlowCanceled()
   @objc deinit
@@ -854,7 +971,9 @@ public enum GIDSDKApp : Swift.String, Swift.CaseIterable, Swift.Codable {
   case matchTV
   case pub
   case lite
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias AllCases = [GIDKit_pod.GIDSDKApp]
   public typealias RawValue = Swift.String
   nonisolated public static var allCases: [GIDKit_pod.GIDSDKApp] {
@@ -880,7 +999,9 @@ extension GIDKit_pod.GIDSDKApp {
   public var installed: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func fromURL(url: Swift.String) -> GIDKit_pod.GIDSDKApp?
+  #endif
   public static var schemePrefix: Swift.String {
     get
   }
@@ -921,6 +1042,7 @@ public struct GIDSDKConfiguration {
   public let sentryEnabled: Swift.Bool
   public let trackingReciverEnabled: Swift.Bool
   public let trackingURLsProvider: GIDKit_pod.GIDTrackingUrlsProvider
+  public let keycloakEnabled: Swift.Bool
 }
 public enum GIDSDKEnv : Swift.String, Swift.CaseIterable {
   case production
@@ -931,7 +1053,9 @@ public enum GIDSDKEnv : Swift.String, Swift.CaseIterable {
   public var envTracker: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias AllCases = [GIDKit_pod.GIDSDKEnv]
   public typealias RawValue = Swift.String
   nonisolated public static var allCases: [GIDKit_pod.GIDSDKEnv] {
@@ -945,7 +1069,9 @@ public enum GIDSDKDeviceType : Swift.String, Swift.CaseIterable {
   case mobile
   case tablet
   case tv
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias AllCases = [GIDKit_pod.GIDSDKDeviceType]
   public typealias RawValue = Swift.String
   nonisolated public static var allCases: [GIDKit_pod.GIDSDKDeviceType] {
@@ -958,34 +1084,72 @@ public enum GIDSDKDeviceType : Swift.String, Swift.CaseIterable {
 final public class GIDSDKConfigurationFactory {
   public init()
   final public func createDevConfiguration(for app: GIDKit_pod.GIDSDKApp) -> GIDKit_pod.GIDSDKConfiguration
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createTFConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String) -> GIDKit_pod.GIDSDKConfiguration
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createTestConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createTVTestConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createSandboxConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func createPreprodConfiguration(for app: GIDKit_pod.GIDSDKApp?, with clientID: Swift.String = "sdk_otp_3") -> GIDKit_pod.GIDSDKConfiguration
+  #endif
   @objc deinit
 }
 final public class GIDSDKConfigurationBuilder {
   public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setLogLevels(_ logLevels: Swift.Set<GIDKit_pod.GIDLogLevel>?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setEnv(_ env: GIDKit_pod.GIDSDKEnv?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
   final public func setLoggerType<T>(_ loggerType: T.Type) -> GIDKit_pod.GIDSDKConfigurationBuilder where T : GIDKit_pod.GIDLogger
   final public func setGIDBaseURL(_ gidBaseURL: Foundation.URL) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setClientCustomHeaders(_ headers: [Swift.String : Swift.String]?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
   final public func setGidURL(_ qrBaseURL: Foundation.URL) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setCustomPaths(_ customPaths: [GIDKit_pod.GIDApiPath : Swift.String]?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setAppGroupIdentifier(_ identifier: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setSharedAccessGroup(_ identifier: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setAnchorApp(_ anchorApp: GIDKit_pod.GIDSDKApp?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
   final public func setClientBaseURL(_ clientBaseURL: Foundation.URL) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setScope(_ scope: Swift.Set<GIDKit_pod.GIDApiScope>?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
   final public func setClientID(_ clientID: Swift.String) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setSecret(_ secret: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setDeviceType(_ deviceType: GIDKit_pod.GIDSDKDeviceType?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setGoyaCid(_ cid: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setGoyaSessionId(_ sessionId: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setGoyaProductName(_ productName: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func setGoyaAppMetricaDeviceId(_ appMetricaDeviceId: Swift.String?) -> GIDKit_pod.GIDSDKConfigurationBuilder
+  #endif
   final public func setSentryEnabled(_ enabled: Swift.Bool) -> GIDKit_pod.GIDSDKConfigurationBuilder
   final public func setTrackingReciverEnabled(_ enabled: Swift.Bool) -> GIDKit_pod.GIDSDKConfigurationBuilder
   final public func build() -> GIDKit_pod.GIDSDKConfiguration
@@ -1000,7 +1164,9 @@ public struct GIDSDKDeeplinkLoginResult {
   public var maskedPhone: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(code: Swift.String, state: Swift.String, phone: Swift.String, sub: Swift.String? = nil)
+  #endif
 }
 extension GIDKit_pod.GIDSDKDeeplinkLoginResult : Swift.Equatable, Swift.Hashable {
   public static func == (lhs: GIDKit_pod.GIDSDKDeeplinkLoginResult, rhs: GIDKit_pod.GIDSDKDeeplinkLoginResult) -> Swift.Bool
@@ -1076,7 +1242,9 @@ public enum ResultHandler<Success, Failure, Void> where Failure : Swift.Error {
 }
 public enum GIDSDKTrackingFlowName : Swift.String {
   case createLoginURL, loginViaSafariViewController, launchLoginWebViewIntent, auth
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -1084,7 +1252,9 @@ public enum GIDSDKTrackingFlowName : Swift.String {
 }
 public enum GIDGoyaPath : Swift.String {
   case auth
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -1101,7 +1271,9 @@ public enum GIDTrackingTypes : Swift.String {
   case eventAuthFlowStartedLite
   case eventAuthOtpSendLite
   case eventAuthErrorLite, eventGetTokenErrorLite, eventCaptchaErrorLite, eventScoreErrorLite, eventSignInErrorLite
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -1110,7 +1282,9 @@ public enum GIDTrackingTypes : Swift.String {
 public enum GIDTrackingUrlsProvider : Swift.String {
   case prod
   case preprod
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -1257,12 +1431,20 @@ public struct GIDKFPInfo : Swift.Codable {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func awakeFromNib()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func didUpdateFocus(in context: UIKit.UIFocusUpdateContext, with coordinator: UIKit.UIFocusAnimationCoordinator)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func pressesBegan(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func pressesCancelled(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func pressesEnded(_ presses: Swift.Set<UIKit.UIPress>, with event: UIKit.UIPressesEvent?)
+  #endif
   @objc deinit
 }
 public struct ParallaxStyle {
@@ -1272,12 +1454,16 @@ extension Swift.String {
   public var isPhoneValid: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var trimmedPhone: Swift.String? {
     get
   }
+  #endif
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class GIDCaptchaController : UIKit.UIViewController {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(delegate: (any GIDKit_pod.GIDCaptchaControllerDelegate)?, data: GIDKit_pod.GIDCaptchaControllerData)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override final public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override final public func didUpdateFocus(in context: UIKit.UIFocusUpdateContext, with coordinator: UIKit.UIFocusAnimationCoordinator)
   @objc deinit
